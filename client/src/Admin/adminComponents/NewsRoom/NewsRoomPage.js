@@ -25,9 +25,7 @@ const NewsRoomPage = (props) => {
   const [updateMode, setUpdateMode] = useState(false);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/news-get").then((res) =>
-      setNews(res.data)
-    );
+    Axios.get("/news-get").then((res) => setNews(res.data));
   }, []);
 
   const updateData = () => {
@@ -40,14 +38,14 @@ const NewsRoomPage = (props) => {
       newssecondpera: newssecondpera1,
       _id: props.id,
     };
-    Axios.post("http://localhost:5000/newsroom-update", data).then((res) =>
+    Axios.post("/newsroom-update", data).then((res) =>
       window.location.reload()
     );
   };
 
-  const BlogsBtn = (e) =>{
+  const BlogsBtn = (e) => {
     navigate("/admin-blogs");
-  }
+  };
 
   return (
     <>
@@ -86,7 +84,7 @@ const NewsRoomPage = (props) => {
                 <div className="col newsroom-blog-cl" key={index}>
                   <div className="newsroom-blog-col">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="blog1"
                       alt="blog1"
                     />
@@ -125,7 +123,7 @@ const NewsRoomPage = (props) => {
                 >
                   <div className="all-post-inner-cl">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="allBlog1"
                       alt="allBlog1"
                     />
@@ -168,7 +166,7 @@ const NewsRoomPage = (props) => {
                     onChange={(e) => setNewssecondbtntext(e.target.value)}
                   ></textarea>
                 ) : (
-                    <button onClick={() => BlogsBtn()}>
+                  <button onClick={() => BlogsBtn()}>
                     {props.newssecondbtntext}
                   </button>
                 )}

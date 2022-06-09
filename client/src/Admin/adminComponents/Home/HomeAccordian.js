@@ -12,9 +12,7 @@ const HomeAccordian = () => {
   const [accordian, setAccordian] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/homeaccordian").then((res) =>
-      setAccordian(res.data)
-    );
+    Axios.get("/homeaccordian").then((res) => setAccordian(res.data));
   }, []);
 
   return (

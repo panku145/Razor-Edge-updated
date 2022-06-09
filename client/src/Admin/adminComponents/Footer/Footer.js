@@ -72,7 +72,7 @@ const Footer = (props) => {
     formData.append("img", img1);
     formData.append("imgFilename", img1.name);
 
-    Axios.put(`http://localhost:5000/footer/${id}`, formData);
+    Axios.put(`/footer/${id}`, formData);
     // navigate("/admin-dashboard");
     window.location.reload();
   };
@@ -96,7 +96,7 @@ const Footer = (props) => {
                         />
                       ) : (
                         <img
-                          src={`http://localhost:5000/images/${img1}`}
+                          src={`/images/${img1}`}
                           className="NavLogo"
                           alt="NavLogo"
                         />

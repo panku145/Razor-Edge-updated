@@ -6,14 +6,11 @@ const AdminBlogsPage = () => {
   const [blogpage, setBlogpage] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/blogPage-get").then((res) => 
-      setBlogpage(res.data)
-    );
+    Axios.get("/blogPage-get").then((res) => setBlogpage(res.data));
   }, []);
 
   return (
     <>
-
       {blogpage.map((value, index) => (
         <BlogPage
           key={index}

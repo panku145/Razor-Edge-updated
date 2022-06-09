@@ -12,7 +12,7 @@ const DevelopmentAdd = () => {
       title,
       location,
     };
-    Axios.post("http://localhost:5000/development-jobs", data).then((res) => {
+    Axios.post("/development-jobs", data).then((res) => {
       navigate("/admin-career");
     });
   };

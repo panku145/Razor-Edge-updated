@@ -7,9 +7,9 @@ const Update = (props) => {
   const [pera, setPera] = useState(props.pera);
   const [btntext, setBtntext] = useState(props.btntext);
 
-  const updateData = async() => {
+  const updateData = async () => {
     // try{
-    //   await Axios.put(`http://localhost:5000/update-create`, {
+    //   await Axios.put(`/update-create`, {
     //     heading,
     //     pera,
     //     btntext,

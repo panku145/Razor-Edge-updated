@@ -13,7 +13,7 @@ const SingleNews = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get("http://localhost:5000/news-get/" + id);
+      const res = await Axios.get("/news-get/" + id);
       setTitle(res.data.title);
       setDesc(res.data.desc);
       setImg(res.data.img);
@@ -21,7 +21,7 @@ const SingleNews = () => {
     };
     get();
   }, [id]);
- 
+
   return (
     <>
       <div className="latest-post-empty-bg"></div>
@@ -33,7 +33,7 @@ const SingleNews = () => {
               <div className="row latest-post-inner-rw">
                 <div className="col-xl-6 col-lg-6 col-md-6 latest-post-sub-col">
                   <img
-                    src={`http://localhost:5000/images/${img}`}
+                    src={`/images/${img}`}
                     className="blogImage"
                     alt="blogImage"
                   />

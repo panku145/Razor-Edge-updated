@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const ManagementSingle = () => {
   const navigate = useNavigate();
@@ -13,30 +13,28 @@ const ManagementSingle = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get(
-        "http://localhost:5000/management-jobs/" + id 
-      );
+      const res = await Axios.get("/management-jobs/" + id);
       setData(res.data);
       setTitle(res.data.title);
       setLocation(res.data.location);
     };
     get();
   }, [id]);
-    
-    const updateData = async () => {
-      try {
-        await Axios.put(`http://localhost:5000/management-jobs/${data._id}`, { 
-          title,
-          location,
-        });
-        navigate("/admin-career");
-      } catch (err) {
-        console.log(err);
-      }
-    };
+
+  const updateData = async () => {
+    try {
+      await Axios.put(`/management-jobs/${data._id}`, {
+        title,
+        location,
+      });
+      navigate("/admin-career");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const deleteData = () => {
-    Axios.delete(`http://localhost:5000/management-jobs/${data._id}`);
+    Axios.delete(`/management-jobs/${data._id}`);
     navigate("/admin-career");
   };
 

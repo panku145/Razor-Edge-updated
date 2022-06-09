@@ -7,16 +7,12 @@ import parse from "html-react-parser";
 
 const NewsRoom = () => {
   const [news, setNews] = useState([]);
-  const [newsroom, setNewsroom] = useState([]); 
+  const [newsroom, setNewsroom] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/news-get").then((res) => 
-      setNews(res.data)
-    );
+    Axios.get("/news-get").then((res) => setNews(res.data));
 
-    Axios.get("http://localhost:5000/newsroom-get").then((res) =>
-      setNewsroom(res.data)
-    );
+    Axios.get("/newsroom-get").then((res) => setNewsroom(res.data));
   }, []);
 
   console.log();
@@ -39,7 +35,7 @@ const NewsRoom = () => {
                 <div className="col newsroom-blog-cl" key={index}>
                   <div className="newsroom-blog-col">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="blog1"
                       alt="blog1"
                     />
@@ -78,7 +74,7 @@ const NewsRoom = () => {
                 >
                   <div className="all-post-inner-cl">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="allBlog1"
                       alt="allBlog1"
                     />

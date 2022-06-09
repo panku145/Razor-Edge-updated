@@ -12,7 +12,7 @@ const ManagementAdd = () => {
       title,
       location,
     };
-    Axios.post("http://localhost:5000/management-jobs", data).then((res) => {
+    Axios.post("/management-jobs", data).then((res) => {
       navigate("/admin-career");
     });
   };

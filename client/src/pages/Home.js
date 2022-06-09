@@ -8,26 +8,18 @@ import OurProducts from "../components/OurProducts";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-
   const navigate = useNavigate();
-  const [solutionData, setSolutionData] = useState([]);     
-  const [whyRazorEdge, setWhyRazorEdge] = useState([]); 
-  const [data, setData] = useState([]); 
+  const [solutionData, setSolutionData] = useState([]);
+  const [whyRazorEdge, setWhyRazorEdge] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/home-get").then((res) =>
-    setSolutionData(res.data), 
-    );
+    Axios.get("/home-get").then((res) => setSolutionData(res.data));
 
-    Axios.get("http://localhost:5000/why-razor-edge-get").then((res) =>
-    setWhyRazorEdge(res.data),
-    );
+    Axios.get("/why-razor-edge-get").then((res) => setWhyRazorEdge(res.data));
 
-    Axios.get("http://localhost:5000/solution2-get/get-all").then((res) =>
-      setData(res.data) 
-    );
-
-  }, []); 
+    Axios.get("/solution2-get/get-all").then((res) => setData(res.data));
+  }, []);
 
   console.log(data);
 
@@ -71,80 +63,80 @@ const Home = () => {
           WRESec3Slider={value.whyRazorEdgeFifthSection.WRESec3Slider}
         />
       ))} */}
-      {data.map((value,index)=>(
-      <div className="product-three-comp-sec text-center">
-        <div className="get-more-head">
-          <h3>{value.sol1FifthMainHeading}</h3>
-        </div>
-        <div className="container">
-          <div className="row product-comp-rw">
-            <div
-              className="col-md-3 py-3"
-              style={{ cursor: "pointer" }}
-              onClick={onClickCard1}
-            >
-              <div className="product-first-img">
-                <img
-                  src={`http://localhost:5000/images/${value.sol1Fifthcard1Image}`}
-                  className={value.sol1Fifthcard1Image}
-                  alt={value.sol1Fifthcard1Image}
-                />
+      {data.map((value, index) => (
+        <div className="product-three-comp-sec text-center">
+          <div className="get-more-head">
+            <h3>{value.sol1FifthMainHeading}</h3>
+          </div>
+          <div className="container">
+            <div className="row product-comp-rw">
+              <div
+                className="col-md-3 py-3"
+                style={{ cursor: "pointer" }}
+                onClick={onClickCard1}
+              >
+                <div className="product-first-img">
+                  <img
+                    src={`/images/${value.sol1Fifthcard1Image}`}
+                    className={value.sol1Fifthcard1Image}
+                    alt={value.sol1Fifthcard1Image}
+                  />
+                </div>
+                <div className="product-first-comp">
+                  <h5>{value.sol1Fifthcard1Text}</h5>
+                </div>
               </div>
-              <div className="product-first-comp">
-                <h5>{value.sol1Fifthcard1Text}</h5>
+              <div
+                className="col-md-3 py-3"
+                style={{ cursor: "pointer" }}
+                onClick={onClickCard2}
+              >
+                <div className="product-first-img">
+                  <img
+                    src={`/images/${value.sol1Fifthcard2Image}`}
+                    className={value.sol1Fifthcard2Image}
+                    alt={value.sol1Fifthcard2Image}
+                  />
+                </div>
+                <div className="product-first-comp">
+                  <h5>{value.sol1Fifthcard2Text}</h5>
+                </div>
               </div>
-            </div>
-            <div
-              className="col-md-3 py-3"
-              style={{ cursor: "pointer" }}
-              onClick={onClickCard2}
-            >
-              <div className="product-first-img">
-                <img
-                  src={`http://localhost:5000/images/${value.sol1Fifthcard2Image}`}
-                  className={value.sol1Fifthcard2Image}
-                  alt={value.sol1Fifthcard2Image}
-                />
+              <div
+                className="col-md-3 py-3"
+                style={{ cursor: "pointer" }}
+                onClick={onClickCard3}
+              >
+                <div className="product-first-img">
+                  <img
+                    src={`/images/${value.sol1Fifthcard3Image}`}
+                    className={value.sol1Fifthcard3Image}
+                    alt={value.sol1Fifthcard3Image}
+                  />
+                </div>
+                <div className="product-first-comp">
+                  <h5>{value.sol1Fifthcard3Text}</h5>
+                </div>
               </div>
-              <div className="product-first-comp">
-                <h5>{value.sol1Fifthcard2Text}</h5>
-              </div>
-            </div>
-            <div
-              className="col-md-3 py-3"
-              style={{ cursor: "pointer" }}
-              onClick={onClickCard3}
-            >
-              <div className="product-first-img">
-                <img
-                  src={`http://localhost:5000/images/${value.sol1Fifthcard3Image}`}
-                  className={value.sol1Fifthcard3Image}
-                  alt={value.sol1Fifthcard3Image}
-                />
-              </div>
-              <div className="product-first-comp">
-                <h5>{value.sol1Fifthcard3Text}</h5>
-              </div>
-            </div>
-            <div
-              className="col-md-3 py-3"
-              style={{ cursor: "pointer" }}
-              onClick={onClickCard4}
-            >
-              <div className="product-first-img">
-                <img
-                  src={`http://localhost:5000/images/${value.sol1Fifthcard4Image}`}
-                  className={value.sol1Fifthcard4Image}
-                  alt={value.sol1Fifthcard4Image}
-                />
-              </div>
-              <div className="product-first-comp">
-                <h5>{value.sol1Fifthcard4Text}</h5>
+              <div
+                className="col-md-3 py-3"
+                style={{ cursor: "pointer" }}
+                onClick={onClickCard4}
+              >
+                <div className="product-first-img">
+                  <img
+                    src={`/images/${value.sol1Fifthcard4Image}`}
+                    className={value.sol1Fifthcard4Image}
+                    alt={value.sol1Fifthcard4Image}
+                  />
+                </div>
+                <div className="product-first-comp">
+                  <h5>{value.sol1Fifthcard4Text}</h5>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       ))}
     </>
   );

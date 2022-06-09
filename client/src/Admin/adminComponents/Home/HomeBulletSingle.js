@@ -7,11 +7,11 @@ const HomeBulletSingle = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState({});
-    const [text, setText] = useState("");
+  const [text, setText] = useState("");
 
   useEffect(() => {
     const getData = async () => {
-      const res = await Axios.get("http://localhost:5000/homebullet/" + id); 
+      const res = await Axios.get("/homebullet/" + id);
       setData(res.data);
       setText(res.data.text);
     };
@@ -20,7 +20,7 @@ const HomeBulletSingle = () => {
 
   const updateData = async () => {
     try {
-      await Axios.put(`http://localhost:5000/homebullet/${data._id}`, {
+      await Axios.put(`/homebullet/${data._id}`, {
         text,
       });
       // window.location.reload()
@@ -31,14 +31,14 @@ const HomeBulletSingle = () => {
   };
 
   const deleteData = () => {
-    Axios.delete(`http://localhost:5000/homebullet/${data._id}`).then((res) =>
+    Axios.delete(`/homebullet/${data._id}`).then((res) =>
       navigate("/admin-dashboard")
     );
   };
-    
-    const addNew = () => {
-      navigate("/admin-dashboard/add");
-    };
+
+  const addNew = () => {
+    navigate("/admin-dashboard/add");
+  };
 
   return (
     <>

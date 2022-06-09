@@ -22,18 +22,16 @@ const WREAddAccordian = () => {
   };
 
   const navigate = useNavigate();
-  const [accordianHeading, setAccordianHeading] = useState("No Title Added"); 
+  const [accordianHeading, setAccordianHeading] = useState("No Title Added");
 
   const postdata = () => {
     const data = {
       accordianHeading: accordianHeading,
-      accordianDecs : convertedContent,
+      accordianDecs: convertedContent,
     };
-    Axios.post("http://localhost:5000/wreaccordian", data).then(
-      (res) => {
-        navigate("/admin-why-razor-edge");
-      }
-    );
+    Axios.post("/wreaccordian", data).then((res) => {
+      navigate("/admin-why-razor-edge");
+    });
   };
 
   return (
@@ -52,7 +50,7 @@ const WREAddAccordian = () => {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="add title"
-                  onChange={(e) => setAccordianHeading(e.target.value)} 
+                  onChange={(e) => setAccordianHeading(e.target.value)}
                 />
               </div>
               <div className="col-md-8">

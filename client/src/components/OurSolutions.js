@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const OurSolutions = (props) => {
-
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -17,9 +16,7 @@ const OurSolutions = (props) => {
   const [accordian, setAccordian] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/homeaccordian").then((res) =>
-      setAccordian(res.data)
-    );
+    Axios.get("/homeaccordian").then((res) => setAccordian(res.data));
   }, []);
 
   return (
@@ -42,7 +39,7 @@ const OurSolutions = (props) => {
                 <div className="col-md-6 m-auto text-center ">
                   <div className="solution-img-container">
                     <img
-                      src={`http://localhost:5000/images/${props.image}`}
+                      src={`/images/${props.image}`}
                       className="Solution-img-cntr"
                       alt="Solution"
                     />

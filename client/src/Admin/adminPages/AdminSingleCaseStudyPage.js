@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
@@ -10,7 +10,6 @@ import parse from "html-react-parser";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminSingleCaseStudyPage = () => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -24,30 +23,29 @@ const AdminSingleCaseStudyPage = () => {
     setConvertedContent(currentContentAsHTML);
   };
 
-    const {id}  = useParams();
+  const { id } = useParams();
 
-    const [caseStudy, setCaseStudy] = useState({});
-    const [title, setTitle] = useState('');
-    const [desc, setDesc] = useState('');
-    const [img, setImg] = useState('');
-    const navigate = useNavigate();
+  const [caseStudy, setCaseStudy] = useState({});
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [img, setImg] = useState("");
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const getCaseStudy = async () => {
-        const res = await Axios.get("http://localhost:5000/case-studies-get/" + id );
-        setCaseStudy(res.data)
-        setTitle(res.data.title)
-        setDesc(res.data.desc)
-        setImg(res.data.img)
-        };
-        getCaseStudy();
-        
-    }, [id]);
-  
+  useEffect(() => {
+    const getCaseStudy = async () => {
+      const res = await Axios.get("/case-studies-get/" + id);
+      setCaseStudy(res.data);
+      setTitle(res.data.title);
+      setDesc(res.data.desc);
+      setImg(res.data.img);
+    };
+    getCaseStudy();
+  }, [id]);
+
   const onChangeFile = (e) => {
     setImg(e.target.files[0]);
   };
-  
+
   const updateData = async () => {
     const formData = new FormData();
 
@@ -57,22 +55,18 @@ const AdminSingleCaseStudyPage = () => {
     formData.append("img", img);
     formData.append("imgFilename", img.name);
 
-    Axios.put(
-      `http://localhost:5000/case-studies-get/${caseStudy._id}`,
-      formData
-    );
+    Axios.put(`/case-studies-get/${caseStudy._id}`, formData);
     navigate("/admin-case-studies");
   };
-  
+
   const deleteCaseStudy = () => {
-    Axios.delete(`http://localhost:5000/case-studies-get/${caseStudy._id}`);
+    Axios.delete(`/case-studies-get/${caseStudy._id}`);
     navigate("/admin-case-studies");
   };
 
   const addCaseStudy = () => {
     navigate("/admin-case-studies-add");
   };
-
 
   return (
     <>

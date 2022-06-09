@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const AdminEditHeader = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [img, setImg] = useState("");
-  const [home, sethome] = useState(""); 
+  const [home, sethome] = useState("");
   const [whyrazoredge, setwhyrazoredge] = useState("");
   const [platform, setplatform] = useState("");
   const [solution, setsolution] = useState("");
@@ -20,7 +20,7 @@ const AdminEditHeader = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get("http://localhost:5000/header/" + id); 
+      const res = await Axios.get("/header/" + id);
       setImg(res.data.logo);
       sethome(res.data.home);
       setwhyrazoredge(res.data.whyrazoredge);
@@ -47,13 +47,13 @@ const AdminEditHeader = () => {
     formData.append("career", career);
     formData.append("register", register);
     formData.append("registerUrl", registerUrl);
-    formData.append("signin", signin); 
+    formData.append("signin", signin);
     formData.append("signinUrl", signinUrl);
     formData.append("id", id);
     formData.append("img", img);
     formData.append("imgFilename", img.name);
- 
-    Axios.put(`http://localhost:5000/header`, formData); 
+
+    Axios.put(`/header`, formData);
     navigate("/admin-dashboard");
     window.location.reload();
   };
@@ -81,7 +81,9 @@ const AdminEditHeader = () => {
                       className="form-control"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
-                      onChange={(e)=>{setImg(e.target.files[0]);}}
+                      onChange={(e) => {
+                        setImg(e.target.files[0]);
+                      }}
                     />
                   </div>
                 </div>

@@ -11,7 +11,7 @@ const PartnersPage = (props) => {
   const [update, setupdate] = useState(false);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/partner-service").then((res) => {
+    Axios.get("/partner-service").then((res) => {
       setPatnersSerevice(res.data);
     });
   }, []);
@@ -25,9 +25,7 @@ const PartnersPage = (props) => {
     };
     // console.log(data);
 
-    Axios.put("http://localhost:5000/partners", data).then((res) =>
-      window.location.reload()
-    );
+    Axios.put("/partners", data).then((res) => window.location.reload());
   };
 
   return (
@@ -106,7 +104,7 @@ const PartnersPage = (props) => {
               <div className="col-xl-3 col-lg-4 col-md-4" key={index}>
                 <div className="partners-inner-components">
                   <img
-                    src={`http://localhost:5000/images/${value.img}`}
+                    src={`/images/${value.img}`}
                     className="data"
                     alt="data"
                   />

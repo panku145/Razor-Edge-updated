@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import ReactPlayer from "react-player";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -9,14 +9,13 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useNavigate } from "react-router-dom";
 
-import parse from "html-react-parser"; 
+import parse from "html-react-parser";
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import { convertToHTML } from "draft-convert";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminRazorEdgePage = () => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -30,9 +29,8 @@ const AdminRazorEdgePage = () => {
     setConvertedContent(currentContentAsHTML);
   };
 
-
   // -----------------
-  
+
   const [editorState1, setEditorState1] = useState(() =>
     EditorState.createEmpty()
   );
@@ -80,20 +78,17 @@ const AdminRazorEdgePage = () => {
   const [WRESec5btntxt1, setWRESec5btntxt] = useState("");
   const [WRESec5heading1, setWRESec5heading] = useState("");
 
-  const [id, setId] = useState('');
+  const [id, setId] = useState("");
 
   const [accordian, setAccordian] = useState([]);
   const [update, setupdate] = useState(false);
 
   useEffect(() => {
-    
-    const getData = async() => {
-      await Axios.get("http://localhost:5000/wreaccordian").then((res) =>
-        setAccordian(res.data)
-      ); 
-      const res = await Axios.get("http://localhost:5000/why-razor-edge-get");
+    const getData = async () => {
+      await Axios.get("/wreaccordian").then((res) => setAccordian(res.data));
+      const res = await Axios.get("/why-razor-edge-get");
 
-      res.data.map((value) => { 
+      res.data.map((value) => {
         setId(value._id);
         setWRESec1heading(value.whyRazorEdgeFirstSection.WRESec1heading);
         setWRESec1image(value.whyRazorEdgeFirstSection.WRESec1image);
@@ -104,9 +99,15 @@ const AdminRazorEdgePage = () => {
         setWRESec2pera(value.whyRazorEdgeSecondSection.WRESec2pera);
         setWRESec2rightimg(value.whyRazorEdgeSecondSection.WRESec2rightimg);
 
-        setWRESec3SliderHeading(value.whyRazorEdgeThirdSection.WRESec3SliderHeading);
-        setWRESec3SliderPera1(value.whyRazorEdgeThirdSection.WRESec3SliderPera1);
-        setWRESec3SliderPera2(value.whyRazorEdgeThirdSection.WRESec3SliderPera2);
+        setWRESec3SliderHeading(
+          value.whyRazorEdgeThirdSection.WRESec3SliderHeading
+        );
+        setWRESec3SliderPera1(
+          value.whyRazorEdgeThirdSection.WRESec3SliderPera1
+        );
+        setWRESec3SliderPera2(
+          value.whyRazorEdgeThirdSection.WRESec3SliderPera2
+        );
         setWRESec3heading(value.whyRazorEdgeThirdSection.WRESec3heading);
 
         setWRESec4Part1pera(value.whyRazorEdgeFourthSection.WRESec4Part1pera);
@@ -116,26 +117,24 @@ const AdminRazorEdgePage = () => {
         setWRESec5Subheading(value.whyRazorEdgeFifthSection.WRESec5Subheading);
         setWRESec5btntxt(value.whyRazorEdgeFifthSection.WRESec5btntxt);
         setWRESec5heading(value.whyRazorEdgeFifthSection.WRESec5heading);
-      })
-    }
+      });
+    };
 
-    
     getData();
-    
-    navigate("/admin-why-razor-edge"); 
-    
+
+    navigate("/admin-why-razor-edge");
   }, [navigate]);
 
   const updateData = async (e) => {
     // e.preventdefault()
-    const formData = new FormData(); 
+    const formData = new FormData();
 
-    formData.append("WRESec1heading", convertedContent1 || WRESec1heading1); 
+    formData.append("WRESec1heading", convertedContent1 || WRESec1heading1);
     // formData.append("WRESec1heading", WRESec1heading1);
     formData.append("WRESec1subheading", WRESec1subheading1);
     formData.append("WRESec2pera", convertedContent || WRESec2pera1);
     // formData.append("WRESec2pera", WRESec2pera1);
-    formData.append("WRESec2heading", WRESec2heading1); 
+    formData.append("WRESec2heading", WRESec2heading1);
     formData.append("WRESec3heading", WRESec3heading1);
     formData.append("WRESec3SliderHeading", WRESec3SliderHeading1);
     formData.append("WRESec3SliderPera1", WRESec3SliderPera11);
@@ -151,7 +150,7 @@ const AdminRazorEdgePage = () => {
 
     formData.append("WRESec1image", WRESec1image1);
     formData.append("WRESec1imageFilename", WRESec1image1.name);
-    formData.append("WRESec2leftimg", WRESec2leftimg1); 
+    formData.append("WRESec2leftimg", WRESec2leftimg1);
     formData.append("WRESec2leftimgFilename", WRESec2leftimg1.name);
     formData.append("WRESec2rightimg", WRESec2rightimg1);
     formData.append("WRESec2rightimgFilename", WRESec2rightimg1.name);
@@ -159,7 +158,7 @@ const AdminRazorEdgePage = () => {
     formData.append("WRESec3SliderImageFilename", WRESec3SliderImage1.name);
     formData.append("id", id);
 
-    await Axios.put("http://localhost:5000/why-razor-edge-update", formData);
+    await Axios.put("/why-razor-edge-update", formData);
     // navigate("/admin-why-razor-edge");
     window.location.reload();
     // window.location.reload();
@@ -171,9 +170,7 @@ const AdminRazorEdgePage = () => {
 
   return (
     <>
-      <form
-        encType="multipart/form-data"
-      >
+      <form encType="multipart/form-data">
         <div className="why-us-sec ">
           <div className="container">
             <div className="our-solution-head text-center py-5">
@@ -201,7 +198,7 @@ const AdminRazorEdgePage = () => {
               </p> */}
               <p>
                 {update ? (
-                  <> 
+                  <>
                     <Editor
                       editorState1={editorState1}
                       onEditorStateChange={handleEditorChange1}
@@ -229,7 +226,7 @@ const AdminRazorEdgePage = () => {
                 />
               ) : (
                 <img
-                  src={`http://localhost:5000/images/${WRESec1image1}`}
+                  src={`/images/${WRESec1image1}`}
                   className="whyUs"
                   alt="whyUs"
                 />
@@ -269,8 +266,8 @@ const AdminRazorEdgePage = () => {
                     <ReactPlayer
                       playing={true}
                       controls={true}
-                      light={`http://localhost:5000/images/video-img.jpg`}
-                      url={`http://localhost:5000/images/${WRESec1image1}`}
+                      light={`/images/video-img.jpg`}
+                      url={`/images/${WRESec1image1}`}
                     />
                   </div>
                 )
@@ -285,7 +282,7 @@ const AdminRazorEdgePage = () => {
                 <div className="player-wrapper">
                   <ReactPlayer
                     playing={true}
-                    light={`http://localhost:5000/images/video-img.jpg`}
+                    light={`/images/video-img.jpg`}
                     url={WRESec1image1}
                   />
                 </div>
@@ -307,7 +304,7 @@ const AdminRazorEdgePage = () => {
                   />
                 ) : (
                   <img
-                    src={`http://localhost:5000/images/${WRESec2leftimg1}`}
+                    src={`/images/${WRESec2leftimg1}`}
                     className="problem1"
                     alt="problem1"
                   />
@@ -373,7 +370,7 @@ const AdminRazorEdgePage = () => {
                   />
                 ) : (
                   <img
-                    src={`http://localhost:5000/images/${WRESec2rightimg1}`}
+                    src={`/images/${WRESec2rightimg1}`}
                     className="problem1"
                     alt="problem1"
                   />
@@ -421,7 +418,7 @@ const AdminRazorEdgePage = () => {
                               />
                             ) : (
                               <img
-                                src={`http://localhost:5000/images/${WRESec3SliderImage1}`}
+                                src={`/images/${WRESec3SliderImage1}`}
                                 className="bulletsImg"
                                 alt="bulletsImg"
                               />

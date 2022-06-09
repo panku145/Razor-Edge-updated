@@ -2,27 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-import parse from "html-react-parser"; 
+import parse from "html-react-parser";
 
 const Soloution1 = () => {
-
   const navigate = useNavigate();
   const { id } = useParams();
   const [solution1, setSolution1] = useState([]);
-  const [sol1ZeroPera, setsol1ZeroPera] = useState('');
-  const [sol1FirstPera, setsol1FirstPera] = useState('');
+  const [sol1ZeroPera, setsol1ZeroPera] = useState("");
+  const [sol1FirstPera, setsol1FirstPera] = useState("");
   const [sol1SecondPera, setsol1SecondPera] = useState("");
   const [sol1FourthPera, setsol1FourthPera] = useState("");
   const [sol1FifthPera, setsol1FifthPera] = useState("");
 
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get("http://localhost:5000/solution1-get/" + id);
+      const res = await Axios.get("/solution1-get/" + id);
       setSolution1(res.data);
       setsol1ZeroPera(res.data.sol1ZeroPera);
       setsol1FirstPera(res.data.sol1FirstPera);
       setsol1SecondPera(res.data.sol1SecondPera);
-      setsol1FourthPera(res.data.sol1FourthPera); 
+      setsol1FourthPera(res.data.sol1FourthPera);
       setsol1FifthPera(res.data.sol1FifthPera);
     };
     get();
@@ -63,7 +62,7 @@ const Soloution1 = () => {
               <div className="col-lg-6 col-md-6">
                 <div className="integration-img-container">
                   <img
-                    src={`http://localhost:5000/images/${solution1.sol1ZeroImage}`}
+                    src={`/images/${solution1.sol1ZeroImage}`}
                     className="integration"
                     alt="integration"
                   />
@@ -78,7 +77,7 @@ const Soloution1 = () => {
               <div className=" col-lg-6 col-md-6 integration-data-col">
                 <div className="bullet-img-sec">
                   <img
-                    src={`http://localhost:5000/images/${solution1.sol1FirstImage}`}
+                    src={`/images/${solution1.sol1FirstImage}`}
                     className="data"
                     alt="data"
                   />
@@ -115,7 +114,7 @@ const Soloution1 = () => {
               >
                 <div className="get-more-inner-col product-first-comp py-3">
                   <img
-                    src={`http://localhost:5000/images/${solution1.sol1Thirdcard1Image}`}
+                    src={`/images/${solution1.sol1Thirdcard1Image}`}
                     className="connect"
                     alt="connect"
                   />
@@ -129,7 +128,7 @@ const Soloution1 = () => {
               >
                 <div className="get-more-inner-col product-first-comp py-3">
                   <img
-                    src={`http://localhost:5000/images/${solution1.sol1Thirdcard2Image}`}
+                    src={`/images/${solution1.sol1Thirdcard2Image}`}
                     className="connect"
                     alt="connect"
                   />
@@ -143,7 +142,7 @@ const Soloution1 = () => {
               >
                 <div className="get-more-inner-col product-first-comp py-3">
                   <img
-                    src={`http://localhost:5000/images/${solution1.sol1Thirdcard3Image}`}
+                    src={`/images/${solution1.sol1Thirdcard3Image}`}
                     className="connect"
                     alt="connect"
                   />
@@ -157,7 +156,7 @@ const Soloution1 = () => {
               >
                 <div className="get-more-inner-col product-first-comp py-3">
                   <img
-                    src={`http://localhost:5000/images/${solution1.sol1Thirdcard4Image}`}
+                    src={`/images/${solution1.sol1Thirdcard4Image}`}
                     className="connect"
                     alt="connect"
                   />
@@ -174,7 +173,7 @@ const Soloution1 = () => {
               <div className=" col-lg-6 col-md-6 integration-data-col">
                 <div className="bullet-img-sec">
                   <img
-                    src={`http://localhost:5000/images/${solution1.sol1FourthImage}`}
+                    src={`/images/${solution1.sol1FourthImage}`}
                     className="bulletsImg"
                     alt="bulletsImg"
                   />
@@ -203,7 +202,7 @@ const Soloution1 = () => {
               <div className=" col-lg-6 col-md-6 py-3 m-auto">
                 <div className="bullet-img-sec">
                   <img
-                    src={`http://localhost:5000/images/${solution1.sol1FifthImage}`}
+                    src={`/images/${solution1.sol1FifthImage}`}
                     className="resources"
                     alt="resources"
                   />

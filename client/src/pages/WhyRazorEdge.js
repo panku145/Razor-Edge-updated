@@ -7,40 +7,42 @@ import WhyUsSlider from "../components/WhyRazorEdge/WhyUsSlider";
 // import WhyUsTestimonial from "../components/WhyRazorEdge/WhyUsTestimonial";
 
 const WhyRazorEdge = () => {
-
   const [whyRazorEdge, setWhyRazorEdge] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/why-razor-edge-get").then((res) => 
-    setWhyRazorEdge(res.data),
-    );
+    Axios.get("/why-razor-edge-get").then((res) => setWhyRazorEdge(res.data));
   }, []);
 
   return (
     <>
-      {whyRazorEdge.map((value, index) => ( 
-      <WhyUsSec key={index}
-      WRESec1heading={value.whyRazorEdgeFirstSection.WRESec1heading}
-      WRESec1subheading={value.whyRazorEdgeFirstSection.WRESec1subheading}  
-      WRESec1image={value.whyRazorEdgeFirstSection.WRESec1image}
-      />
+      {whyRazorEdge.map((value, index) => (
+        <WhyUsSec
+          key={index}
+          WRESec1heading={value.whyRazorEdgeFirstSection.WRESec1heading}
+          WRESec1subheading={value.whyRazorEdgeFirstSection.WRESec1subheading}
+          WRESec1image={value.whyRazorEdgeFirstSection.WRESec1image}
+        />
       ))}
       {whyRazorEdge.map((value, index) => (
-      <ProblemSec key={index}
-      WRESec2pera={value.whyRazorEdgeSecondSection.WRESec2pera}
-      WRESec2heading={value.whyRazorEdgeSecondSection.WRESec2heading}
-      WRESec2leftimg={value.whyRazorEdgeSecondSection.WRESec2leftimg}
-      WRESec2rightimg={value.whyRazorEdgeSecondSection.WRESec2rightimg}
-      />
+        <ProblemSec
+          key={index}
+          WRESec2pera={value.whyRazorEdgeSecondSection.WRESec2pera}
+          WRESec2heading={value.whyRazorEdgeSecondSection.WRESec2heading}
+          WRESec2leftimg={value.whyRazorEdgeSecondSection.WRESec2leftimg}
+          WRESec2rightimg={value.whyRazorEdgeSecondSection.WRESec2rightimg}
+        />
       ))}
       {whyRazorEdge.map((value, index) => (
-      <WhyUsSlider key={index}
-      WRESec3heading={value.whyRazorEdgeThirdSection.WRESec3heading}
-      WRESec3SliderHeading={value.whyRazorEdgeThirdSection.WRESec3SliderHeading}
-      WRESec3SliderImage={value.whyRazorEdgeThirdSection.WRESec3SliderImage}
-      WRESec3SliderPera1={value.whyRazorEdgeThirdSection.WRESec3SliderPera1}
-      WRESec3SliderPera2={value.whyRazorEdgeThirdSection.WRESec3SliderPera2}
-      />
+        <WhyUsSlider
+          key={index}
+          WRESec3heading={value.whyRazorEdgeThirdSection.WRESec3heading}
+          WRESec3SliderHeading={
+            value.whyRazorEdgeThirdSection.WRESec3SliderHeading
+          }
+          WRESec3SliderImage={value.whyRazorEdgeThirdSection.WRESec3SliderImage}
+          WRESec3SliderPera1={value.whyRazorEdgeThirdSection.WRESec3SliderPera1}
+          WRESec3SliderPera2={value.whyRazorEdgeThirdSection.WRESec3SliderPera2}
+        />
       ))}
       {/* {whyRazorEdge.map((value, index) => (
       <WhyUsCounter key={index}

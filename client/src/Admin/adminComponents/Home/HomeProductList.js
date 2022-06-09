@@ -6,9 +6,7 @@ const HomeProductList = () => {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/homeproductlist").then((res) =>
-      setProductList(res.data)
-    );
+    Axios.get("/homeproductlist").then((res) => setProductList(res.data));
   }, []);
 
   return (
@@ -17,11 +15,7 @@ const HomeProductList = () => {
         {productList.map((value, index) => (
           <div className="col-xl-2 col-lg-2 col-md-4 col-sm-4" key={index}>
             <div className="product-page-icon-container">
-              <img
-                src={`http://localhost:5000/images/${value.img}`}
-                className="multi"
-                alt="multi"
-              />
+              <img src={`/images/${value.img}`} className="multi" alt="multi" />
               <p>{value.title}</p>
               <Link
                 to={`/admin-dashboard/productList/${value._id}`}

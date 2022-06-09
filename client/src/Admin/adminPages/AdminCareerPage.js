@@ -7,7 +7,7 @@
 //     const [career, setCareer] = useState([]);
 
 //   useEffect(() => {
-//     Axios.get("http://localhost:5000/career").then((res) =>
+//     Axios.get("/career").then((res) =>
 //     setCareer(res.data)
 //     );
 //   }, []);
@@ -55,7 +55,7 @@ const AdminCareerPage = () => {
   );
   const [convertedContent, setConvertedContent] = useState(null);
   const handleEditorChange = (state) => {
-    setEditorState(state); 
+    setEditorState(state);
     convertContentToHTML();
   };
   const convertContentToHTML = () => {
@@ -81,27 +81,25 @@ const AdminCareerPage = () => {
   const [sec4heading1, setSec4heading] = useState("");
   const [sec4subheading1, setSec4subheading] = useState("");
 
-  const [id, setId] = useState(""); 
+  const [id, setId] = useState("");
 
   const [update, setupdate] = useState(false);
 
   useEffect(() => {
-    const get = async () => { 
+    const get = async () => {
       // navigate("/admin-career");
 
-      await Axios.get(
-        "http://localhost:5000/development-jobs"
-      ).then((res) => setDevelopment(res.data));
+      await Axios.get("/development-jobs").then((res) =>
+        setDevelopment(res.data)
+      );
 
-      await Axios.get(
-        "http://localhost:5000/management-jobs"
-      ).then((res) => setManagement(res.data));
+      await Axios.get("/management-jobs").then((res) =>
+        setManagement(res.data)
+      );
 
-      await Axios.get(
-        "http://localhost:5000/operation-jobs"
-      ).then((res) => setOperation(res.data));
+      await Axios.get("/operation-jobs").then((res) => setOperation(res.data));
 
-      // Axios.get("http://localhost:5000/career").then((res) =>
+      // Axios.get("/career").then((res) =>
       //   res.data.map((value) => {
       //     setSec2heading(value.Sec2.heading);
       //     setSec2pera(value.Sec2.pera);
@@ -114,9 +112,7 @@ const AdminCareerPage = () => {
       //   );
       //   console.log(res.data);
 
-      const res = await Axios.get(
-        "http://localhost:5000/careers"
-      );
+      const res = await Axios.get("/careers");
       res.data.map((value) => {
         setSec1heading(value.Sec1.heading);
         setSec1subheading(value.Sec1.subheading);
@@ -132,7 +128,7 @@ const AdminCareerPage = () => {
         setSec4heading(value.sec4.heading);
         setSec4subheading(value.sec4.subheading);
 
-        setId(value._id)
+        setId(value._id);
       });
     };
 
@@ -157,12 +153,11 @@ const AdminCareerPage = () => {
   //   formData.append("imgFilename", sec1img1.name);
   //   formData.append("id", id);
 
-  //   await Axios.put("http://localhost:5000/career", formData);
+  //   await Axios.put("/career", formData);
   //   window.location.reload();
   // };
-  
-  const updateData = async () => {
 
+  const updateData = async () => {
     const data = {
       sec1heading: sec1heading1,
       sec1subheading: sec1subheading1,
@@ -194,7 +189,7 @@ const AdminCareerPage = () => {
     // formData.append("imgFilename", sec1img1.name);
     // formData.append("id", id);
 
-    await Axios.put("http://localhost:5000/careers", data);
+    await Axios.put("/careers", data);
     window.location.reload();
   };
 
@@ -266,7 +261,7 @@ const AdminCareerPage = () => {
           />
         ) : (
           <img
-            src={`http://localhost:5000/images/${sec1img1}`}
+            src={`/images/${sec1img1}`}
             className="career-img"
             alt="Intersection"
           />

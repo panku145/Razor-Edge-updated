@@ -11,20 +11,17 @@ const Backend = (props) => {
   useEffect(() => {
     const data = async () => {
       try {
-        const res = await Axios.get(
-          "http://localhost:5000/user/data",
-          {
-            withCredentials: true,
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const res = await Axios.get("/user/data", {
+          withCredentials: true,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        });
         // const data = res.data;
 
         if (!res.status === 200) {
-          const error = new Error(res.error); 
+          const error = new Error(res.error);
           throw error;
         }
       } catch (err) {

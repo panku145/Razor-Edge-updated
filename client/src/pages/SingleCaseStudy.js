@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Axios from "axios";
 import parse from "html-react-parser";
 
 const SingleCaseStudy = () => {
+  const { id } = useParams();
 
-    const {id}  = useParams();
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [img, setImg] = useState("");
+  const [createdAt, setcreatedAt] = useState("");
 
-    const [title, setTitle] = useState("");
-    const [desc, setDesc] = useState("");
-    const [img, setImg] = useState("");
-    const [createdAt, setcreatedAt] = useState("");
-  
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get("http://localhost:5000/case-studies-get/" + id);
+      const res = await Axios.get("/case-studies-get/" + id);
       setTitle(res.data.title);
       setDesc(res.data.desc);
       setImg(res.data.img);
@@ -34,7 +33,7 @@ const SingleCaseStudy = () => {
               <div className="row latest-post-inner-rw">
                 <div className="col-xl-6 col-lg-6 col-md-6 latest-post-sub-col">
                   <img
-                    src={`http://localhost:5000/images/${img}`}
+                    src={`/images/${img}`}
                     className="caseStudyImage"
                     alt="caseStudyImage"
                   />

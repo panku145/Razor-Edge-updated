@@ -9,7 +9,6 @@ import parse from "html-react-parser";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminAddCaseStudyPage = () => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -25,13 +24,13 @@ const AdminAddCaseStudyPage = () => {
 
   const navigate = useNavigate();
   const [title, setTitle] = useState("No Title Added");
-  const [desc, setDesc] = useState("No Description Added");  
+  const [desc, setDesc] = useState("No Description Added");
   const [img, setImg] = useState("");
 
   const onChangeFile = (e) => {
     setImg(e.target.files[0]);
   };
-  
+
   const postdata = () => {
     const formData = new FormData();
 
@@ -40,7 +39,7 @@ const AdminAddCaseStudyPage = () => {
     // formData.append("desc", desc);
     formData.append("img", img);
 
-    Axios.post("http://localhost:5000/case-studies-get", formData);
+    Axios.post("/case-studies-get", formData);
     navigate("/admin-case-studies");
   };
 

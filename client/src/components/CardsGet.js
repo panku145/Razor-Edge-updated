@@ -13,7 +13,7 @@ export default function GetCard(props) {
   // const props = {name, age, city, country};
 
   const deleteData = () => {
-    Axios.post("http://localhost:5000/delete", { _id: props.id }).then((res) =>
+    Axios.post("/delete", { _id: props.id }).then((res) =>
       window.location.reload()
     );
   };
@@ -26,9 +26,7 @@ export default function GetCard(props) {
       country: country1,
       _id: props.id,
     };
-    Axios.post("http://localhost:5000/update", data).then((res) =>
-      window.location.reload()
-    );
+    Axios.post("/update", data).then((res) => window.location.reload());
   };
 
   return (

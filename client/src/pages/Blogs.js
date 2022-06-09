@@ -10,13 +10,9 @@ const Blogs = () => {
   const [blogpage, setBlogpage] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/blogPage-get").then((res) =>  
-      setBlogpage(res.data)
-    );
+    Axios.get("/blogPage-get").then((res) => setBlogpage(res.data));
 
-    Axios.get("http://localhost:5000/blogs-get").then((res) =>
-      setBlog(res.data)
-    );
+    Axios.get("/blogs-get").then((res) => setBlog(res.data));
   }, []);
 
   return (
@@ -42,7 +38,7 @@ const Blogs = () => {
                 <div className="col-xl-4 col-lg-4 col-md-4 latest-post-img-col ">
                   <div className="latest-post-img-container">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="blogImage"
                       alt="blogImage"
                     />
@@ -90,7 +86,7 @@ const Blogs = () => {
                 >
                   <div className="all-post-inner-cl">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="blogimg"
                       alt="blogimg"
                     />

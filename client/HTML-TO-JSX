@@ -6,4 +6,4 @@ background-image            =>                          style={{ backgroundImage
 
 e.preventdefault()
 
-src={`http://localhost:5000/images/${value.img}`}
+src={`/images/${value.img}`}

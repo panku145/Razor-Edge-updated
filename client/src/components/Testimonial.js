@@ -7,9 +7,7 @@ const Testimonial = () => {
   const [testimonial, settestimonial] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/testimonial")
-      .then((res) => settestimonial(res.data));
+    axios.get("/testimonial").then((res) => settestimonial(res.data));
   }, []);
 
   return (
@@ -21,7 +19,7 @@ const Testimonial = () => {
               <div className="row">
                 <div className="col-md-6 text-center why-us-testi-img-container">
                   <img
-                    src={`http://localhost:5000/images/${value.img}`}
+                    src={`/images/${value.img}`}
                     className={value.img}
                     alt={value.img}
                   />
@@ -29,13 +27,13 @@ const Testimonial = () => {
                 <div className="col-md-6 m-auto">
                   <div className="carousel-caption" id="testomonial-txt">
                     <img
-                      src={`http://localhost:5000/images/quote.png`}
+                      src={`/images/quote.png`}
                       className="why-us-qoute-img"
                       alt="quote"
                     />
                     <p>{value.desc}</p>
                     {/* <img
-                      src={`http://localhost:5000/images/${value.logo}`}
+                      src={`/images/${value.logo}`}
                       className="company-logo-img"
                       alt="companyLogo"
                     /> */}

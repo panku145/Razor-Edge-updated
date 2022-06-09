@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import Benefits from "../components/Career/Benefits";
 import CareerGallery from "../components/Career/CareerGallery";
-import parse from "html-react-parser"; 
+import parse from "html-react-parser";
 
 const Career = () => {
   const [career, setCareer] = useState([]);
@@ -16,21 +16,13 @@ const Career = () => {
   console.log(operation);
 
   useEffect(() => {
-      Axios.get("http://localhost:5000/careers").then((res) =>
-        setCareer(res.data)
-      );
+    Axios.get("/careers").then((res) => setCareer(res.data));
 
-      Axios.get(
-        "http://localhost:5000/development-jobs"
-      ).then((res) => setDevelopment(res.data));
+    Axios.get("/development-jobs").then((res) => setDevelopment(res.data));
 
-      Axios.get(
-        "http://localhost:5000/management-jobs"
-      ).then((res) => setManagement(res.data));
+    Axios.get("/management-jobs").then((res) => setManagement(res.data));
 
-      Axios.get(
-        "http://localhost:5000/operation-jobs"
-      ).then((res) => setOperation(res.data));
+    Axios.get("/operation-jobs").then((res) => setOperation(res.data));
   }, []);
 
   return (
@@ -54,22 +46,22 @@ const Career = () => {
           </div>
           <div className="career-img-container">
             <img
-              src={`http://localhost:5000/images/${value.Sec1.img}`}
+              src={`/images/${value.Sec1.img}`}
               className="career-img"
               alt="Intersection"
             />
           </div>
-          <div className="career-empty-container"></div> 
+          <div className="career-empty-container"></div>
 
           <div className="people-behind-sec">
             <div className="container">
               <div className="our-solution-head pb-5">
                 <h2>{value.Sec2.heading}</h2>
-                {parse(value.Sec2.pera)} 
+                {parse(value.Sec2.pera)}
               </div>
               <div className="poeple-img-container">
                 <div className="container">
-                  <CareerGallery /> 
+                  <CareerGallery />
                 </div>
               </div>
             </div>

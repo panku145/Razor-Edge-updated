@@ -10,19 +10,18 @@ import parse from "html-react-parser";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminSingleNewsPage = () => {
-
-   const [editorState, setEditorState] = useState(() =>
-     EditorState.createEmpty()
-   );
-   const [convertedContent, setConvertedContent] = useState(null);
-   const handleEditorChange = (state) => {
-     setEditorState(state);
-     convertContentToHTML();
-   };
-   const convertContentToHTML = () => {
-     let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
-     setConvertedContent(currentContentAsHTML);
-   };
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty()
+  );
+  const [convertedContent, setConvertedContent] = useState(null);
+  const handleEditorChange = (state) => {
+    setEditorState(state);
+    convertContentToHTML();
+  };
+  const convertContentToHTML = () => {
+    let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
+    setConvertedContent(currentContentAsHTML);
+  };
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -35,7 +34,7 @@ const AdminSingleNewsPage = () => {
 
   useEffect(() => {
     const getNews = async () => {
-      const res = await Axios.get("http://localhost:5000/news-get/" + id);
+      const res = await Axios.get("/news-get/" + id);
       setNews(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -57,12 +56,12 @@ const AdminSingleNewsPage = () => {
     formData.append("img", img);
     formData.append("imgFilename", img.name);
 
-    Axios.put(`http://localhost:5000/news-get/${news._id}`, formData);
+    Axios.put(`/news-get/${news._id}`, formData);
     navigate("/admin-news");
   };
 
   const deleteNews = () => {
-    Axios.delete(`http://localhost:5000/news-get/${news._id}`).then((res) =>
+    Axios.delete(`/news-get/${news._id}`).then((res) =>
       navigate("/admin-news")
     );
   };

@@ -4,9 +4,7 @@ const BulletSubSection = (props) => {
   const [bulletPoints, setbulletPoints] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/homebullet").then((res) =>
-      setbulletPoints(res.data)
-    );
+    Axios.get("/homebullet").then((res) => setbulletPoints(res.data));
   }, []);
 
   return (
@@ -17,7 +15,7 @@ const BulletSubSection = (props) => {
             <div className=" col-lg-6 m-auto">
               <div className="bullet-img-sec">
                 <img
-                  src={`http://localhost:5000/images/${props.image}`}
+                  src={`/images/${props.image}`}
                   className="BullrtsImg"
                   alt="BullrtsImg"
                 />

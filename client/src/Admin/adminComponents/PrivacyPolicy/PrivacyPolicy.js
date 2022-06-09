@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
-const PrivacyPolicy = (props) => { 
+const PrivacyPolicy = (props) => {
   const navigate = useNavigate();
   const [title1, setTitle] = useState(props.title);
   const [desc1, setDesc] = useState(props.desc);
@@ -16,7 +16,7 @@ const PrivacyPolicy = (props) => {
       id: props.id,
     };
 
-    Axios.put(`http://localhost:5000/privacy-policy/`, data);
+    Axios.put(`/privacy-policy/`, data);
     window.location.reload();
     navigate("/admin-privacy-policy");
   };

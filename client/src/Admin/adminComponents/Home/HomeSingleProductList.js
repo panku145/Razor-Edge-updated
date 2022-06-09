@@ -13,9 +13,7 @@ const HomeSingleProductList = () => {
 
   useEffect(() => {
     const getBlog = async () => {
-      const res = await Axios.get(
-        "http://localhost:5000/homeproductlist/" + id
-      );
+      const res = await Axios.get("/homeproductlist/" + id);
       setData(res.data);
       setTitle(res.data.title);
       setImg(res.data.img);
@@ -23,7 +21,7 @@ const HomeSingleProductList = () => {
     getBlog();
   }, [id]);
 
-  const onChangeFile = (e) => { 
+  const onChangeFile = (e) => {
     setImg(e.target.files[0]);
   };
 
@@ -35,7 +33,7 @@ const HomeSingleProductList = () => {
     formData.append("img", img);
     formData.append("imgFilename", img.name);
 
-    Axios.put(`http://localhost:5000/homeproductlist/${data._id}`, formData);
+    Axios.put(`/homeproductlist/${data._id}`, formData);
     navigate("/admin-dashboard");
   };
 
@@ -83,7 +81,7 @@ const HomeSingleProductList = () => {
                       onChange={onChangeFile}
                     />
                     <div className="login-submit-btn mt-3">
-                      <button type="submit"  className="btn btn-success">
+                      <button type="submit" className="btn btn-success">
                         Update
                       </button>
                     </div>

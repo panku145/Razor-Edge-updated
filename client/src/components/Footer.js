@@ -8,9 +8,7 @@ const Footer = () => {
   const [footer, setFooter] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/footer").then((res) =>
-      setFooter(res.data)
-    );
+    Axios.get("/footer").then((res) => setFooter(res.data));
   }, []);
 
   return (
@@ -25,7 +23,7 @@ const Footer = () => {
                     <li className="company-li">
                       <Link to="/">
                         <img
-                          src={`http://localhost:5000/images/${value.img}`}
+                          src={`/images/${value.img}`}
                           className="NavLogo"
                           alt="NavLogo"
                         />
@@ -68,7 +66,10 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li className="footer-li ">
-                      <a className="hover-underline-animation" href={value.page4Url}> 
+                      <a
+                        className="hover-underline-animation"
+                        href={value.page4Url}
+                      >
                         {value.page4}
                       </a>
                     </li>

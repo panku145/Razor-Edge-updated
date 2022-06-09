@@ -1,44 +1,37 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import parse from "html-react-parser";
- 
+
 const Disclaimer = () => {
+  const [data, setData] = useState([]);
 
-    const [data, setData] = useState([]); 
+  useEffect(() => {
+    Axios.get("/disclaimers").then((res) => setData(res.data));
+  }, []);
 
-    useEffect(() => { 
-        Axios.get("http://localhost:5000/disclaimers").then((res) =>
-            setData(res.data)
-        );
+  return (
+    <>
+      {data.map((value, index) => (
+        <div key={index}>
+          <div className="disclaimer-head-sec">
+            <h2>{value.title}</h2>
+          </div>
 
-    }, []);
-
-    return (
-        <>
-            {data.map((value, index) => (
-                <div key={index}>
-                    <div className="disclaimer-head-sec">
-                        <h2>{value.title}</h2>
-                    </div>
-
-                    <div className="accept-of-terms-sec">
-                        <div className="container">
-                            <div className="accept-of-terms-txt-container">
-                                <h3>Acceptance of Terms</h3>
-                                <div>
-                                    {parse(value.desc)}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </>
-    )
-}
+          <div className="accept-of-terms-sec">
+            <div className="container">
+              <div className="accept-of-terms-txt-container">
+                <h3>Acceptance of Terms</h3>
+                <div>{parse(value.desc)}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </>
+  );
+};
 
 export default Disclaimer;
-
 
 // import React, { useEffect, useState } from "react";
 // import Axios from "axios";
@@ -58,12 +51,12 @@ export default Disclaimer;
 //   useEffect(() => {
 //     window.scrollTo(0, 0);
 //     const data = async() => {
-//       Axios.get("http://localhost:5000/disclaimer").then((res) =>
+//       Axios.get("/disclaimer").then((res) =>
 //         setData(res.data)
 //       );
 //     }
 //     data();
-    
+
 //   }, []);
 
 //   return (
@@ -74,7 +67,7 @@ export default Disclaimer;
 //           <div className="disclaimer-head-sec">
 //             <h2>{value.title}</h2>
 //           </div>
- 
+
 //           <div className="accept-of-terms-sec">
 //             <div className="container">
 //               <div className="accept-of-terms-txt-container">

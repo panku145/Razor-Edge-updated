@@ -38,8 +38,8 @@ const HeroSubSection = (props) => {
                           playing={true}
                           // playIcon="nitin"
                           controls={true}
-                          light={`http://localhost:5000/images/video-img.jpg`}
-                          url={`http://localhost:5000/images/${props.herovideoimage}`}
+                          light={`/images/video-img.jpg`}
+                          url={`/images/${props.herovideoimage}`}
                         />
                       </div>
                     ) : (
@@ -47,13 +47,13 @@ const HeroSubSection = (props) => {
                         <ReactPlayer
                           width="100%"
                           playing={true}
-                          light={`http://localhost:5000/images/video-img.jpg`}
+                          light={`/images/video-img.jpg`}
                           url={props.herovideoimage}
                         />
                       </div>
                     )}
                     {/* <img
-                      src={`http://localhost:5000/images/${props.herovideoimage}`}
+                      src={`/images/${props.herovideoimage}`}
                       className="VideoImg"
                       alt="VideoImg"
                     /> */}

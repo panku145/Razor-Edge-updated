@@ -10,7 +10,6 @@ import parse from "html-react-parser";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminSolutionPage = () => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -25,7 +24,7 @@ const AdminSolutionPage = () => {
   };
 
   // ------------------------------------------
-  
+
   const [editorState1, setEditorState1] = useState(() =>
     EditorState.createEmpty()
   );
@@ -41,7 +40,7 @@ const AdminSolutionPage = () => {
   };
 
   // ------------------------------------------
-  
+
   const [editorState2, setEditorState2] = useState(() =>
     EditorState.createEmpty()
   );
@@ -57,7 +56,7 @@ const AdminSolutionPage = () => {
   };
 
   // ------------------------------------------
-  
+
   const [editorState3, setEditorState3] = useState(() =>
     EditorState.createEmpty()
   );
@@ -75,7 +74,7 @@ const AdminSolutionPage = () => {
   // ------------------------------------------
 
   const navigate = useNavigate();
-  const { id } = useParams(); 
+  const { id } = useParams();
   const [data, setData] = useState([]);
   const [key, setkey] = useState("");
   const [pageName1, setpageName] = useState("");
@@ -112,9 +111,9 @@ const AdminSolutionPage = () => {
 
   const [update, setupdate] = useState(false);
 
-  useEffect(() => { 
+  useEffect(() => {
     const get = async () => {
-      const res = await Axios.get("http://localhost:5000/solution2-get/" + id);
+      const res = await Axios.get("/solution2-get/" + id);
       setkey(res.data._id);
       setData(res.data);
       setpageName(res.data.pageName);
@@ -139,14 +138,14 @@ const AdminSolutionPage = () => {
       setsol1Fifthcard2Text(res.data.sol1Fifthcard2Text);
       setsol1Fifthcard3Text(res.data.sol1Fifthcard3Text);
       setsol1Fifthcard4Text(res.data.sol1Fifthcard4Text);
-      
+
       setsol1Fifthcard1Image(res.data.sol1Fifthcard1Image);
-      setsol1Fifthcard2Image(res.data.sol1Fifthcard2Image); 
+      setsol1Fifthcard2Image(res.data.sol1Fifthcard2Image);
       setsol1Fifthcard3Image(res.data.sol1Fifthcard3Image);
       setsol1Fifthcard4Image(res.data.sol1Fifthcard4Image);
     };
     get();
-  }, [id]); 
+  }, [id]);
 
   const updateData = async (e) => {
     e.preventDefault();
@@ -182,7 +181,7 @@ const AdminSolutionPage = () => {
     formData.append("sol2ThirdImage", sol2ThirdImage1);
     formData.append("sol2ThirdImageFilename", sol2ThirdImage1.name);
     formData.append("sol1Fifthcard1Image", sol1Fifthcard1Image1);
-    formData.append("sol1Fifthcard1ImageFilename", sol1Fifthcard1Image1.name); 
+    formData.append("sol1Fifthcard1ImageFilename", sol1Fifthcard1Image1.name);
     formData.append("sol1Fifthcard2Image", sol1Fifthcard2Image1);
     formData.append("sol1Fifthcard2ImageFilename", sol1Fifthcard2Image1.name);
     formData.append("sol1Fifthcard3Image", sol1Fifthcard3Image1);
@@ -192,7 +191,7 @@ const AdminSolutionPage = () => {
 
     formData.append("id", data._id);
 
-    await Axios.put("http://localhost:5000/solution2-update", formData);
+    await Axios.put("/solution2-update", formData);
     window.location.reload();
     // navigate("/admin-dashboard");
   };
@@ -202,7 +201,7 @@ const AdminSolutionPage = () => {
   };
 
   const deleteData = () => {
-    Axios.delete(`http://localhost:5000/solution2-delete/${key}`);
+    Axios.delete(`/solution2-delete/${key}`);
     navigate("/admin-dashboard");
   };
 
@@ -297,7 +296,7 @@ const AdminSolutionPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${sol2FirstImage1}`}
+                      src={`/images/${sol2FirstImage1}`}
                       className="whyUs"
                       alt="whyUs"
                     />
@@ -395,7 +394,7 @@ const AdminSolutionPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${sol2ThirdImage1}`}
+                      src={`/images/${sol2ThirdImage1}`}
                       className="bulletsImg"
                       alt="bulletsImg"
                     />
@@ -518,7 +517,7 @@ const AdminSolutionPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${sol1Fifthcard1Image1}`}
+                      src={`/images/${sol1Fifthcard1Image1}`}
                       className={sol1Fifthcard1Image1}
                       alt={sol1Fifthcard1Image1}
                     />
@@ -562,7 +561,7 @@ const AdminSolutionPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${sol1Fifthcard2Image1}`}
+                      src={`/images/${sol1Fifthcard2Image1}`}
                       className={sol1Fifthcard2Image1}
                       alt={sol1Fifthcard2Image1}
                     />
@@ -606,7 +605,7 @@ const AdminSolutionPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${sol1Fifthcard3Image1}`}
+                      src={`/images/${sol1Fifthcard3Image1}`}
                       className={sol1Fifthcard3Image1}
                       alt={sol1Fifthcard3Image1}
                     />
@@ -641,7 +640,7 @@ const AdminSolutionPage = () => {
                 <div className="product-first-img">
                   {update ? (
                     <input
-                      className="form-control" 
+                      className="form-control"
                       type="file"
                       name="sol1Fifthcard4Image"
                       onChange={(e) =>
@@ -650,7 +649,7 @@ const AdminSolutionPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${sol1Fifthcard4Image1}`}
+                      src={`/images/${sol1Fifthcard4Image1}`}
                       className={sol1Fifthcard4Image1}
                       alt={sol1Fifthcard4Image1}
                     />

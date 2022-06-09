@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";  
+import { useNavigate } from "react-router-dom";
 
 const SinglePartner = () => {
-
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -15,9 +14,7 @@ const SinglePartner = () => {
 
   useEffect(() => {
     const getBlog = async () => {
-      const res = await Axios.get(
-        "http://localhost:5000/partner-service/" + id    
-      );
+      const res = await Axios.get("/partner-service/" + id);
       setSpartner(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -38,7 +35,7 @@ const SinglePartner = () => {
     formData.append("img", img);
     formData.append("imgFilename", img.name);
 
-    Axios.put(`http://localhost:5000/partner-service/${spartner._id}`, formData);  
+    Axios.put(`/partner-service/${spartner._id}`, formData);
     navigate("/admin-partners");
   };
 
@@ -116,6 +113,6 @@ const SinglePartner = () => {
       </div>
     </>
   );
-}
+};
 
-export default SinglePartner
+export default SinglePartner;

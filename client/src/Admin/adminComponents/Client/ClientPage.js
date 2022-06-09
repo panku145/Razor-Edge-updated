@@ -3,13 +3,12 @@ import Axios from "axios";
 import { Link } from "react-router-dom";
 
 import { EditorState } from "draft-js";
-import { Editor } from "react-draft-wysiwyg"; 
+import { Editor } from "react-draft-wysiwyg";
 import { convertToHTML } from "draft-convert";
 import parse from "html-react-parser";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const ClientPage = (props) => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -20,7 +19,7 @@ const ClientPage = (props) => {
   };
   const convertContentToHTML = () => {
     let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
-    setConvertedContent(currentContentAsHTML); 
+    setConvertedContent(currentContentAsHTML);
   };
 
   // ------------------------------
@@ -32,7 +31,7 @@ const ClientPage = (props) => {
 
   const handleEditorChange1 = (state) => {
     setEditorState1(state);
-    convertContentToHTML1(); 
+    convertContentToHTML1();
   };
   const convertContentToHTML1 = () => {
     let currentContentAsHTML = convertToHTML(editorState1.getCurrentContent());
@@ -40,25 +39,22 @@ const ClientPage = (props) => {
   };
 
   const [clientGallery, setClientGallery] = useState([]);
-  const [heading, setHeading] = useState('');
-  const [subheading, setSubheading] = useState('');
-  const [pera, setPera] = useState('');
+  const [heading, setHeading] = useState("");
+  const [subheading, setSubheading] = useState("");
+  const [pera, setPera] = useState("");
 
-  const [update, setupdate] = useState(false); 
+  const [update, setupdate] = useState(false);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/clientgallery").then((res) =>
-      setClientGallery(res.data)
-    );
+    Axios.get("/clientgallery").then((res) => setClientGallery(res.data));
 
-    Axios.get("http://localhost:5000/clientPage").then((res) =>
+    Axios.get("/clientPage").then((res) =>
       res.data.map((value) => {
         setHeading(value.heading);
         setSubheading(value.subheading);
         setPera(value.pera);
       })
     );
-
   }, []);
 
   const updateData = () => {
@@ -68,9 +64,7 @@ const ClientPage = (props) => {
       pera: convertedContent1 || pera,
       _id: props.id,
     };
-    Axios.put("http://localhost:5000/clientPage", data).then((res) =>
-      window.location.reload()
-    );
+    Axios.put("/clientPage", data).then((res) => window.location.reload());
   };
 
   return (
@@ -183,7 +177,7 @@ const ClientPage = (props) => {
                   <div className="content">
                     <div className="content-overlay"></div>
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="contentImage2"
                       alt="contentImage2"
                     />
@@ -212,7 +206,7 @@ const ClientPage = (props) => {
                   <div className="content">
                     <div className="content-overlay"></div>
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="contentImage3"
                       alt="contentImage3"
                     />

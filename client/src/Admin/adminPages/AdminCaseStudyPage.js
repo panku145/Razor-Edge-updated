@@ -7,9 +7,7 @@ const AdminCaseStudyPage = () => {
   const [caseStudyPage, setCaseStudyPage] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/casestudy-page-get").then((res) =>
-      setCaseStudyPage(res.data)
-    );
+    Axios.get("/casestudy-page-get").then((res) => setCaseStudyPage(res.data));
   }, []);
 
   return (

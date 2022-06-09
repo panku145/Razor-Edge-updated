@@ -13,22 +13,20 @@ const Product = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState([]);
-  const [proSecondBullets, setproSecondBullets] = useState('');
+  const [proSecondBullets, setproSecondBullets] = useState("");
   const [proproThirdAccordia, setproproThirdAccordia] = useState([]);
   const [proSecondHeading1, setProSecondHeading] = useState("");
 
   useEffect(() => {
-    const get = async () => { 
-      const res = await Axios.get(
-        "http://localhost:5000/product-get/product/" + id
-      );
+    const get = async () => {
+      const res = await Axios.get("/product-get/product/" + id);
       setProduct(res.data);
       setproSecondBullets(res.data.proSecondBullets);
       setproproThirdAccordia(res.data.proThirdAccordia);
       setProSecondHeading(res.data.proSecondHeading);
     };
     get();
-  }, [id]); 
+  }, [id]);
 
   let onClickCard1 = () => {
     navigate("/solution1/Alternative-Manager");
@@ -63,7 +61,7 @@ const Product = () => {
               <div className="col-lg-6 col-md-6">
                 <div className="integration-img-container">
                   <img
-                    src={`http://localhost:5000/images/${product.proFirstImage}`}
+                    src={`/images/${product.proFirstImage}`}
                     className="integration"
                     alt="integration"
                   />
@@ -84,7 +82,7 @@ const Product = () => {
               <div className=" col-lg-6 col-md-6 m-auto integration-data-col">
                 <div className="bullet-img-sec">
                   <img
-                    src={`http://localhost:5000/images/${product.proSecondImage}`}
+                    src={`/images/${product.proSecondImage}`}
                     className="data"
                     alt="data"
                   />
@@ -111,7 +109,7 @@ const Product = () => {
               <div className=" col-lg-6 col-md-6 pb-3 integration-data-col">
                 <div className="bullet-img-sec">
                   <img
-                    src={`http://localhost:5000/images/${product.proThirdImage}`}
+                    src={`/images/${product.proThirdImage}`}
                     className="Intersection"
                     alt="Intersection"
                   />
@@ -161,7 +159,7 @@ const Product = () => {
               >
                 <div className="product-first-img">
                   <img
-                    src={`http://localhost:5000/images/${product.proFourthCards1img}`}
+                    src={`/images/${product.proFourthCards1img}`}
                     className={product.proFourthCards1img}
                     alt={product.proFourthCards1img}
                   />
@@ -178,7 +176,7 @@ const Product = () => {
               >
                 <div className="product-first-img">
                   <img
-                    src={`http://localhost:5000/images/${product.proFourthCards2img}`}
+                    src={`/images/${product.proFourthCards2img}`}
                     className={product.proFourthCards2img}
                     alt={product.proFourthCards2img}
                   />
@@ -195,7 +193,7 @@ const Product = () => {
               >
                 <div className="product-first-img">
                   <img
-                    src={`http://localhost:5000/images/${product.proFourthCards3img}`}
+                    src={`/images/${product.proFourthCards3img}`}
                     className={product.proFourthCards3img}
                     alt={product.proFourthCards3img}
                   />
@@ -212,7 +210,7 @@ const Product = () => {
               >
                 <div className="product-first-img">
                   <img
-                    src={`http://localhost:5000/images/${product.proFourthCards4img}`}
+                    src={`/images/${product.proFourthCards4img}`}
                     className={product.proFourthCards4img}
                     alt={product.proFourthCards4img}
                   />

@@ -9,11 +9,11 @@ const Signin = () => {
 
   const postdata = async (e) => {
     await Axios.post(
-      "http://localhost:5000/user/signin",
+      "/user/signin",
       { email, password },
       { withCredentials: true }
-    ); 
-    // Axios.defaults.withCredentials = true; 
+    );
+    // Axios.defaults.withCredentials = true;
     navigate("/admin-dashboard");
   };
 

@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import parse from "html-react-parser";  
+import parse from "html-react-parser";
 
 const Client = () => {
   const [client, setClient] = useState([]);
   const [clientGallery, setClientGallery] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/clientPage").then((res) =>
-      setClient(res.data)
-    );
+    Axios.get("/clientPage").then((res) => setClient(res.data));
 
-    Axios.get("http://localhost:5000/clientgallery").then((res) =>
-      setClientGallery(res.data)
-    );
+    Axios.get("/clientgallery").then((res) => setClientGallery(res.data));
   }, []);
 
   return (
     <>
-      <div className="our-client-sec"> 
+      <div className="our-client-sec">
         <div className="container">
           {client.map((value, index) => (
             <div className="our-client-txt-container" key={index}>
@@ -57,7 +53,7 @@ const Client = () => {
                   <div className="content">
                     <div className="content-overlay"></div>
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="contentImage2"
                       alt="contentImage2"
                     />
@@ -79,7 +75,7 @@ const Client = () => {
                   <div className="content">
                     <div className="content-overlay"></div>
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="contentImage3"
                       alt="contentImage3"
                     />

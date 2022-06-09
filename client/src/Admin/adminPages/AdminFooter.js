@@ -6,9 +6,7 @@ const AdminFooter = () => {
   const [footer, setFooter] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/footer").then((res) =>
-      setFooter(res.data)
-    );
+    Axios.get("/footer").then((res) => setFooter(res.data));
   }, []);
 
   return (
@@ -22,7 +20,7 @@ const AdminFooter = () => {
           page2={value.page2}
           page3={value.page3}
           page4={value.page4}
-          page4Url={value.page4Url} 
+          page4Url={value.page4Url}
           page5={value.page5}
           page6={value.page6}
           page7={value.page7}

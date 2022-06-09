@@ -38,7 +38,7 @@ const AdminSolution1Page = () => {
     let currentContentAsHTML = convertToHTML(editorState1.getCurrentContent());
     setConvertedContent1(currentContentAsHTML);
   };
-  
+
   // --------------------------------------------
 
   const [editorState2, setEditorState2] = useState(() =>
@@ -55,7 +55,7 @@ const AdminSolution1Page = () => {
     let currentContentAsHTML = convertToHTML(editorState2.getCurrentContent());
     setConvertedContent2(currentContentAsHTML);
   };
-  
+
   // --------------------------------------------
 
   const [editorState3, setEditorState3] = useState(() =>
@@ -72,7 +72,7 @@ const AdminSolution1Page = () => {
     let currentContentAsHTML = convertToHTML(editorState3.getCurrentContent());
     setConvertedContent3(currentContentAsHTML);
   };
- 
+
   // --------------------------------------------
 
   const [editorState4, setEditorState4] = useState(() =>
@@ -86,7 +86,7 @@ const AdminSolution1Page = () => {
   };
 
   const convertContentToHTML4 = () => {
-    let currentContentAsHTML = convertToHTML(editorState4.getCurrentContent()); 
+    let currentContentAsHTML = convertToHTML(editorState4.getCurrentContent());
     setConvertedContent4(currentContentAsHTML);
   };
 
@@ -97,7 +97,7 @@ const AdminSolution1Page = () => {
   const [sol1ZeroImage1, setsol1ZeroImage] = useState("");
   const [sol1ZeroTitle1, setsol1ZeroTitle] = useState("");
   const [sol1ZeroSubtitle1, setsol1ZeroSubtitle] = useState("");
-  const [sol1ZeroPera1, setsol1ZeroPera] = useState(""); 
+  const [sol1ZeroPera1, setsol1ZeroPera] = useState("");
 
   const [sol1FirstImage1, setsol1FirstImage] = useState("");
   const [sol1FirstHeading1, setsol1FirstHeading] = useState("");
@@ -129,9 +129,7 @@ const AdminSolution1Page = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get(
-        "http://localhost:5000/solution1-get/" + id
-      );
+      const res = await Axios.get("/solution1-get/" + id);
       setData(res.data);
       setpageName(res.data.pageName);
       setpageDesc(res.data.pageDesc);
@@ -221,10 +219,7 @@ const AdminSolution1Page = () => {
 
     formData.append("id", data._id);
 
-    await Axios.put(
-      "http://localhost:5000/solution1-update",
-      formData
-    );
+    await Axios.put("/solution1-update", formData);
     window.location.reload();
     // navigate("/admin-dashboard");
   };
@@ -297,7 +292,7 @@ const AdminSolution1Page = () => {
                         </>
                       ) : (
                         // sol1ZeroPera1
-                        parse(sol1ZeroPera1) 
+                        parse(sol1ZeroPera1)
                       )}
                     </p>
                   </div>
@@ -313,7 +308,7 @@ const AdminSolution1Page = () => {
                       />
                     ) : (
                       <img
-                        src={`http://localhost:5000/images/${sol1ZeroImage1}`}
+                        src={`/images/${sol1ZeroImage1}`}
                         className="integration"
                         alt="integration"
                       />
@@ -338,7 +333,7 @@ const AdminSolution1Page = () => {
                       />
                     ) : (
                       <img
-                        src={`http://localhost:5000/images/${sol1FirstImage1}`}
+                        src={`/images/${sol1FirstImage1}`}
                         className="data"
                         alt="data"
                       />
@@ -433,7 +428,7 @@ const AdminSolution1Page = () => {
                     onChange={(e) => setsol1ThirdMainHeading(e.target.value)}
                   ></textarea>
                 ) : (
-                  sol1ThirdMainHeading1 
+                  sol1ThirdMainHeading1
                 )}
               </h3>
             </div>
@@ -452,7 +447,7 @@ const AdminSolution1Page = () => {
                       />
                     ) : (
                       <img
-                        src={`http://localhost:5000/images/${sol1Thirdcard1Image1}`}
+                        src={`/images/${sol1Thirdcard1Image1}`}
                         className="connect"
                         alt="connect"
                       />
@@ -484,7 +479,7 @@ const AdminSolution1Page = () => {
                       />
                     ) : (
                       <img
-                        src={`http://localhost:5000/images/${sol1Thirdcard2Image1}`}
+                        src={`/images/${sol1Thirdcard2Image1}`}
                         className="connect"
                         alt="connect"
                       />
@@ -517,13 +512,13 @@ const AdminSolution1Page = () => {
                       />
                     ) : (
                       <img
-                        src={`http://localhost:5000/images/${sol1Thirdcard3Image1}`}
+                        src={`/images/${sol1Thirdcard3Image1}`}
                         className="connect"
                         alt="connect"
                       />
                     )}
                     <h5>
-                      {update ? ( 
+                      {update ? (
                         <textarea
                           value={sol1Thirdcard3Text1}
                           onChange={(e) =>
@@ -549,7 +544,7 @@ const AdminSolution1Page = () => {
                       />
                     ) : (
                       <img
-                        src={`http://localhost:5000/images/${sol1Thirdcard4Image1}`}
+                        src={`/images/${sol1Thirdcard4Image1}`}
                         className="connect"
                         alt="connect"
                       />
@@ -586,7 +581,7 @@ const AdminSolution1Page = () => {
                       />
                     ) : (
                       <img
-                        src={`http://localhost:5000/images/${sol1FourthImage1}`}
+                        src={`/images/${sol1FourthImage1}`}
                         className="bulletsImg"
                         alt="bulletsImg"
                       />
@@ -695,7 +690,7 @@ const AdminSolution1Page = () => {
                       />
                     ) : (
                       <img
-                        src={`http://localhost:5000/images/${sol1FifthImage1}`}
+                        src={`/images/${sol1FifthImage1}`}
                         className="resources"
                         alt="resources"
                       />

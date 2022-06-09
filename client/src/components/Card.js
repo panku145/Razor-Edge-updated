@@ -16,7 +16,7 @@ export default function BasicCard() {
       city: city,
       country: country,
     };
-    axios.post("http://localhost:5000/create", data).then((res) => {
+    axios.post("/create", data).then((res) => {
       window.location.reload();
     });
   };

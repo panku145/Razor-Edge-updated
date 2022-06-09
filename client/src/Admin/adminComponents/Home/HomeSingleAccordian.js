@@ -8,11 +8,11 @@ const HomeSingleAccordian = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({});
   const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState(""); 
+  const [desc, setDesc] = useState("");
 
   useEffect(() => {
     const getData = async () => {
-      const res = await Axios.get("http://localhost:5000/homeaccordian/" + id);
+      const res = await Axios.get("/homeaccordian/" + id);
       setData(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -22,7 +22,7 @@ const HomeSingleAccordian = () => {
 
   const updateData = async () => {
     try {
-      await Axios.put(`http://localhost:5000/homeaccordian/${data._id}`, {
+      await Axios.put(`/homeaccordian/${data._id}`, {
         title,
         desc,
       });
@@ -33,8 +33,8 @@ const HomeSingleAccordian = () => {
   };
 
   const deleteData = () => {
-    Axios.delete(`http://localhost:5000/homeaccordian/${data._id}`).then(
-      (res) => navigate("/admin-dashboard")
+    Axios.delete(`/homeaccordian/${data._id}`).then((res) =>
+      navigate("/admin-dashboard")
     );
   };
 

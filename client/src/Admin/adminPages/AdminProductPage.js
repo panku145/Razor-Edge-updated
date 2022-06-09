@@ -104,11 +104,9 @@ const AdminProductPage = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get(
-        `http://localhost:5000/product-get/product/${id}`
-      );
+      const res = await Axios.get(`/product-get/product/${id}`);
       setKey(res.data._id);
-      setpageName(res.data.pageName); 
+      setpageName(res.data.pageName);
       setpageDesc(res.data.pageDesc);
       setproSecondBullets(res.data.proSecondBullets);
       setproThirdAccordia(res.data.proThirdAccordia);
@@ -185,10 +183,7 @@ const AdminProductPage = () => {
 
     formData.append("id", key);
 
-    await Axios.put(
-      "http://localhost:5000/product-update",
-      formData
-    );
+    await Axios.put("/product-update", formData);
     window.location.reload();
   };
 
@@ -230,7 +225,7 @@ const AdminProductPage = () => {
   //     id: key,
   //   };
 
-  //   await Axios.put("http://localhost:5000/product-update", data);
+  //   await Axios.put("/product-update", data);
   //   window.location.reload();
   //   navigate(`/admin-dashboard`);
   // };
@@ -240,7 +235,7 @@ const AdminProductPage = () => {
   //   const newdata = {
   //     proSecondBullets: proSecondBullets1,
   //   };
-  //   Axios.put(`http://localhost:5000/product-update/${key}`, newdata).then(
+  //   Axios.put(`/product-update/${key}`, newdata).then(
   //     (res) => navigate(`/admin-product/${id}`)
   //   );
   // };
@@ -252,7 +247,7 @@ const AdminProductPage = () => {
   //     proSecondBullets: proSecondBullets1,
   //   };
   //   await Axios.put(
-  //     `http://localhost:5000/product-update/${key}`,
+  //     `/product-update/${key}`,
   //     newdata
   //   );
   //   navigate(`/admin-product/${id}`);
@@ -270,10 +265,9 @@ const AdminProductPage = () => {
     const newdata = {
       proThirdAccordia: proThirdAccordia1,
     };
-    await Axios.put(
-      `http://localhost:5000/product-update/${key}`,
-      newdata
-    ).then((res) => navigate(`/admin-product/${id}`));
+    await Axios.put(`/product-update/${key}`, newdata).then((res) =>
+      navigate(`/admin-product/${id}`)
+    );
     window.location.reload();
   };
 
@@ -282,10 +276,9 @@ const AdminProductPage = () => {
     const newdata = {
       proThirdAccordia: proThirdAccordia1,
     };
-    Axios.put(
-      `http://localhost:5000/product-update/${key}`,
-      newdata
-    ).then((res) => navigate(`/admin-product/${id}`));
+    Axios.put(`/product-update/${key}`, newdata).then((res) =>
+      navigate(`/admin-product/${id}`)
+    );
   };
 
   const addData = (e) => {
@@ -293,7 +286,7 @@ const AdminProductPage = () => {
   };
 
   const deleteData = (e) => {
-    Axios.delete(`http://localhost:5000/product-delete/${key}`);
+    Axios.delete(`/product-delete/${key}`);
     navigate("/admin-dashboard");
   };
 
@@ -372,7 +365,7 @@ const AdminProductPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${proFirstImage1}`}
+                      src={`/images/${proFirstImage1}`}
                       className="VideoImg"
                       alt="VideoImg"
                     />
@@ -435,7 +428,7 @@ const AdminProductPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${proSecondImage1}`}
+                      src={`/images/${proSecondImage1}`}
                       className="VideoImg"
                       alt="VideoImg"
                     />
@@ -502,7 +495,7 @@ const AdminProductPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${proThirdImage1}`}
+                      src={`/images/${proThirdImage1}`}
                       className="VideoImg"
                       alt="VideoImg"
                     />
@@ -658,7 +651,7 @@ const AdminProductPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${proFourthCards1img1}`}
+                      src={`/images/${proFourthCards1img1}`}
                       className={proFourthCards1img1}
                       alt={proFourthCards1img1}
                     />
@@ -702,7 +695,7 @@ const AdminProductPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${proFourthCards2img1}`}
+                      src={`/images/${proFourthCards2img1}`}
                       className={proFourthCards2img1}
                       alt={proFourthCards2img1}
                     />
@@ -746,7 +739,7 @@ const AdminProductPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${proFourthCards3img1}`}
+                      src={`/images/${proFourthCards3img1}`}
                       className={proFourthCards3img1}
                       alt={proFourthCards3img1}
                     />
@@ -790,7 +783,7 @@ const AdminProductPage = () => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${proFourthCards4img1}`}
+                      src={`/images/${proFourthCards4img1}`}
                       className={proFourthCards4img1}
                       alt={proFourthCards4img1}
                     />

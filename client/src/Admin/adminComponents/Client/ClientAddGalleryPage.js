@@ -1,29 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const ClientAddGalleryPage = () => {
+  const navigate = useNavigate();
+  const [heading, setHeading] = useState("No Heading Added");
+  const [desc, setDesc] = useState("No Description Added");
+  const [img, setImg] = useState("");
 
+  const onChangeFile = (e) => {
+    setImg(e.target.files[0]);
+  };
 
-    const navigate = useNavigate();
-    const [heading, setHeading] = useState("No Heading Added");
-    const [desc, setDesc] = useState("No Description Added");
-    const [img, setImg] = useState("");
+  const postdata = () => {
+    const formData = new FormData();
 
-    const onChangeFile = (e) => {
-      setImg(e.target.files[0]);
-    };
+    formData.append("heading", heading);
+    formData.append("desc", desc);
+    formData.append("img", img);
 
-    const postdata = () => {
-      const formData = new FormData();
-
-      formData.append("heading", heading);
-      formData.append("desc", desc);
-      formData.append("img", img);
-
-      Axios.post("http://localhost:5000/clientgallery", formData);
-      navigate("/admin-client");
-    };
+    Axios.post("/clientgallery", formData);
+    navigate("/admin-client");
+  };
 
   return (
     <>
@@ -100,6 +98,6 @@ const ClientAddGalleryPage = () => {
       </div>
     </>
   );
-}
+};
 
-export default ClientAddGalleryPage
+export default ClientAddGalleryPage;

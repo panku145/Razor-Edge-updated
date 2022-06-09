@@ -7,7 +7,7 @@ const About = () => {
   const [data, setdat] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/get").then((res) => setdat(res.data));
+    Axios.get("/get").then((res) => setdat(res.data));
     console.log("working");
   }, []);
 

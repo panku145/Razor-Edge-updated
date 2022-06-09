@@ -5,12 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
-import { convertToHTML } from "draft-convert"; 
+import { convertToHTML } from "draft-convert";
 import DOMPurify from "dompurify";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const ProductAddNewAccordian = () => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -39,7 +38,7 @@ const ProductAddNewAccordian = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get("http://localhost:5000/product-get/" + id);
+      const res = await Axios.get("/product-get/" + id);
       setAccordian(res.data.proThirdAccordia);
       setpageName(res.data.pageName);
     };
@@ -47,7 +46,7 @@ const ProductAddNewAccordian = () => {
   }, []);
 
   const addData = (e) => {
-    accordian.push(...[{ title: title, desc:convertedContent }]);
+    accordian.push(...[{ title: title, desc: convertedContent }]);
     updateData();
   };
 
@@ -55,8 +54,8 @@ const ProductAddNewAccordian = () => {
     const newdata = {
       proThirdAccordia: accordian,
     };
-    Axios.put(`http://localhost:5000/product-update/${id}`, newdata).then(
-      (res) => navigate(`/admin-product/${pageName}`)
+    Axios.put(`/product-update/${id}`, newdata).then((res) =>
+      navigate(`/admin-product/${pageName}`)
     );
   };
 

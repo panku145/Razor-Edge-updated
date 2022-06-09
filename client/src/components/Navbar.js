@@ -11,25 +11,17 @@ const Navbar = () => {
   const [header, setHeader] = useState([]);
   const [solutionPages, setSolutionPages] = useState([]);
   const [solution1Pages, setSolution1Pages] = useState([]);
-  const [productPages, setProductPages] = useState([]); 
+  const [productPages, setProductPages] = useState([]);
 
   useEffect(() => {
+    Axios.get("/header").then((res) => setHeader(res.data));
 
-    Axios.get("http://localhost:5000/header").then((res) => setHeader(res.data));
+    Axios.get("/solution2-get").then((res) => setSolutionPages(res.data));
 
-    Axios.get("http://localhost:5000/solution2-get").then((res) => 
-      setSolutionPages(res.data)
-    );
+    Axios.get("/solution1-get").then((res) => setSolution1Pages(res.data));
 
-    Axios.get("http://localhost:5000/solution1-get").then((res) => 
-      setSolution1Pages(res.data)
-    );
-
-    Axios.get("http://localhost:5000/product-get").then((res) =>
-      setProductPages(res.data)
-    );
-  }, []);  
-
+    Axios.get("/product-get").then((res) => setProductPages(res.data));
+  }, []);
 
   return (
     <>
@@ -39,7 +31,7 @@ const Navbar = () => {
             <div className="logo-container-sec ">
               <Link to="/">
                 <img
-                  src={`http://localhost:5000/images/${value.logo}`}
+                  src={`/images/${value.logo}`}
                   // src={NavLogo
                   className="NavLogo"
                   alt="NavLogo"

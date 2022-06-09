@@ -19,9 +19,7 @@ const WhyUsSlider = (props) => {
   const [accordian, setAccordian] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/wreaccordian").then((res) =>
-      setAccordian(res.data)
-    );
+    Axios.get("/wreaccordian").then((res) => setAccordian(res.data));
   }, []);
 
   return (
@@ -44,7 +42,7 @@ const WhyUsSlider = (props) => {
                       <div className=" col-lg-6 m-auto">
                         <div className="bullet-img-sec">
                           <img
-                            src={`http://localhost:5000/images/${WRESec3SliderImage}`}
+                            src={`/images/${WRESec3SliderImage}`}
                             className="bulletsImg"
                             alt="bulletsImg"
                           />

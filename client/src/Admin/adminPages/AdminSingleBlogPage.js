@@ -10,7 +10,6 @@ import parse from "html-react-parser";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminSingleBlogPage = () => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -28,13 +27,13 @@ const AdminSingleBlogPage = () => {
   const { id } = useParams();
 
   const [blog, setBlog] = useState({});
-  const [title, setTitle] = useState(""); 
+  const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [img, setImg] = useState("");
 
   useEffect(() => {
-    const getBlog = async () => { 
-      const res = await Axios.get("http://localhost:5000/blogs-get/" + id); 
+    const getBlog = async () => {
+      const res = await Axios.get("/blogs-get/" + id);
       setBlog(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -43,7 +42,7 @@ const AdminSingleBlogPage = () => {
     getBlog();
   }, [id]);
 
-  const onChangeFile = (e) => { 
+  const onChangeFile = (e) => {
     setImg(e.target.files[0]);
   };
 
@@ -56,17 +55,17 @@ const AdminSingleBlogPage = () => {
     formData.append("img", img);
     formData.append("imgFilename", img.name);
 
-    Axios.put(`http://localhost:5000/blogs-get/${blog._id}`, formData);  
+    Axios.put(`/blogs-get/${blog._id}`, formData);
     navigate("/admin-blogs");
   };
 
   const deleteBlog = () => {
-    Axios.delete(`http://localhost:5000/blogs-get/${blog._id}`);
+    Axios.delete(`/blogs-get/${blog._id}`);
     navigate("/admin-blogs");
   };
-  
+
   const addBlog = () => {
-    navigate("/admin-blog-add");  
+    navigate("/admin-blog-add");
   };
 
   return (
@@ -153,7 +152,7 @@ const AdminSingleBlogPage = () => {
                       </button>
                       <button
                         type="submit"
-                        onClick={deleteBlog} 
+                        onClick={deleteBlog}
                         className="btn btn-danger mx-2"
                       >
                         Delete

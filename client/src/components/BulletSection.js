@@ -6,10 +6,8 @@ const BulletSection = () => {
   const [bulletData, setBulletData] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/home-get").then((res) =>
-      setBulletData(res.data),
-    );
-  }, []); 
+    Axios.get("/home-get").then((res) => setBulletData(res.data));
+  }, []);
 
   return (
     <>

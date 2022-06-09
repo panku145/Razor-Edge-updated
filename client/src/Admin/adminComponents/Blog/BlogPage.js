@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 import { useNavigate } from "react-router-dom";
 
 const BlogPage = (props) => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [blog, setBlog] = useState([]);
   const [blogfirstheading1, setblogfirstheading] = useState(
     props.blogfirstheading
@@ -25,9 +25,7 @@ const BlogPage = (props) => {
   const [updateMode, setUpdateMode] = useState(false);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/blogs-get").then((res) =>
-      setBlog(res.data)
-    );
+    Axios.get("/blogs-get").then((res) => setBlog(res.data));
   }, []);
 
   const updateData = () => {
@@ -40,7 +38,7 @@ const BlogPage = (props) => {
       blogsecondpera: blogsecondpera1,
       _id: props.id,
     };
-    Axios.post("http://localhost:5000/blogPage-update", data).then((res) =>
+    Axios.post("/blogPage-update", data).then((res) =>
       window.location.reload()
     );
   };
@@ -90,7 +88,7 @@ const BlogPage = (props) => {
                 <div className="col-xl-4 col-lg-4 col-md-4 latest-post-img-col ">
                   <div className="latest-post-img-container">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="blog-image"
                       alt="blog"
                     />
@@ -138,7 +136,7 @@ const BlogPage = (props) => {
                 >
                   <div className="all-post-inner-cl">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="allBlog1"
                       alt="allBlog1"
                     />

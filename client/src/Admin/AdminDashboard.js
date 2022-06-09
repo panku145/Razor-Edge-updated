@@ -6,9 +6,7 @@ const AdminDashboard = () => {
   const [Data, setData] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/home-get").then((res) => 
-      setData(res.data)
-    );
+    Axios.get("/home-get").then((res) => setData(res.data));
   }, []);
 
   return (

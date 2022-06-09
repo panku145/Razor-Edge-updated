@@ -3,7 +3,6 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const AddTestimonial = () => {
-
   const navigate = useNavigate();
   const [img, setImg] = useState("");
   const [logo, setLogo] = useState("");
@@ -18,8 +17,8 @@ const AddTestimonial = () => {
     formData.append("imgFilename", img.name);
     formData.append("logoFilename", logo.name);
 
-    Axios.post("http://localhost:5000/testimonial", formData);   
-    navigate('/admin-dashboard');
+    Axios.post("/testimonial", formData);
+    navigate("/admin-dashboard");
   };
 
   return (

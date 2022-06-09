@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const DevelopmentSingle = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const DevelopmentSingle = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get("http://localhost:5000/development-jobs/" + id); 
+      const res = await Axios.get("/development-jobs/" + id);
       setData(res.data);
       setTitle(res.data.title);
       setLocation(res.data.location);
@@ -23,7 +23,7 @@ const DevelopmentSingle = () => {
 
   const updateData = async () => {
     try {
-      await Axios.put(`http://localhost:5000/development-jobs/${data._id}`, {
+      await Axios.put(`/development-jobs/${data._id}`, {
         title,
         location,
       });
@@ -34,7 +34,7 @@ const DevelopmentSingle = () => {
   };
 
   const deleteData = () => {
-    Axios.delete(`http://localhost:5000/development-jobs/${data._id}`);
+    Axios.delete(`/development-jobs/${data._id}`);
     navigate("/admin-career");
   };
 
@@ -70,7 +70,7 @@ const DevelopmentSingle = () => {
                     Location
                   </label>
                 </div>
-                <div className="col-md-8"> 
+                <div className="col-md-8">
                   <textarea
                     type="text"
                     className="form-control txtarea"

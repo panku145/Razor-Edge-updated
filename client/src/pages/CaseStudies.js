@@ -5,25 +5,17 @@ import CaseStudyPageHeadSection from "../components/CaseStudyPage/CaseStudyPageH
 import CaseStudyPageFotterSection from "../components/CaseStudyPage/CaseStudyPageFotterSection";
 import parse from "html-react-parser";
 
-
 const CaseStudies = () => {
-
   const [casestudypage, setCaseStudyPage] = useState([]);
   const [caseStudies, setCaseStudies] = useState([]);
 
   useEffect(() => {
+    Axios.get("/casestudy-page-get").then((res) => setCaseStudyPage(res.data));
 
-    Axios.get("http://localhost:5000/casestudy-page-get").then((res) =>
-    setCaseStudyPage(res.data),
-    );
-
-    Axios.get("http://localhost:5000/case-studies-get").then((res) =>
-    setCaseStudies(res.data),
-    );
+    Axios.get("/case-studies-get").then((res) => setCaseStudies(res.data));
   }, []);
 
   console.log(casestudypage);
-
 
   return (
     <>
@@ -43,7 +35,7 @@ const CaseStudies = () => {
                 <div className="col-xl-4 col-lg-4 col-md-4 latest-post-img-col ">
                   <div className="latest-post-img-container">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="Intersection"
                       alt="Intersection"
                     />
@@ -89,7 +81,7 @@ const CaseStudies = () => {
                 >
                   <div className="all-post-inner-cl">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="allBlog1"
                       alt="allBlog1"
                     />

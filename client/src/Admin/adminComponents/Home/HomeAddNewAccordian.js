@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import { convertToHTML } from "draft-convert";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const HomeAddNewAccordian = () => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -32,7 +30,7 @@ const HomeAddNewAccordian = () => {
       title: title,
       desc: convertedContent,
     };
-    Axios.post("http://localhost:5000/homeaccordian", data).then((res) => {
+    Axios.post("/homeaccordian", data).then((res) => {
       navigate("/admin-dashboard");
     });
   };

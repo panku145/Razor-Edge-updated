@@ -54,12 +54,12 @@ const AdminSolutionPageAdd = () => {
     formData.append("sol1Fifthcard2Text", sol1Fifthcard2Text);
     formData.append("sol1Fifthcard3Text", sol1Fifthcard3Text);
     formData.append("sol1Fifthcard4Text", sol1Fifthcard4Text);
- 
+
     formData.append("sol2FirstImage", sol2FirstImage);
     formData.append("sol2FirstImageFilename", sol2FirstImage.name);
     formData.append("sol2ThirdImage", sol2ThirdImage);
     formData.append("sol2ThirdImageFilename", sol2ThirdImage.name);
-     
+
     formData.append("sol1Fifthcard1Image", sol1Fifthcard1Image);
     formData.append("sol1Fifthcard1ImageFilename", sol1Fifthcard1Image.name);
     formData.append("sol1Fifthcard2Image", sol1Fifthcard2Image);
@@ -69,7 +69,7 @@ const AdminSolutionPageAdd = () => {
     formData.append("sol1Fifthcard4Image", sol1Fifthcard4Image);
     formData.append("sol1Fifthcard4ImageFilename", sol1Fifthcard4Image.name);
 
-    Axios.post("http://localhost:5000/solution2-create", formData);
+    Axios.post("/solution2-create", formData);
     navigate("/admin-dashboard");
   };
 

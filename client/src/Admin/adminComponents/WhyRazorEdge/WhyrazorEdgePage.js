@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import ReactPlayer from "react-player";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useNavigate } from "react-router-dom";
-import parse from "html-react-parser"; 
+import parse from "html-react-parser";
 
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
@@ -16,7 +16,6 @@ import { convertToHTML } from "draft-convert";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const WhyrazorEdgePage = (props) => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -30,9 +29,8 @@ const WhyrazorEdgePage = (props) => {
     setConvertedContent(currentContentAsHTML);
   };
 
-
   // -----------------
-  
+
   const [editorState1, setEditorState1] = useState(() =>
     EditorState.createEmpty()
   );
@@ -47,7 +45,6 @@ const WhyrazorEdgePage = (props) => {
     setConvertedContent1(currentContentAsHTML);
   };
 
-
   // -----------------
 
   const [upload, setUpload] = useState();
@@ -61,38 +58,36 @@ const WhyrazorEdgePage = (props) => {
   };
 
   const navigate = useNavigate();
-  const [WRESec1heading1, setWRESec1heading] = useState('');
-  const [WRESec1subheading1, setWRESec1subheading] = useState('');
-  const [WRESec1image1, setWRESec1image] = useState('');
-  const [WRESec2pera1, setWRESec2pera] = useState('');
-  const [WRESec2heading1, setWRESec2heading] = useState('');
-  const [WRESec2leftimg1, setWRESec2leftimg] = useState('');
-  const [WRESec2rightimg1, setWRESec2rightimg] = useState('');
-  const [WRESec3heading1, setWRESec3heading] = useState('');
-  const [WRESec3SliderHeading1, setWRESec3SliderHeading] = useState('');
-  const [WRESec3SliderImage1, setWRESec3SliderImage] = useState('');
-  const [WRESec3SliderPera11, setWRESec3SliderPera1] = useState('');
-  const [WRESec3SliderPera21, setWRESec3SliderPera2] = useState('');
-  const [WRESec4Part1pera1, setWRESec4Part1pera] = useState('');
-  const [WRESec4Part2pera1, setWRESec4Part2pera] = useState('');
-  const [WRESec4Part3pera1, setWRESec4Part3pera] = useState('');
+  const [WRESec1heading1, setWRESec1heading] = useState("");
+  const [WRESec1subheading1, setWRESec1subheading] = useState("");
+  const [WRESec1image1, setWRESec1image] = useState("");
+  const [WRESec2pera1, setWRESec2pera] = useState("");
+  const [WRESec2heading1, setWRESec2heading] = useState("");
+  const [WRESec2leftimg1, setWRESec2leftimg] = useState("");
+  const [WRESec2rightimg1, setWRESec2rightimg] = useState("");
+  const [WRESec3heading1, setWRESec3heading] = useState("");
+  const [WRESec3SliderHeading1, setWRESec3SliderHeading] = useState("");
+  const [WRESec3SliderImage1, setWRESec3SliderImage] = useState("");
+  const [WRESec3SliderPera11, setWRESec3SliderPera1] = useState("");
+  const [WRESec3SliderPera21, setWRESec3SliderPera2] = useState("");
+  const [WRESec4Part1pera1, setWRESec4Part1pera] = useState("");
+  const [WRESec4Part2pera1, setWRESec4Part2pera] = useState("");
+  const [WRESec4Part3pera1, setWRESec4Part3pera] = useState("");
 
-  const [WRESec5Subheading1, setWRESec5Subheading] = useState('');
-  const [WRESec5btntxt1, setWRESec5btntxt] = useState('');
-  const [WRESec5heading1, setWRESec5heading] = useState('');
+  const [WRESec5Subheading1, setWRESec5Subheading] = useState("");
+  const [WRESec5btntxt1, setWRESec5btntxt] = useState("");
+  const [WRESec5heading1, setWRESec5heading] = useState("");
 
   const [accordian, setAccordian] = useState([]);
   const [update, setupdate] = useState(false);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/wreaccordian").then((res) =>
-      setAccordian(res.data)
-    ); 
+    Axios.get("/wreaccordian").then((res) => setAccordian(res.data));
 
-    const getData = async() => {
-      let res = await Axios.get("http://localhost:5000/why-razor-edge-get");
+    const getData = async () => {
+      let res = await Axios.get("/why-razor-edge-get");
 
-      res.data.map((value) => { 
+      res.data.map((value) => {
         console.log(value);
         setWRESec1heading(value.whyRazorEdgeFirstSection.WRESec1heading);
         setWRESec1image(value.whyRazorEdgeFirstSection.WRESec1image);
@@ -103,9 +98,15 @@ const WhyrazorEdgePage = (props) => {
         setWRESec2pera(value.whyRazorEdgeSecondSection.WRESec2pera);
         setWRESec2rightimg(value.whyRazorEdgeSecondSection.WRESec2rightimg);
 
-        setWRESec3SliderHeading(value.whyRazorEdgeThirdSection.WRESec3SliderHeading);
-        setWRESec3SliderPera1(value.whyRazorEdgeThirdSection.WRESec3SliderPera1);
-        setWRESec3SliderPera2(value.whyRazorEdgeThirdSection.WRESec3SliderPera2);
+        setWRESec3SliderHeading(
+          value.whyRazorEdgeThirdSection.WRESec3SliderHeading
+        );
+        setWRESec3SliderPera1(
+          value.whyRazorEdgeThirdSection.WRESec3SliderPera1
+        );
+        setWRESec3SliderPera2(
+          value.whyRazorEdgeThirdSection.WRESec3SliderPera2
+        );
         setWRESec3heading(value.whyRazorEdgeThirdSection.WRESec3heading);
 
         setWRESec4Part1pera(value.whyRazorEdgeFourthSection.WRESec4Part1pera);
@@ -115,20 +116,19 @@ const WhyrazorEdgePage = (props) => {
         setWRESec5Subheading(value.whyRazorEdgeFifthSection.WRESec5Subheading);
         setWRESec5btntxt(value.whyRazorEdgeFifthSection.WRESec5btntxt);
         setWRESec5heading(value.whyRazorEdgeFifthSection.WRESec5heading);
-      })
-    }
+      });
+    };
 
     getData();
 
     navigate("/admin-why-razor-edge");
-
   }, []);
 
   const updateData = async (e) => {
     // e.preventdefault()
     const formData = new FormData();
 
-    formData.append("WRESec1heading", convertedContent1 || WRESec1heading1); 
+    formData.append("WRESec1heading", convertedContent1 || WRESec1heading1);
     // formData.append("WRESec1heading", WRESec1heading1);
     formData.append("WRESec1subheading", WRESec1subheading1);
     formData.append("WRESec2pera", convertedContent || WRESec2pera1);
@@ -157,7 +157,7 @@ const WhyrazorEdgePage = (props) => {
     formData.append("WRESec3SliderImageFilename", WRESec3SliderImage1.name);
     formData.append("id", props.id);
 
-    await Axios.put("http://localhost:5000/why-razor-edge-update", formData);
+    await Axios.put("/why-razor-edge-update", formData);
     navigate("/admin-why-razor-edge");
     // window.location.reload();
   };
@@ -168,10 +168,7 @@ const WhyrazorEdgePage = (props) => {
 
   return (
     <>
-      <form
-        id="post"
-        encType="multipart/form-data"
-      >
+      <form id="post" encType="multipart/form-data">
         <div className="why-us-sec ">
           <div className="container">
             <div className="our-solution-head text-center py-5">
@@ -197,20 +194,20 @@ const WhyrazorEdgePage = (props) => {
                   WRESec1heading1
                 )}
               </p> */}
-                {update ? (
-                  <>
-                    <Editor
-                      editorState1={editorState1}
-                      onEditorStateChange={handleEditorChange1}
-                      wrapperClassName="wrapper-class"
-                      editorClassName="editor-class"
-                      toolbarClassName="toolbar-class"
-                    />
-                    {parse(WRESec1heading1)}
-                  </>
-                ) : (
-                  parse(WRESec1heading1)
-                )}
+              {update ? (
+                <>
+                  <Editor
+                    editorState1={editorState1}
+                    onEditorStateChange={handleEditorChange1}
+                    wrapperClassName="wrapper-class"
+                    editorClassName="editor-class"
+                    toolbarClassName="toolbar-class"
+                  />
+                  {parse(WRESec1heading1)}
+                </>
+              ) : (
+                parse(WRESec1heading1)
+              )}
             </div>
           </div>
           <div className="empty-div"></div>
@@ -225,7 +222,7 @@ const WhyrazorEdgePage = (props) => {
                 />
               ) : (
                 <img
-                  src={`http://localhost:5000/images/${WRESec1image1}`}
+                  src={`/images/${WRESec1image1}`}
                   className="whyUs"
                   alt="whyUs"
                 />
@@ -265,8 +262,8 @@ const WhyrazorEdgePage = (props) => {
                     <ReactPlayer
                       playing={true}
                       controls={true}
-                      light={`http://localhost:5000/images/video-img.jpg`}
-                      url={`http://localhost:5000/images/${WRESec1image1}`}
+                      light={`/images/video-img.jpg`}
+                      url={`/images/${WRESec1image1}`}
                     />
                   </div>
                 )
@@ -281,7 +278,7 @@ const WhyrazorEdgePage = (props) => {
                 <div className="player-wrapper">
                   <ReactPlayer
                     playing={true}
-                    light={`http://localhost:5000/images/video-img.jpg`}
+                    light={`/images/video-img.jpg`}
                     url={WRESec1image1}
                   />
                 </div>
@@ -303,7 +300,7 @@ const WhyrazorEdgePage = (props) => {
                   />
                 ) : (
                   <img
-                    src={`http://localhost:5000/images/${WRESec2leftimg1}`}
+                    src={`/images/${WRESec2leftimg1}`}
                     className="problem1"
                     alt="problem1"
                   />
@@ -339,21 +336,21 @@ const WhyrazorEdgePage = (props) => {
                     WRESec2heading1
                   )}
                 </h2>
-                  {update ? (
-                    <>
-                      {parse(WRESec2pera1)}
-                      <Editor
-                        editorState={editorState}
-                        onEditorStateChange={handleEditorChange}
-                        wrapperClassName="wrapper-class"
-                        editorClassName="editor-class"
-                        toolbarClassName="toolbar-class"
-                      />
-                    </>
-                  ) : (
-                    // WRESec2pera1
-                    parse(WRESec2pera1)
-                  )}
+                {update ? (
+                  <>
+                    {parse(WRESec2pera1)}
+                    <Editor
+                      editorState={editorState}
+                      onEditorStateChange={handleEditorChange}
+                      wrapperClassName="wrapper-class"
+                      editorClassName="editor-class"
+                      toolbarClassName="toolbar-class"
+                    />
+                  </>
+                ) : (
+                  // WRESec2pera1
+                  parse(WRESec2pera1)
+                )}
               </div>
             </div>
             <div className="col-md-2">
@@ -367,7 +364,7 @@ const WhyrazorEdgePage = (props) => {
                   />
                 ) : (
                   <img
-                    src={`http://localhost:5000/images/${WRESec2rightimg1}`}
+                    src={`/images/${WRESec2rightimg1}`}
                     className="problem1"
                     alt="problem1"
                   />
@@ -415,7 +412,7 @@ const WhyrazorEdgePage = (props) => {
                               />
                             ) : (
                               <img
-                                src={`http://localhost:5000/images/${WRESec3SliderImage1}`}
+                                src={`/images/${WRESec3SliderImage1}`}
                                 className="bulletsImg"
                                 alt="bulletsImg"
                               />

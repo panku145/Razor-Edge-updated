@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 import { useNavigate } from "react-router-dom";
 
 const CaseStudyPage = (props) => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [caseStudy, setCaseStudy] = useState([]);
   const [casefirstheading1, setcasefirstheading] = useState(
     props.casefirstheading
@@ -25,9 +25,7 @@ const CaseStudyPage = (props) => {
   const [updateMode, setUpdateMode] = useState(false);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/case-studies-get").then((res) =>
-      setCaseStudy(res.data)
-    );
+    Axios.get("/case-studies-get").then((res) => setCaseStudy(res.data));
   }, []);
 
   const updateData = async () => {
@@ -37,11 +35,11 @@ const CaseStudyPage = (props) => {
       casefirstpera: casefirstpera1,
       casesecondheading: casesecondheading1,
       casesecondbtntext: casesecondbtntext1,
-      casesecondpera: casesecondpera1,  
+      casesecondpera: casesecondpera1,
       _id: props.id,
     };
-    Axios.post("http://localhost:5000/casestudy-page-update", data).then(
-      (res) => window.location.reload() 
+    Axios.post("/casestudy-page-update", data).then((res) =>
+      window.location.reload()
     );
   };
 
@@ -90,7 +88,7 @@ const CaseStudyPage = (props) => {
                 <div className="col-xl-4 col-lg-4 col-md-4 latest-post-img-col ">
                   <div className="latest-post-img-container">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="integration"
                       alt="integration"
                     />
@@ -138,7 +136,7 @@ const CaseStudyPage = (props) => {
                 >
                   <div className="all-post-inner-cl">
                     <img
-                      src={`http://localhost:5000/images/${value.img}`}
+                      src={`/images/${value.img}`}
                       className="allBlog1"
                       alt="allBlog1"
                     />

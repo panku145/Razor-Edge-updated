@@ -8,7 +8,6 @@ import DOMPurify from "dompurify";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminDisclaimer = () => {
-
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [title1, setTitle] = useState(data.title);
@@ -18,28 +17,28 @@ const AdminDisclaimer = () => {
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
-   const [convertedContent, setConvertedContent] = useState(null);
-   const handleEditorChange = (state) => {
-     setEditorState(state);
-     convertContentToHTML();
-   };
-   const convertContentToHTML = () => {
-     let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
-     setConvertedContent(currentContentAsHTML);
+  const [convertedContent, setConvertedContent] = useState(null);
+  const handleEditorChange = (state) => {
+    setEditorState(state);
+    convertContentToHTML();
   };
-  
-   const createMarkup = (html) => {
-     return {
-       __html: DOMPurify.sanitize(html),
-     };
+  const convertContentToHTML = () => {
+    let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
+    setConvertedContent(currentContentAsHTML);
+  };
+
+  const createMarkup = (html) => {
+    return {
+      __html: DOMPurify.sanitize(html),
+    };
   };
 
   let id;
 
   data.map((value) => {
-    id = value._id
-  })
-  
+    id = value._id;
+  });
+
   const updateData = async () => {
     const data = {
       title: title1,
@@ -47,20 +46,17 @@ const AdminDisclaimer = () => {
       id: id,
     };
 
-    Axios.put(`http://localhost:5000/disclaimers/`, data); 
+    Axios.put(`/disclaimers/`, data);
     window.location.reload();
     navigate("/admin-disclaimer");
   };
 
-   useEffect(() => {
-    Axios.get("http://localhost:5000/disclaimers/").then((res) =>
-      setData(res.data)
-    );
+  useEffect(() => {
+    Axios.get("/disclaimers/").then((res) => setData(res.data));
   }, []);
 
   return (
     <>
-
       <div className="accept-of-terms-sec">
         <div className="container">
           <div className="accept-of-terms-txt-container">
@@ -98,6 +94,6 @@ const AdminDisclaimer = () => {
       <button onClick={() => setupdate(true)}>Edit</button>
     </>
   );
-}
+};
 
-export default AdminDisclaimer
+export default AdminDisclaimer;

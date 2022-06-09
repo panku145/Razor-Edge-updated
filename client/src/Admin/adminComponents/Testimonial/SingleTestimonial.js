@@ -14,7 +14,7 @@ const SingleTestimonial = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await Axios.get("http://localhost:5000/testimonial/" + id);
+      const res = await Axios.get("/testimonial/" + id);
       setData(res.data);
       setImg(res.data.img);
       setDesc(res.data.desc);
@@ -32,18 +32,18 @@ const SingleTestimonial = () => {
     formData.append("imgFilename", img.name);
     formData.append("logoFilename", logo.name);
 
-    Axios.put(`http://localhost:5000/testimonial/${data._id}`, formData);
+    Axios.put(`/testimonial/${data._id}`, formData);
     navigate("/admin-dashboard");
   };
 
   const deleteData = () => {
-    Axios.delete(`http://localhost:5000/testimonial/${data._id}`);
+    Axios.delete(`/testimonial/${data._id}`);
     navigate("/admin-dashboard");
-  }
+  };
 
   const addData = () => {
-    navigate("/admin-testimonial-add");  
-  }
+    navigate("/admin-testimonial-add");
+  };
 
   return (
     <>

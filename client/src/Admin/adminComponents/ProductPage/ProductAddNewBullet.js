@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";  
+import { useNavigate } from "react-router-dom";
 
 const ProductAddNewBullet = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [bullets, setBullets] = useState([]);
-  const [pageName, setpageName] = useState('');
+  const [pageName, setpageName] = useState("");
   const [data, setdata] = useState("no text added");
 
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get("http://localhost:5000/product-get/" + id);  
+      const res = await Axios.get("/product-get/" + id);
       setBullets(res.data.proSecondBullets);
-      setpageName(res.data.pageName); 
+      setpageName(res.data.pageName);
     };
     get();
   }, []);
@@ -26,10 +26,10 @@ const ProductAddNewBullet = () => {
 
   const updateData = () => {
     const newdata = {
-      proSecondBullets: bullets, 
+      proSecondBullets: bullets,
     };
-    Axios.put(`http://localhost:5000/product-update/${id}`, newdata).then(
-      (res) => navigate(`/admin-product/${pageName}`)
+    Axios.put(`/product-update/${id}`, newdata).then((res) =>
+      navigate(`/admin-product/${pageName}`)
     );
   };
 

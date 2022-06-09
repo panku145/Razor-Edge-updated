@@ -8,13 +8,12 @@ import HomeProductList from "../adminComponents/Home/HomeProductList";
 // import { Link } from "react-router-dom";
 
 import parse from "html-react-parser";
-import { EditorState } from "draft-js"; 
+import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import { convertToHTML } from "draft-convert";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminHomePage = (props) => {
-  
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -29,7 +28,7 @@ const AdminHomePage = (props) => {
   };
 
   // -----------------
-  
+
   const [editorState1, setEditorState1] = useState(() =>
     EditorState.createEmpty()
   );
@@ -78,7 +77,7 @@ const AdminHomePage = (props) => {
   const [upload, setUpload] = useState();
 
   // useEffect(() => {
-  //   Axios.get("http://localhost:5000/solution2-get").then((res) =>
+  //   Axios.get("/solution2-get").then((res) =>
   //     setSolutionPages(res.data)
   //   );
   // }, []);
@@ -113,10 +112,7 @@ const AdminHomePage = (props) => {
     formData.append("proSecmainimageFilename", proSecmainimage1.name);
     formData.append("id", props.id);
 
-    await Axios.put(
-      "http://localhost:5000/home-update",
-      formData
-    );
+    await Axios.put("/home-update", formData);
     window.location.reload();
   };
 
@@ -238,8 +234,8 @@ const AdminHomePage = (props) => {
                             <ReactPlayer
                               playing={true}
                               controls={true}
-                              light={`http://localhost:5000/images/video-img.jpg`}
-                              url={`http://localhost:5000/images/${herovideoimage1}`}
+                              light={`/images/video-img.jpg`}
+                              url={`/images/${herovideoimage1}`}
                             />
                           </div>
                         )
@@ -254,7 +250,7 @@ const AdminHomePage = (props) => {
                         <div className="player-wrapper">
                           <ReactPlayer
                             playing={true}
-                            light={`http://localhost:5000/images/video-img.jpg`}
+                            light={`/images/video-img.jpg`}
                             url={herovideoimage1}
                           />
                         </div>
@@ -322,7 +318,7 @@ const AdminHomePage = (props) => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${bulletimage1}`}
+                      src={`/images/${bulletimage1}`}
                       className="BullrtsImg"
                       alt="BullrtsImg"
                     />
@@ -404,7 +400,7 @@ const AdminHomePage = (props) => {
                         />
                       ) : (
                         <img
-                          src={`http://localhost:5000/images/${solutionimage1}`}
+                          src={`/images/${solutionimage1}`}
                           className="Solution"
                           alt="Solution"
                         />
@@ -465,7 +461,7 @@ const AdminHomePage = (props) => {
                     />
                   ) : (
                     <img
-                      src={`http://localhost:5000/images/${proSecmainimage1}`}
+                      src={`/images/${proSecmainimage1}`}
                       className="product"
                       alt="product"
                     />
@@ -505,6 +501,6 @@ const AdminHomePage = (props) => {
       </button>
     </>
   );
-};;
+};
 
 export default AdminHomePage;

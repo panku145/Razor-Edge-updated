@@ -10,7 +10,7 @@ const Signup = () => {
 
   const postdata = async (e) => {
     await Axios.post(
-      "http://localhost:5000/user/register",
+      "/user/register",
       { email, password, role },
       { withCredentials: true }
     );

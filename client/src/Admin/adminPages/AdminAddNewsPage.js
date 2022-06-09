@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
@@ -9,7 +9,6 @@ import parse from "html-react-parser";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminAddNewsPage = () => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -27,7 +26,7 @@ const AdminAddNewsPage = () => {
   const [title, setTitle] = useState("No Title Added");
   const [desc, setDesc] = useState("No Description Added");
   const [img, setImg] = useState("../../images/newsroom/blog1.png");
- 
+
   const onChangeFile = (e) => {
     setImg(e.target.files[0]);
   };
@@ -40,7 +39,7 @@ const AdminAddNewsPage = () => {
     // formData.append("desc", desc);
     formData.append("img", img);
 
-    Axios.post("http://localhost:5000/news-get", formData);
+    Axios.post("/news-get", formData);
     navigate("/admin-news");
   };
 

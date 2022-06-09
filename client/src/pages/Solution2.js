@@ -6,38 +6,34 @@ import { useNavigate } from "react-router-dom";
 import parse from "html-react-parser";
 
 const Solution2 = () => {
-
   const navigate = useNavigate();
-  const { id } = useParams(); 
-  const [data, setData] = useState([]); 
-  const [sol2FirstPera, setsol2FirstPera] = useState('');
-  const [sol2FirstMainPera, setsol2FirstMainPera] = useState(""); 
-  const [sol2SecondPera, setsol2SecondPera] = useState(""); 
-  const [sol2ThirdPera, setsol2ThirdPera] = useState(""); 
-  const [sol2FourthPera, setsol2FourthPera] = useState(""); 
-
+  const { id } = useParams();
+  const [data, setData] = useState([]);
+  const [sol2FirstPera, setsol2FirstPera] = useState("");
+  const [sol2FirstMainPera, setsol2FirstMainPera] = useState("");
+  const [sol2SecondPera, setsol2SecondPera] = useState("");
+  const [sol2ThirdPera, setsol2ThirdPera] = useState("");
+  const [sol2FourthPera, setsol2FourthPera] = useState("");
 
   useEffect(() => {
-    const get = async () => { 
-      const res = await Axios.get(
-        "http://localhost:5000/solution2-get/" + id
-      );
+    const get = async () => {
+      const res = await Axios.get("/solution2-get/" + id);
       setData(res.data);
       setsol2FirstPera(res.data.sol2FirstPera);
       setsol2FirstMainPera(res.data.sol2FirstMainPera);
       setsol2SecondPera(res.data.sol2SecondPera);
       setsol2ThirdPera(res.data.sol2ThirdPera);
       setsol2FourthPera(res.data.sol2FourthPera);
-    }
+    };
     get();
   }, [id]);
- 
+
   let onClickCard1 = () => {
     navigate("/products/-Risk-Management");
   };
 
   let onClickCard2 = () => {
-    navigate("/products/Portfolio-Management"); 
+    navigate("/products/Portfolio-Management");
   };
 
   let onClickCard3 = () => {
@@ -67,7 +63,7 @@ const Solution2 = () => {
             <div className=" col-lg-6 col-md-6 integration-data-col pb-3">
               <div className="bullet-img-sec">
                 <img
-                  src={`http://localhost:5000/images/${data.sol2FirstImage}`}
+                  src={`/images/${data.sol2FirstImage}`}
                   className="whyUs"
                   alt="whyUs"
                 />
@@ -93,7 +89,7 @@ const Solution2 = () => {
             <div className=" col-lg-6 col-md-6 integration-data-col">
               <div className="bullet-img-sec">
                 <img
-                  src={`http://localhost:5000/images/${data.sol2ThirdImage}`}
+                  src={`/images/${data.sol2ThirdImage}`}
                   className="bulletsImg"
                   alt="bulletsImg"
                 />
@@ -142,7 +138,7 @@ const Solution2 = () => {
             >
               <div className="product-first-img">
                 <img
-                  src={`http://localhost:5000/images/${data.sol1Fifthcard1Image}`}
+                  src={`/images/${data.sol1Fifthcard1Image}`}
                   className={data.sol1Fifthcard1Image}
                   alt={data.sol1Fifthcard1Image}
                 />
@@ -158,7 +154,7 @@ const Solution2 = () => {
             >
               <div className="product-first-img">
                 <img
-                  src={`http://localhost:5000/images/${data.sol1Fifthcard2Image}`}
+                  src={`/images/${data.sol1Fifthcard2Image}`}
                   className={data.sol1Fifthcard2Image}
                   alt={data.sol1Fifthcard2Image}
                 />
@@ -174,7 +170,7 @@ const Solution2 = () => {
             >
               <div className="product-first-img">
                 <img
-                  src={`http://localhost:5000/images/${data.sol1Fifthcard3Image}`}
+                  src={`/images/${data.sol1Fifthcard3Image}`}
                   className={data.sol1Fifthcard3Image}
                   alt={data.sol1Fifthcard3Image}
                 />
@@ -190,7 +186,7 @@ const Solution2 = () => {
             >
               <div className="product-first-img">
                 <img
-                  src={`http://localhost:5000/images/${data.sol1Fifthcard4Image}`}
+                  src={`/images/${data.sol1Fifthcard4Image}`}
                   className={data.sol1Fifthcard4Image}
                   alt={data.sol1Fifthcard4Image}
                 />

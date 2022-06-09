@@ -4,9 +4,9 @@
 // import CareerGallery from "./CareerGallery";
 // import CareerBenefits from "./CareerBenefits";
 
-// import { EditorState } from "draft-js"; 
+// import { EditorState } from "draft-js";
 // import { Editor } from "react-draft-wysiwyg";
-// import { convertToHTML } from "draft-convert"; 
+// import { convertToHTML } from "draft-convert";
 // import parse from "html-react-parser";
 // import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
@@ -16,7 +16,7 @@
 //   );
 //   const [convertedContent, setConvertedContent] = useState(null);
 //   const handleEditorChange = (state) => {
-//     setEditorState(state); 
+//     setEditorState(state);
 //     convertContentToHTML();
 //   };
 //   const convertContentToHTML = () => {
@@ -51,18 +51,18 @@
 //       // navigate("/admin-career");
 
 //       await Axios.get(
-//         "http://localhost:5000/development-jobs"
+//         "/development-jobs"
 //       ).then((res) => setDevelopment(res.data));
 
 //       await Axios.get(
-//         "http://localhost:5000/management-jobs"
+//         "/management-jobs"
 //       ).then((res) => setManagement(res.data));
 
 //       await Axios.get(
-//         "http://localhost:5000/operation-jobs"
+//         "/operation-jobs"
 //       ).then((res) => setOperation(res.data));
 
-//       // Axios.get("http://localhost:5000/career").then((res) =>
+//       // Axios.get("/career").then((res) =>
 //       //   res.data.map((value) => {
 //       //     setSec2heading(value.Sec2.heading);
 //       //     setSec2pera(value.Sec2.pera);
@@ -76,7 +76,7 @@
 //       //   console.log(res.data);
 
 //       const res = await Axios.get(
-//         "http://localhost:5000/career"
+//         "/career"
 //       );
 //       res.data.map((value) => {
 //         setSec1heading(value.Sec1.heading);
@@ -98,11 +98,11 @@
 //     get();
 //   }, []);
 
-//   const updateData = async (e) => { 
+//   const updateData = async (e) => {
 //     // e.preventdefault()
 //     const formData = new FormData();
 
-//     formData.append("sec1heading", sec1heading1); 
+//     formData.append("sec1heading", sec1heading1);
 //     formData.append("sec1subheading", sec1subheading1);
 //     formData.append("sec1btntxt", sec1btntxt1);
 //     formData.append("sec2heading", sec2heading1);
@@ -114,9 +114,9 @@
 //     formData.append("sec4subheading", sec4subheading1);
 //     formData.append("img", sec1img1);
 //     formData.append("imgFilename", sec1img1.name);
-//     formData.append("id", props.id); 
+//     formData.append("id", props.id);
 
-//     await Axios.put("http://localhost:5000/career", formData);
+//     await Axios.put("/career", formData);
 //     navigate("/admin-career");
 //     // window.location.reload();
 //   };
@@ -189,7 +189,7 @@
 //             />
 //           ) : (
 //             <img
-//               src={`http://localhost:5000/images/${sec1img1}`}
+//               src={`/images/${sec1img1}`}
 //               className="career-img"
 //               alt="Intersection"
 //             />

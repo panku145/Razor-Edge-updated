@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import PartnersPage from '../adminComponents/Partners/PartnersPage';
+import PartnersPage from "../adminComponents/Partners/PartnersPage";
 
 const AdminPartnersPage = () => {
+  const [patners, setPartners] = useState([]);
 
-    const [patners, setPartners] = useState([]);
-
-    useEffect(() => {
-    Axios.get("http://localhost:5000/partners").then((res) =>
-      setPartners(res.data)
-    );
-    }, []);
+  useEffect(() => {
+    Axios.get("/partners").then((res) => setPartners(res.data));
+  }, []);
 
   return (
     <>
       {patners.map((value, index) => (
-        <PartnersPage  
+        <PartnersPage
           key={index}
           heading={value.heading}
           subheading={value.subheading}
@@ -25,6 +22,6 @@ const AdminPartnersPage = () => {
       ))}
     </>
   );
-}
+};
 
-export default AdminPartnersPage
+export default AdminPartnersPage;

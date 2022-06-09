@@ -6,14 +6,13 @@ const Partners = () => {
   const [partnersService, setPatnersSerevice] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/partners").then((res) => {
+    Axios.get("/partners").then((res) => {
       setpatners(res.data);
     });
-    
-    Axios.get("http://localhost:5000/partner-service").then((res) => { 
+
+    Axios.get("/partner-service").then((res) => {
       setPatnersSerevice(res.data);
     });
-
   }, []);
 
   return (
@@ -50,7 +49,7 @@ const Partners = () => {
               <div className="col-xl-3 col-lg-4 col-md-4" key={index}>
                 <div className="partners-inner-components">
                   <img
-                    src={`http://localhost:5000/images/${value.img}`}
+                    src={`/images/${value.img}`}
                     className="data"
                     alt="data"
                   />

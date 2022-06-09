@@ -9,7 +9,6 @@ import parse from "html-react-parser";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminAddBlogPage = () => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -40,7 +39,7 @@ const AdminAddBlogPage = () => {
     // formData.append("desc", desc);
     formData.append("img", img);
 
-    Axios.post("http://localhost:5000/blogs-get", formData);
+    Axios.post("/blogs-get", formData);
     navigate("/admin-blogs");
   };
 

@@ -13,7 +13,7 @@ const OperationSingle = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await Axios.get("http://localhost:5000/operation-jobs/" + id); 
+      const res = await Axios.get("/operation-jobs/" + id);
       setData(res.data);
       setTitle(res.data.title);
       setLocation(res.data.location);
@@ -23,18 +23,18 @@ const OperationSingle = () => {
 
   const updateData = async () => {
     try {
-      await Axios.put(`http://localhost:5000/operation-jobs/${data._id}`, {
+      await Axios.put(`/operation-jobs/${data._id}`, {
         title,
         location,
       });
-      navigate("/admin-career"); 
+      navigate("/admin-career");
     } catch (err) {
       console.log(err);
     }
   };
 
   const deleteData = () => {
-    Axios.delete(`http://localhost:5000/operation-jobs/${data._id}`); 
+    Axios.delete(`/operation-jobs/${data._id}`);
     navigate("/admin-career");
   };
 

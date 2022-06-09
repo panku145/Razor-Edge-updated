@@ -112,7 +112,7 @@
 //     formData.append("proFourthCards4imgFilename", proFourthCards4img1.name);
 //     formData.append("id", props.id);
 
-//     await Axios.put("http://localhost:5000/product-update", formData);
+//     await Axios.put("/product-update", formData);
 //     // navigate("/admin-product");
 //     window.location.reload();
 //   };
@@ -122,7 +122,7 @@
 //     const newdata = {
 //       proSecondBullets: proSecondBullets1,
 //     };
-//     Axios.put(`http://localhost:5000/product-update/${props.id}`, newdata).then(
+//     Axios.put(`/product-update/${props.id}`, newdata).then(
 //       (res) => navigate("/admin-product")
 //     );
 //   };
@@ -132,7 +132,7 @@
 //     const newdata = {
 //       proThirdAccordia: proThirdAccordia1,
 //     };
-//     Axios.put(`http://localhost:5000/product-update/${props.id}`, newdata).then(
+//     Axios.put(`/product-update/${props.id}`, newdata).then(
 //       (res) => navigate("/admin-product")
 //     );
 //   };
@@ -192,7 +192,7 @@
 //                     />
 //                   ) : (
 //                     <img
-//                       src={`http://localhost:5000/images/${proFirstImage1}`}
+//                       src={`/images/${proFirstImage1}`}
 //                       className="VideoImg"
 //                       alt="VideoImg"
 //                     />
@@ -241,7 +241,7 @@
 //                     />
 //                   ) : (
 //                     <img
-//                       src={`http://localhost:5000/images/${proSecondImage1}`}
+//                       src={`/images/${proSecondImage1}`}
 //                       className="VideoImg"
 //                       alt="VideoImg"
 //                     />
@@ -295,7 +295,7 @@
 //                     />
 //                   ) : (
 //                     <img
-//                       src={`http://localhost:5000/images/${proThirdImage1}`}
+//                       src={`/images/${proThirdImage1}`}
 //                       className="VideoImg"
 //                       alt="VideoImg"
 //                     />
@@ -384,7 +384,7 @@
 //                     />
 //                   ) : (
 //                     <img
-//                       src={`http://localhost:5000/images/${proFourthCards1img1}`}
+//                       src={`/images/${proFourthCards1img1}`}
 //                       className={proFourthCards1img1}
 //                       alt={proFourthCards1img1}
 //                     />
@@ -428,7 +428,7 @@
 //                     />
 //                   ) : (
 //                     <img
-//                       src={`http://localhost:5000/images/${proFourthCards2img1}`}
+//                       src={`/images/${proFourthCards2img1}`}
 //                       className={proFourthCards2img1}
 //                       alt={proFourthCards2img1}
 //                     />
@@ -472,7 +472,7 @@
 //                     />
 //                   ) : (
 //                     <img
-//                       src={`http://localhost:5000/images/${proFourthCards3img1}`}
+//                       src={`/images/${proFourthCards3img1}`}
 //                       className={proFourthCards3img1}
 //                       alt={proFourthCards3img1}
 //                     />
@@ -516,7 +516,7 @@
 //                     />
 //                   ) : (
 //                     <img
-//                       src={`http://localhost:5000/images/${proFourthCards4img1}`}
+//                       src={`/images/${proFourthCards4img1}`}
 //                       className={proFourthCards4img1}
 //                       alt={proFourthCards4img1}
 //                     />

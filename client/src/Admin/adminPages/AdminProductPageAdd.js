@@ -8,7 +8,6 @@ import { convertToHTML } from "draft-convert";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminProductPageAdd = () => {
-
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -89,7 +88,7 @@ const AdminProductPageAdd = () => {
     formData.append("proFourthCards4img", proFourthCards4img1);
     formData.append("proFourthCards4imgFilename", proFourthCards4img1.name);
 
-    Axios.post("http://localhost:5000/product-create", formData);
+    Axios.post("/product-create", formData);
     navigate("/admin-dashboard");
   };
 

@@ -10,7 +10,7 @@ const HomeAddNewBullet = () => {
     const data = {
       text,
     };
-    Axios.post("http://localhost:5000/homebullet", data).then((res) => {
+    Axios.post("/homebullet", data).then((res) => {
       navigate("/admin-dashboard");
     });
   };

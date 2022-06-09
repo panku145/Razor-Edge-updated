@@ -31,9 +31,7 @@ const WRESingleAccordian = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await Axios.get(
-        "http://localhost:5000/wreaccordian/" + id
-      );
+      const res = await Axios.get("/wreaccordian/" + id);
       setData(res.data);
       setAccordianHeading(res.data.accordianHeading);
       setAccordianDecs(res.data.accordianDecs);
@@ -43,13 +41,10 @@ const WRESingleAccordian = () => {
 
   const updateData = async () => {
     try {
-      await Axios.put(
-        `http://localhost:5000/wreaccordian/${data._id}`,
-        {
-          accordianHeading: accordianHeading,
-          accordianDecs: convertedContent,
-        }
-      );
+      await Axios.put(`/wreaccordian/${data._id}`, {
+        accordianHeading: accordianHeading,
+        accordianDecs: convertedContent,
+      });
       navigate("/admin-why-razor-edge");
     } catch (err) {
       console.log(err);
@@ -57,9 +52,9 @@ const WRESingleAccordian = () => {
   };
 
   const deleteData = () => {
-    Axios.delete(
-      `http://localhost:5000/wreaccordian/${data._id}`
-    ).then((res) => navigate("/admin-why-razor-edge"));
+    Axios.delete(`/wreaccordian/${data._id}`).then((res) =>
+      navigate("/admin-why-razor-edge")
+    );
   };
 
   const addNew = () => {
@@ -93,8 +88,8 @@ const WRESingleAccordian = () => {
                     wrapperClassName="wrapper-class"
                     editorClassName="editor-class"
                     toolbarClassName="toolbar-class"
-                    />
-                    {parse(accordianDecs)}
+                  />
+                  {parse(accordianDecs)}
                   <div className="login-submit-btn pt-3">
                     <button
                       onClick={() => updateData()}

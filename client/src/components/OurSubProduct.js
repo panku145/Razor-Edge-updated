@@ -7,9 +7,7 @@ const OurSubProduct = (props) => {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/homeproductlist").then((res) =>
-      setProductList(res.data)
-    );
+    Axios.get("/homeproductlist").then((res) => setProductList(res.data));
   }, []);
 
   return (
@@ -22,7 +20,7 @@ const OurSubProduct = (props) => {
               <h2 className="mb-5">{heading}</h2>
               <div className="product-img-conatiner">
                 <img
-                  src={`http://localhost:5000/images/${mainimage}`}
+                  src={`/images/${mainimage}`}
                   className="product"
                   alt="product"
                 />
@@ -35,7 +33,7 @@ const OurSubProduct = (props) => {
                   >
                     <div className="product-page-icon-container">
                       <img
-                        src={`http://localhost:5000/images/${value.img}`}
+                        src={`/images/${value.img}`}
                         className="multi"
                         alt="multi"
                       />

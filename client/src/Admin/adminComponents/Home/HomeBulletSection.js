@@ -6,9 +6,7 @@ const HomeBulletSection = () => {
   const [bulletPoints, setbulletPoints] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/homebullet").then((res) =>
-      setbulletPoints(res.data)
-    );
+    Axios.get("/homebullet").then((res) => setbulletPoints(res.data));
   }, []);
 
   return (
