@@ -301,8 +301,9 @@ const AdminCareerPage = () => {
                     editorState={editorState}
                     onEditorStateChange={handleEditorChange}
                     wrapperClassName="wrapper-class"
-                    editorClassName="editor-class"
+                    editorClassName="editor-class hero-main-hed-1"
                     toolbarClassName="toolbar-class"
+                    placeholder="Enter Text Here"
                   />
                   {parse(sec2pera1)}
                 </>

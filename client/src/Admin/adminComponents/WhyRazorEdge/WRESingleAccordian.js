@@ -88,6 +88,7 @@ const WRESingleAccordian = () => {
                     wrapperClassName="wrapper-class"
                     editorClassName="editor-class"
                     toolbarClassName="toolbar-class"
+                    placeholder="Enter Text Here"
                   />
                   {parse(accordianDecs)}
                   <div className="login-submit-btn pt-3">

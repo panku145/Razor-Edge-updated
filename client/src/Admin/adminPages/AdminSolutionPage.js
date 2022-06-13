@@ -270,8 +270,9 @@ const AdminSolutionPage = () => {
                       editorState={editorState}
                       onEditorStateChange={handleEditorChange}
                       wrapperClassName="wrapper-class"
-                      editorClassName="editor-class"
+                      editorClassName="editor-class hero-main-hed-1"
                       toolbarClassName="toolbar-class"
+                      placeholder="Enter Text Here"
                     />
                     {parse(sol2FirstMainPera1)}
                   </>
@@ -329,8 +330,9 @@ const AdminSolutionPage = () => {
                         editorState1={editorState1}
                         onEditorStateChange={handleEditorChange1}
                         wrapperClassName="wrapper-class"
-                        editorClassName="editor-class"
+                        editorClassName="editor-class hero-main-hed-1"
                         toolbarClassName="toolbar-class"
+                        placeholder="Enter Text Here"
                       />
                       {parse(sol2FirstPera1)}
                     </>
@@ -370,8 +372,9 @@ const AdminSolutionPage = () => {
                   editorState2={editorState2}
                   onEditorStateChange={handleEditorChange2}
                   wrapperClassName="wrapper-class"
-                  editorClassName="editor-class"
+                  editorClassName="editor-class hero-main-hed-1"
                   toolbarClassName="toolbar-class"
+                  placeholder="Enter Text Here"
                 />
                 {parse(sol2SecondPera1)}
               </>
@@ -429,8 +432,9 @@ const AdminSolutionPage = () => {
                         editorState3={editorState3}
                         onEditorStateChange={handleEditorChange3}
                         wrapperClassName="wrapper-class"
-                        editorClassName="editor-class"
+                        editorClassName="editor-class hero-main-hed-1"
                         toolbarClassName="toolbar-class"
+                        placeholder="Enter Text Here"
                       />
                       {parse(sol2ThirdPera1)}
                     </>

@@ -118,8 +118,9 @@ const AdminAddCaseStudyPage = () => {
                       editorState={editorState}
                       onEditorStateChange={handleEditorChange}
                       wrapperClassName="wrapper-class"
-                      editorClassName="editor-class"
+                      editorClassName="editor-class hero-main-hed-1"
                       toolbarClassName="toolbar-class"
+                      placeholder="Enter Text Here"
                     />
                     <div className="login-submit-btn">
                       <button type="submit" className="btn btn-primary">

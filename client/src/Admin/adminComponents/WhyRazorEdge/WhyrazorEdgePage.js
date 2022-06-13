@@ -200,8 +200,9 @@ const WhyrazorEdgePage = (props) => {
                     editorState1={editorState1}
                     onEditorStateChange={handleEditorChange1}
                     wrapperClassName="wrapper-class"
-                    editorClassName="editor-class"
+                    editorClassName="editor-class hero-main-hed-1"
                     toolbarClassName="toolbar-class"
+                    placeholder="Enter Text Here"
                   />
                   {parse(WRESec1heading1)}
                 </>
@@ -343,8 +344,9 @@ const WhyrazorEdgePage = (props) => {
                       editorState={editorState}
                       onEditorStateChange={handleEditorChange}
                       wrapperClassName="wrapper-class"
-                      editorClassName="editor-class"
+                      editorClassName="editor-class hero-main-hed-1"
                       toolbarClassName="toolbar-class"
+                      placeholder="Enter Text Here"
                     />
                   </>
                 ) : (

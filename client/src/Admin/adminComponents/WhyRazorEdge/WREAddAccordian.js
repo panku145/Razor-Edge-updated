@@ -58,8 +58,9 @@ const WREAddAccordian = () => {
                   editorState={editorState}
                   onEditorStateChange={handleEditorChange}
                   wrapperClassName="wrapper-class"
-                  editorClassName="editor-class"
+                  editorClassName="editor-class hero-main-hed-1"
                   toolbarClassName="toolbar-class"
+                  placeholder="Enter Text Here"
                 />
                 <div className="login-submit-btn pt-3">
                   <button

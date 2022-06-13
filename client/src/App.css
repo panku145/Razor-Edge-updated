@@ -2522,7 +2522,7 @@ h3 {
 }
 
 .adminPanel-accordion-sec {
-  margin-top: -314px;
+  margin-top: -52px;
   margin-bottom: 5rem;
 }
 
@@ -2967,6 +2967,20 @@ h3 {
   padding: 2rem 0;
 }
 
-#box > div{
+#box > div {
   display: flex;
+}
+
+.hero-main-hed-1 {
+  box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+  margin-bottom: 10px;
+  padding: 0 0.5rem;
+}
+
+.hero-main-full-wdth {
+  margin: 0 8rem;
+}
+
+.toolbar-class {
+  justify-content: center !important;
 }

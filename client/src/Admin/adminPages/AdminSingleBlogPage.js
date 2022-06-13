@@ -142,8 +142,9 @@ const AdminSingleBlogPage = () => {
                       editorState={editorState}
                       onEditorStateChange={handleEditorChange}
                       wrapperClassName="wrapper-class"
-                      editorClassName="editor-class"
+                      editorClassName="editor-class hero-main-hed-1"
                       toolbarClassName="toolbar-class"
+                      placeholder="Enter Text Here"
                     />
                     {parse(desc)}
                     <div className="login-submit-btn mt-3">

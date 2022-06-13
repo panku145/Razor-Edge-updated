@@ -142,8 +142,9 @@ const AdminHomePage = (props) => {
                           editorState1={editorState1}
                           onEditorStateChange={handleEditorChange1}
                           wrapperClassName="wrapper-class"
-                          editorClassName="editor-class"
+                          editorClassName="editor-class hero-main-hed-1"
                           toolbarClassName="toolbar-class"
+                          placeholder="Enter Text Here"
                         />
                       </>
                     ) : (
@@ -291,8 +292,9 @@ const AdminHomePage = (props) => {
                   editorState={editorState}
                   onEditorStateChange={handleEditorChange}
                   wrapperClassName="wrapper-class"
-                  editorClassName="editor-class"
+                  editorClassName="editor-class hero-main-hed-1 hero-main-full-wdth"
                   toolbarClassName="toolbar-class"
+                  placeholder="Enter Text Here"
                 />
                 {parse(heropera1)}
               </>

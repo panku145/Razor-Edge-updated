@@ -285,8 +285,9 @@ const AdminSolution1Page = () => {
                             editorState={editorState}
                             onEditorStateChange={handleEditorChange}
                             wrapperClassName="wrapper-class"
-                            editorClassName="editor-class"
+                            editorClassName="editor-class hero-main-hed-1"
                             toolbarClassName="toolbar-class"
+                            placeholder="Enter Text Here"
                           />
                           {parse(sol1ZeroPera1)}
                         </>
@@ -367,8 +368,9 @@ const AdminSolution1Page = () => {
                             editorState1={editorState1}
                             onEditorStateChange={handleEditorChange1}
                             wrapperClassName="wrapper-class"
-                            editorClassName="editor-class"
+                            editorClassName="editor-class hero-main-hed-1"
                             toolbarClassName="toolbar-class"
+                            placeholder="Enter Text Here"
                           />
                           {parse(sol1FirstPera1)}
                         </>
@@ -404,8 +406,9 @@ const AdminSolution1Page = () => {
                     editorState2={editorState2}
                     onEditorStateChange={handleEditorChange2}
                     wrapperClassName="wrapper-class"
-                    editorClassName="editor-class"
+                    editorClassName="editor-class hero-main-hed-1"
                     toolbarClassName="toolbar-class"
+                    placeholder="Enter Text Here"
                   />
                   {parse(sol1SecondPera1)}
                 </>
@@ -614,8 +617,9 @@ const AdminSolution1Page = () => {
                           editorState3={editorState3}
                           onEditorStateChange={handleEditorChange3}
                           wrapperClassName="wrapper-class"
-                          editorClassName="editor-class"
+                          editorClassName="editor-class hero-main-hed-1"
                           toolbarClassName="toolbar-class"
+                          placeholder="Enter Text Here"
                         />
                         {parse(sol1FourthPera1)}
                       </>
@@ -658,8 +662,9 @@ const AdminSolution1Page = () => {
                             editorState4={editorState4}
                             onEditorStateChange={handleEditorChange4}
                             wrapperClassName="wrapper-class"
-                            editorClassName="editor-class"
+                            editorClassName="editor-class hero-main-hed-1"
                             toolbarClassName="toolbar-class"
+                            placeholder="Enter Text Here"
                           />
                           {parse(sol1FifthPera1)}
                         </>
