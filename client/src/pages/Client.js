@@ -7,6 +7,7 @@ const Client = () => {
   const [clientGallery, setClientGallery] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/clientPage").then((res) => setClient(res.data));
 
     Axios.get("/clientgallery").then((res) => setClientGallery(res.data));
@@ -19,7 +20,7 @@ const Client = () => {
           {client.map((value, index) => (
             <div className="our-client-txt-container" key={index}>
               <h3>{value.subheading}</h3>
-              <h5 className="client-first-text-sec-para">
+              <h5 className="client-first-text-sec-para investment-txt-justy">
                 {parse(value.heading)}
               </h5>
             </div>
@@ -32,7 +33,10 @@ const Client = () => {
           <div className="row client-text-component-rw">
             <div className="col-xl-10">
               {client.map((value, index) => (
-                <div className="client-inner-txt-container" key={index}>
+                <div
+                  className="client-inner-txt-container investment-txt-justy"
+                  key={index}
+                >
                   <p>{parse(value.pera)}</p>
                 </div>
               ))}

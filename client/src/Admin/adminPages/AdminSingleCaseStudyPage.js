@@ -32,6 +32,7 @@ const AdminSingleCaseStudyPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getCaseStudy = async () => {
       const res = await Axios.get("/case-studies-get/" + id);
       setCaseStudy(res.data);

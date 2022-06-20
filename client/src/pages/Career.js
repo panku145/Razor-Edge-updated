@@ -10,12 +10,8 @@ const Career = () => {
   const [management, setManagement] = useState([]);
   const [operation, setOperation] = useState([]);
 
-  console.log(career);
-  console.log(development);
-  console.log(management);
-  console.log(operation);
-
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/careers").then((res) => setCareer(res.data));
 
     Axios.get("/development-jobs").then((res) => setDevelopment(res.data));
@@ -55,7 +51,7 @@ const Career = () => {
 
           <div className="people-behind-sec">
             <div className="container">
-              <div className="our-solution-head pb-5">
+              <div className="our-solution-head pb-5 investment-txt-justy">
                 <h2>{value.Sec2.heading}</h2>
                 {parse(value.Sec2.pera)}
               </div>

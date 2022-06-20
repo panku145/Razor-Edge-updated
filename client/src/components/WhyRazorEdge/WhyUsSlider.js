@@ -49,7 +49,7 @@ const WhyUsSlider = (props) => {
                         </div>
                       </div>
                       <div className=" col-lg-6 m-auto">
-                        <div className="slider-txt-container">
+                        <div className="slider-txt-container investment-txt-justy">
                           <p>{WRESec3SliderPera1}</p>
 
                           <h3 className="slider-txt-container-heading">

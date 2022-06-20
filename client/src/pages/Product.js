@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Axios from "axios";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -18,6 +18,7 @@ const Product = () => {
   const [proSecondHeading1, setProSecondHeading] = useState("");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const get = async () => {
       const res = await Axios.get("/product-get/product/" + id);
       setProduct(res.data);
@@ -52,7 +53,7 @@ const Product = () => {
           <div className="container ">
             <div className="row">
               <div className="col-lg-6 col-md-6 m-auto">
-                <div className="integration-txt-container">
+                <div className="integration-txt-container investment-txt-justy">
                   <span>{product.proFirstSubHeading}</span>
                   <h2>{product.proFirstHeading}</h2>
                   <p className="product-para">{product.proFirstPera}</p>
@@ -72,7 +73,7 @@ const Product = () => {
         </div>
         <div className="bullets-point-sec factor-edge-sec">
           <div className="container">
-            <div className="factor-edge-heading ">
+            <div className="factor-edge-heading investment-txt-justy">
               <h5>{product.proSecondSubHeading}</h5>
               {parse(proSecondHeading1)}
               {/* <p className="factor-edge-subheading-para">
@@ -89,7 +90,7 @@ const Product = () => {
                 </div>
               </div>
               <div className=" col-lg-6 m-auto">
-                <div className="bullet-txt-container">
+                <div className="bullet-txt-container investment-txt-justy">
                   {/* <ul>
                     {proSecondBullets.map((e, index) => (
                       <li key={index}>

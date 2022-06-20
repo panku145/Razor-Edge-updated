@@ -33,6 +33,7 @@ const AdminSingleNewsPage = () => {
   // const [updateMode, setUpdateMode] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getNews = async () => {
       const res = await Axios.get("/news-get/" + id);
       setNews(res.data);

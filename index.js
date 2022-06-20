@@ -20,13 +20,13 @@ app.use(cookieParser());
 
 // const cors = require("cors");
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true,
-  withCredentials: true,
-};
+// const corsOptions = {
+//   origin: "http://localhost:3000",
+//   credentials: true,
+//   withCredentials: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // DB Conection URL || URI
 dotenv.config({ path: "./config.env" });
@@ -169,17 +169,17 @@ app.use("/user", User);
 // app.use(express.static("public"));
 app.use("/images", express.static("images"));
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "./client/build")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "./client/build")));
 
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-//   });
-// } else {
-//   app.get("/", (req, res) => {
-//     res.send("api running");
-//   });
-// }
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("api running");
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`server is running at port no ${PORT}`);

@@ -84,6 +84,7 @@ const AdminRazorEdgePage = () => {
   const [update, setupdate] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getData = async () => {
       await Axios.get("/wreaccordian").then((res) => setAccordian(res.data));
       const res = await Axios.get("/why-razor-edge-get");

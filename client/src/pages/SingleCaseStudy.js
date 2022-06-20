@@ -12,6 +12,7 @@ const SingleCaseStudy = () => {
   const [createdAt, setcreatedAt] = useState("");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const get = async () => {
       const res = await Axios.get("/case-studies-get/" + id);
       setTitle(res.data.title);

@@ -6,6 +6,7 @@ const AdminClientPage = () => {
   const [clientPage, setClientPage] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/clientPage").then((res) => setClientPage(res.data));
   }, []);
 

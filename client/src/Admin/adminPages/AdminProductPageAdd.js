@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +16,10 @@ const AdminProductPageAdd = () => {
     setEditorState(state);
     convertContentToHTML();
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
   const convertContentToHTML = () => {
     let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
     setConvertedContent(currentContentAsHTML);

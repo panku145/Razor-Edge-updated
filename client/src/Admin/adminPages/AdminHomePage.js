@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import ReactPlayer from "react-player";
-import AdminTestimonial from "../adminComponents/Testimonial/AdminTestimonial";
 import HomeBulletSection from "../adminComponents/Home/HomeBulletSection";
 import HomeAccordian from "../adminComponents/Home/HomeAccordian";
 import HomeProductList from "../adminComponents/Home/HomeProductList";
@@ -76,11 +75,9 @@ const AdminHomePage = (props) => {
   const [update, setupdate] = useState(false);
   const [upload, setUpload] = useState();
 
-  // useEffect(() => {
-  //   Axios.get("/solution2-get").then((res) =>
-  //     setSolutionPages(res.data)
-  //   );
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const updateData = async (e) => {
     e.preventDefault();

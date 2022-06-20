@@ -7,11 +7,10 @@ const About = () => {
   const [data, setdat] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/get").then((res) => setdat(res.data));
     console.log("working");
   }, []);
-
-  console.log(data);
 
   return (
     <>

@@ -67,7 +67,7 @@ const HeroSubSection = (props) => {
 
       <div className="investment-decesion">
         <div className="container">
-          <div className="investment-decesion-txt investment-decesion-txt-home-page">
+          <div className="investment-decesion-txt investment-decesion-txt-home-page investment-txt-justy">
             <h4>{props.herosubheading}</h4>
             {parse(props.heropera)}
           </div>

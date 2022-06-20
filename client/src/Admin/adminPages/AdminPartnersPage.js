@@ -6,6 +6,7 @@ const AdminPartnersPage = () => {
   const [patners, setPartners] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/partners").then((res) => setPartners(res.data));
   }, []);
 

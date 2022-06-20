@@ -14,14 +14,13 @@ const Home = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/home-get").then((res) => setSolutionData(res.data));
 
     Axios.get("/why-razor-edge-get").then((res) => setWhyRazorEdge(res.data));
 
     Axios.get("/solution2-get/get-all").then((res) => setData(res.data));
   }, []);
-
-  console.log(data);
 
   let onClickCard1 = () => {
     navigate("/products/Risk-Management");

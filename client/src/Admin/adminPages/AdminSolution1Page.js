@@ -128,6 +128,7 @@ const AdminSolution1Page = () => {
   const [update, setupdate] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const get = async () => {
       const res = await Axios.get("/solution1-get/" + id);
       setData(res.data);

@@ -6,6 +6,7 @@ const AdminBlogsPage = () => {
   const [blogpage, setBlogpage] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/blogPage-get").then((res) => setBlogpage(res.data));
   }, []);
 

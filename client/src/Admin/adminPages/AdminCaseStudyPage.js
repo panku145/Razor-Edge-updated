@@ -7,6 +7,7 @@ const AdminCaseStudyPage = () => {
   const [caseStudyPage, setCaseStudyPage] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/casestudy-page-get").then((res) => setCaseStudyPage(res.data));
   }, []);
 

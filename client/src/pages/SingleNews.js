@@ -12,6 +12,7 @@ const SingleNews = () => {
   const [createdAt, setcreatedAt] = useState("");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const get = async () => {
       const res = await Axios.get("/news-get/" + id);
       setTitle(res.data.title);

@@ -375,7 +375,6 @@ const AdminProductPage = () => {
             </div>
           </div>
         </div>
-
         <div className="bullets-point-sec factor-edge-sec">
           <div className="container">
             <div className="factor-edge-heading ">
@@ -482,7 +481,6 @@ const AdminProductPage = () => {
             </div>
           </div>
         </div>
-
         <div className="bullets-point-sec product-accor-sec">
           <div className="container">
             <div className="row">

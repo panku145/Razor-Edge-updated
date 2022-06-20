@@ -52,6 +52,7 @@ const AdminPrivacyPolicy = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/privacy-policys").then((res) => setData(res.data));
   }, []);
 

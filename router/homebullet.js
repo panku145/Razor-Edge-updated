@@ -51,20 +51,28 @@ const { text } = require("express");
 
  // <<<<<<<<<<<<<----------Update Homebullet------------>>>>>>>>>>>>>>>>
 
- router.put("/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
+  
+  
+  const filter = { _id: req.params.id }; 
 
-   try {
-     const updated = await Homebullet.findByIdAndUpdate(
-       req.params.id,
-       {
-         $set: req.body,
-       },
-       { new: true }
-     );
-     res.status(200).json(updated);
-   } catch (err) {
-     console.log(err);
-   }
+  const { text } = req.body;
+
+  try {
+    const update = { 
+      text : text
+    };
+
+    const response = await Homebullet.findOneAndUpdate(filter, update);
+
+    if (response) {
+      res.status(200).send(update);
+    } else {
+      res.status(500).json({ error: "failed to update successfully" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
  });
 
  // <<<<<<<<<<<<<----------Delete Homebullet------------>>>>>>>>>>>>>>>>

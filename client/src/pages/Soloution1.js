@@ -15,6 +15,7 @@ const Soloution1 = () => {
   const [sol1FifthPera, setsol1FifthPera] = useState("");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const get = async () => {
       const res = await Axios.get("/solution1-get/" + id);
       setSolution1(res.data);
@@ -51,7 +52,7 @@ const Soloution1 = () => {
           <div className="container ">
             <div className="row">
               <div className="col-lg-6 col-md-6 m-auto">
-                <div className="integration-txt-container">
+                <div className="integration-txt-container investment-txt-justy">
                   <span>{solution1.sol1ZeroSubtitle}</span>
                   <h2>{solution1.sol1ZeroTitle}</h2>
                   <p className="alternative-manager-first-para">
@@ -84,7 +85,7 @@ const Soloution1 = () => {
                 </div>
               </div>
               <div className=" col-lg-6 col-md-6 m-auto">
-                <div className="integration-data-txt-container">
+                <div className="integration-data-txt-container investment-txt-justy">
                   <h3>{solution1.sol1FirstHeading}</h3>
                   {parse(sol1FirstPera)}
                 </div>
@@ -93,7 +94,7 @@ const Soloution1 = () => {
           </div>
         </div>
 
-        <div className="unlock-the-value-txt-container">
+        <div className="unlock-the-value-txt-container investment-txt-justy">
           <h2>{solution1.sol1SecondHeading}</h2>
           {parse(sol1SecondPera)}
         </div>
@@ -180,7 +181,7 @@ const Soloution1 = () => {
                 </div>
               </div>
               <div className=" col-lg-6 col-md-6 m-auto">
-                <div className="integration-data-txt-container connect-tool">
+                <div className="integration-data-txt-container connect-tool investment-txt-justy">
                   <h3>{solution1.sol1FourthHeading}</h3>
                   {parse(sol1FourthPera)}
                 </div>
@@ -193,7 +194,7 @@ const Soloution1 = () => {
           <div className="container">
             <div className="row">
               <div className=" col-lg-6 col-md-6 py-3 m-auto">
-                <div className="integration-data-txt-container connect-tool resources-sec-txt-container">
+                <div className="integration-data-txt-container connect-tool resources-sec-txt-container investment-txt-justy">
                   <h3>{solution1.sol1FifthHeading}</h3>
                   {parse(sol1FifthPera)}
                   {/* <button>{solution1.sol1FifthBtnText}</button> */}

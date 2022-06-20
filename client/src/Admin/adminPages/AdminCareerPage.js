@@ -86,6 +86,7 @@ const AdminCareerPage = () => {
   const [update, setupdate] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const get = async () => {
       // navigate("/admin-career");
 

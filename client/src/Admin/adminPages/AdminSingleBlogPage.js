@@ -32,6 +32,7 @@ const AdminSingleBlogPage = () => {
   const [img, setImg] = useState("");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getBlog = async () => {
       const res = await Axios.get("/blogs-get/" + id);
       setBlog(res.data);

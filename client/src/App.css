@@ -1821,6 +1821,7 @@ h3 {
   border-radius: 8px;
   padding: 4.5rem 2rem;
   text-align: center;
+  min-height: 220px;
 }
 .product-first-comp h5 {
   font-family: "Rufina", serif;
@@ -2983,4 +2984,9 @@ h3 {
 
 .toolbar-class {
   justify-content: center !important;
+}
+
+.investment-txt-justy p{
+text-align: justify;
+width: 100%;
 }

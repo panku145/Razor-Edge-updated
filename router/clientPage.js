@@ -48,14 +48,14 @@ router.put("/", async (req, res) => {
   try {
     const update = {
       heading: heading,
-      subheading: subheading,
+      subheading: subheading, 
       pera: pera,
     };
 
     const response = await ClientPage.findOneAndUpdate(filter, update);  
 
     if (response) {
-      res.status(200).send(update);
+      res.status(200).send(update); 
     } else {
       res.status(500).json({ error: "failed to update successfully" });
     }

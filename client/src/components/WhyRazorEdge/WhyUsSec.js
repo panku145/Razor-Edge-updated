@@ -10,7 +10,7 @@ const WhyUsSec = (props) => {
       <div className="why-us-sec ">
         <div className="container">
           <div className="our-solution-head text-center py-5">
-            <h2 className="text-uppercase above-sub-heading">
+            <h2 className="above-sub-heading">
               {WRESec1subheading}
             </h2>
             {parse(WRESec1heading)}

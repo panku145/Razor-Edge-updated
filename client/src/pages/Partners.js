@@ -6,6 +6,7 @@ const Partners = () => {
   const [partnersService, setPatnersSerevice] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/partners").then((res) => {
       setpatners(res.data);
     });
@@ -32,7 +33,7 @@ const Partners = () => {
             <div className="container">
               <div className="row client-text-component-rw">
                 <div className="col-xl-10">
-                  <div className="client-inner-txt-container">
+                  <div className="client-inner-txt-container investment-txt-justy">
                     <p>{value.desc}</p>
                   </div>
                 </div>

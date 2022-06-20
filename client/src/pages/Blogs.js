@@ -10,6 +10,7 @@ const Blogs = () => {
   const [blogpage, setBlogpage] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/blogPage-get").then((res) => setBlogpage(res.data));
 
     Axios.get("/blogs-get").then((res) => setBlog(res.data));

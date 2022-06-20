@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -42,6 +42,11 @@ const AdminAddNewsPage = () => {
     Axios.post("/news-get", formData);
     navigate("/admin-news");
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
 
   return (
     <>

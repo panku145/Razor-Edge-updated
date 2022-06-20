@@ -10,12 +10,11 @@ const NewsRoom = () => {
   const [newsroom, setNewsroom] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/news-get").then((res) => setNews(res.data));
 
     Axios.get("/newsroom-get").then((res) => setNewsroom(res.data));
   }, []);
-
-  console.log();
 
   return (
     <>

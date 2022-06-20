@@ -10,6 +10,7 @@ const WhyRazorEdge = () => {
   const [whyRazorEdge, setWhyRazorEdge] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/why-razor-edge-get").then((res) => setWhyRazorEdge(res.data));
   }, []);
 

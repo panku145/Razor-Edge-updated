@@ -6,6 +6,7 @@ const Disclaimer = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/disclaimers").then((res) => setData(res.data));
   }, []);
 

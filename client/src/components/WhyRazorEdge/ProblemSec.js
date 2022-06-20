@@ -19,7 +19,7 @@ const ProblemSec = (props) => {
             </div>
           </div>
           <div className="col-md-8 m-auto">
-            <div className="the-problem-head our-solution-head text-center py-3 ">
+            <div className="the-problem-head our-solution-head text-center py-3 investment-txt-justy">
               <h2>{WRESec2heading}</h2>
               {parse(WRESec2pera)}
             </div>

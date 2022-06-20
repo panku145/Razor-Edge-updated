@@ -31,7 +31,7 @@ const OurSolutions = (props) => {
             <div className="our-solution-txt-img-container">
               <div className="row">
                 <div className="col-md-6">
-                  <div className="innovation-head">
+                  <div className="innovation-head investment-txt-justy">
                     <h2>{props.mainheading}</h2>
                     <p>{props.pera}</p>
                   </div>

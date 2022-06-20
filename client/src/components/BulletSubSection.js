@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-const BulletSubSection = (props) => {
+import parse from "html-react-parser";
+
+const BulletSubSection = (props) => { 
   const [bulletPoints, setbulletPoints] = useState([]);
 
   useEffect(() => {
@@ -22,10 +24,10 @@ const BulletSubSection = (props) => {
               </div>
             </div>
             <div className=" col-lg-6 m-auto">
-              <div className="bullet-txt-container">
+              <div className="bullet-txt-container investment-txt-justy">
                 <ul>
                   {bulletPoints.map((value, index) => (
-                    <li key={index}>{value.text}</li>
+                    <li key={index}>{parse(value.text)}</li>
                   ))}
                 </ul>
               </div>

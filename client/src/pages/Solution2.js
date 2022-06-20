@@ -16,6 +16,7 @@ const Solution2 = () => {
   const [sol2FourthPera, setsol2FourthPera] = useState("");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const get = async () => {
       const res = await Axios.get("/solution2-get/" + id);
       setData(res.data);
@@ -49,7 +50,7 @@ const Solution2 = () => {
       <div className="investor-sentiment-sec">
         <div className="container">
           <div className="row">
-            <div className="invester-inner-txt-container">
+            <div className="invester-inner-txt-container investment-txt-justy">
               <h3>{data.sol2FirstMainSubHeading}</h3>
               <h2>{data.sol2FirstMaiHeading}</h2>
               {parse(sol2FirstMainPera)}
@@ -70,7 +71,7 @@ const Solution2 = () => {
               </div>
             </div>
             <div className=" col-lg-6 col-md-6 m-auto">
-              <div className="integration-data-txt-container">
+              <div className="integration-data-txt-container investment-txt-justy">
                 {parse(sol2FirstPera)}
               </div>
             </div>
@@ -78,7 +79,7 @@ const Solution2 = () => {
         </div>
       </div>
       <div className="unlock-the-value-sec">
-        <div className="unlock-the-value-txt-container solution-unlock-the-value">
+        <div className="unlock-the-value-txt-container solution-unlock-the-value investment-txt-justy">
           <h2>{data.sol2SecondHeading}</h2>
           {parse(sol2SecondPera)}
         </div>
@@ -96,7 +97,7 @@ const Solution2 = () => {
               </div>
             </div>
             <div className=" col-lg-6 col-md-6 m-auto">
-              <div className="integration-data-txt-container connect-tool">
+              <div className="integration-data-txt-container connect-tool investment-txt-justy">
                 <h3>{data.sol2ThirdHeading}</h3>
                 {parse(sol2ThirdPera)}
               </div>
@@ -116,7 +117,7 @@ const Solution2 = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="stay-update-txt">
+              <div className="stay-update-txt investment-txt-justy">
                 {/* <p>{data.sol2FourthPera}</p> */}
                 {parse(sol2FourthPera)}
               </div>

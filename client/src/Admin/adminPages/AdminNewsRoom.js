@@ -6,6 +6,7 @@ const AdminNewsRoom = () => {
   const [newsroom, setNewsroom] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     Axios.get("/newsroom-get").then((res) => setNewsroom(res.data));
   }, []);
 
