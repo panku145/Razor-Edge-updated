@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import { convertToHTML } from "draft-convert";
-import DOMPurify from "dompurify";
+// import DOMPurify from "dompurify";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const ProductAddNewAccordian = () => {
@@ -34,7 +34,7 @@ const ProductAddNewAccordian = () => {
   const [pageName, setpageName] = useState("");
   const [accordian, setAccordian] = useState([]);
   const [title, setTitle] = useState("No Title Added");
-  // const [desc, setDesc] = useState("No Description Added");
+  const [desc, setDesc] = useState("No Description Added");
 
   useEffect(() => {
     const get = async () => {
@@ -46,7 +46,7 @@ const ProductAddNewAccordian = () => {
   }, []);
 
   const addData = (e) => {
-    accordian.push(...[{ title: title, desc: convertedContent }]);
+    accordian.push(...[{ title: title, desc: convertedContent || desc }]);
     updateData();
   };
 

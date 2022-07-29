@@ -22,10 +22,14 @@ const AdminProductPage = () => {
   const [editorState1, setEditorState1] = useState(() =>
     EditorState.createEmpty()
   );
+  const [editorState11, setEditorState11] = useState(() =>
+    EditorState.createEmpty()
+  );
   const [editorState2, setEditorState2] = useState(() =>
     EditorState.createEmpty()
   );
   const [convertedContent, setConvertedContent] = useState(null);
+  const [convertedContent11, setConvertedContent11] = useState(null);
   const [convertedContent1, setConvertedContent1] = useState(null);
   const [convertedContent2, setConvertedContent2] = useState(null);
   const handleEditorChange = (state) => {
@@ -40,6 +44,10 @@ const AdminProductPage = () => {
     setEditorState2(state);
     convertContentToHTML2();
   };
+  const handleEditorChange11 = (state) => {
+    setEditorState11(state);
+    convertContentToHTML11();
+  };
   const convertContentToHTML = () => {
     let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
     setConvertedContent(currentContentAsHTML);
@@ -51,6 +59,10 @@ const AdminProductPage = () => {
   const convertContentToHTML2 = () => {
     let currentContentAsHTML = convertToHTML(editorState2.getCurrentContent());
     setConvertedContent2(currentContentAsHTML);
+  };
+  const convertContentToHTML11 = () => {
+    let currentContentAsHTML = convertToHTML(editorState11.getCurrentContent());
+    setConvertedContent11(currentContentAsHTML);
   };
 
   const navigate = useNavigate();
@@ -88,10 +100,16 @@ const AdminProductPage = () => {
   const [editAccordian, setEditAccordian] = useState(false);
   // const [point, setpoint] = useState("");
   const [accTitle, setAccTitle] = useState("");
-  // const [accDesc, setAccDesc] = useState("");
+  const [accDesc, setAccDesc] = useState("");
 
   const acctitle2 = [];
   const accdesc2 = [];
+
+  // const [expanded, setExpanded] = React.useState(false);
+
+  // const handleChange = (panel) => (event, isExpanded) => {
+  //   setExpanded(isExpanded ? panel : false);
+  // };
 
   proThirdAccordia1.map((e) => {
     acctitle2.push(e.title);
@@ -136,131 +154,111 @@ const AdminProductPage = () => {
     get();
   }, [id]);
 
+  // const updateData = async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+
+  //   formData.append("pageName", pageName1);
+  //   formData.append("pageDesc", pageDesc1);
+  //   formData.append("proFirstHeading", proFirstHeading1);
+  //   formData.append("proFirstImage", proFirstImage1);
+  //   formData.append("proFirstImageFilename", proFirstImage1.name);
+  //   formData.append("proFirstPera", proFirstPera1);
+  //   formData.append("proFirstSubHeading", proFirstSubHeading1);
+  //   formData.append("proSecondHeading", convertedContent || proSecondHeading1);
+  //   // formData.append("proSecondHeading", proSecondHeading1);
+
+  //   formData.append("proSecondImage", proSecondImage1);
+  //   formData.append("proSecondImageFilename", proSecondImage1.name);
+  //   formData.append("proSecondSubHeading", proSecondSubHeading1);
+  //   formData.append("proSecondBullets", convertedContent2 || proSecondBullets1);
+  //   formData.append("proThirdHeading", proThirdHeading1);
+  //   formData.append("proThirdImage", proThirdImage1);
+  //   formData.append("proThirdImageFilename", proThirdImage1.name);
+  //   formData.append("proThirdPera", proThirdPera1);
+  //   // formData.append("proThirdAccordia", convertedContent1);
+  //   formData.append("proThirdAccordia", proThirdAccordia1);
+  //   formData.append("proFourthCards1title", proFourthCards1title1);
+  //   formData.append("proFourthCards1desc", proFourthCards1desc1);
+  //   formData.append("proFourthCards2title", proFourthCards2title1);
+  //   formData.append("proFourthCards2desc", proFourthCards2desc1);
+  //   formData.append("proFourthCards3title", proFourthCards3title1);
+  //   formData.append("proFourthCards3desc", proFourthCards3desc1);
+  //   formData.append("proFourthCards4title", proFourthCards4title1);
+  //   formData.append("proFourthCards4desc", proFourthCards4desc1);
+  //   formData.append("proFourthCards1img", proFourthCards1img1);
+
+  //   // formData.append("acctitle2", acctitle2);
+  //   // formData.append("accdesc2", accdesc2);
+
+  //   formData.append("proFourthCards1imgFilename", proFourthCards1img1.name);
+  //   formData.append("proFourthCards2img", proFourthCards2img1);
+  //   formData.append("proFourthCards2imgFilename", proFourthCards2img1.name);
+  //   formData.append("proFourthCards3img", proFourthCards3img1);
+  //   formData.append("proFourthCards3imgFilename", proFourthCards3img1.name);
+  //   formData.append("proFourthCards4img", proFourthCards4img1);
+  //   formData.append("proFourthCards4imgFilename", proFourthCards4img1.name);
+
+  //   formData.append("id", key);
+
+  //   await Axios.put("/product-update", formData);
+  //   window.location.reload();
+  // };
+
   const updateData = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
+    const data = {
+      pageName: pageName1,
+      pageDesc: pageDesc1,
+      proFirstHeading: proFirstHeading1,
+      proFirstImage: proFirstImage1,
+      proFirstImageFilename: proFirstImage1.name,
+      proFirstPera: proFirstPera1,
+      proFirstSubHeading: proFirstSubHeading1,
+      proSecondHeading: convertedContent || proSecondHeading1,
 
-    formData.append("pageName", pageName1);
-    formData.append("pageDesc", pageDesc1);
-    formData.append("proFirstHeading", proFirstHeading1);
-    formData.append("proFirstImage", proFirstImage1);
-    formData.append("proFirstImageFilename", proFirstImage1.name);
-    formData.append("proFirstPera", proFirstPera1);
-    formData.append("proFirstSubHeading", proFirstSubHeading1);
-    formData.append("proSecondHeading", convertedContent || proSecondHeading1);
-    // formData.append("proSecondHeading", proSecondHeading1);
+      proSecondImage: proSecondImage1,
+      proSecondImageFilename: proSecondImage1.name,
+      proSecondSubHeading: proSecondSubHeading1,
+      proSecondBullets: convertedContent2 || proSecondBullets1,
+      proThirdHeading: proThirdHeading1,
+      proThirdImage: proThirdImage1,
+      proThirdImageFilename: proThirdImage1.name,
+      proThirdPera: convertedContent11 || proThirdPera1,
 
-    formData.append("proSecondImage", proSecondImage1);
-    formData.append("proSecondImageFilename", proSecondImage1.name);
-    formData.append("proSecondSubHeading", proSecondSubHeading1);
-    formData.append("proSecondBullets", convertedContent2 || proSecondBullets1);
-    formData.append("proThirdHeading", proThirdHeading1);
-    formData.append("proThirdImage", proThirdImage1);
-    formData.append("proThirdImageFilename", proThirdImage1.name);
-    formData.append("proThirdPera", proThirdPera1);
-    // formData.append("proThirdAccordia", convertedContent1);
-    formData.append("proThirdAccordia", proThirdAccordia1);
-    formData.append("proFourthCards1title", proFourthCards1title1);
-    formData.append("proFourthCards1desc", proFourthCards1desc1);
-    formData.append("proFourthCards2title", proFourthCards2title1);
-    formData.append("proFourthCards2desc", proFourthCards2desc1);
-    formData.append("proFourthCards3title", proFourthCards3title1);
-    formData.append("proFourthCards3desc", proFourthCards3desc1);
-    formData.append("proFourthCards4title", proFourthCards4title1);
-    formData.append("proFourthCards4desc", proFourthCards4desc1);
-    formData.append("proFourthCards1img", proFourthCards1img1);
+      proThirdAccordia: proThirdAccordia1,
 
-    formData.append("acctitle2", acctitle2);
-    formData.append("accdesc2", accdesc2);
+      proFourthCards1title: proFourthCards1title1,
+      proFourthCards1desc: proFourthCards1desc1,
+      proFourthCards2title: proFourthCards2title1,
+      proFourthCards2desc: proFourthCards2desc1,
+      proFourthCards3title: proFourthCards3title1,
+      proFourthCards3desc: proFourthCards3desc1,
+      proFourthCards4title: proFourthCards4title1,
+      proFourthCards4desc: proFourthCards4desc1,
+      proFourthCards1img: proFourthCards1img1,
+      proFourthCards1imgFilename: proFourthCards1img1.name,
+      proFourthCards2img: proFourthCards2img1,
+      proFourthCards2imgFilename: proFourthCards2img1.name,
+      proFourthCards3img: proFourthCards3img1,
+      proFourthCards3imgFilename: proFourthCards3img1.name,
+      proFourthCards4img: proFourthCards4img1,
+      proFourthCards4imgFilename: proFourthCards4img1.name,
 
-    formData.append("proFourthCards1imgFilename", proFourthCards1img1.name);
-    formData.append("proFourthCards2img", proFourthCards2img1);
-    formData.append("proFourthCards2imgFilename", proFourthCards2img1.name);
-    formData.append("proFourthCards3img", proFourthCards3img1);
-    formData.append("proFourthCards3imgFilename", proFourthCards3img1.name);
-    formData.append("proFourthCards4img", proFourthCards4img1);
-    formData.append("proFourthCards4imgFilename", proFourthCards4img1.name);
+      id: key,
+    };
 
-    formData.append("id", key);
-
-    await Axios.put("/product-update", formData);
-    window.location.reload();
+    await Axios.put("/product-update", data);
+    // window.location.reload();
+    navigate(`/admin-dashboard`);
   };
-
-  // const updateData2 = async () => {
-  //   const data = {
-  //     // pageName: pageName1,
-  //     // pageDesc: pageDesc1,
-  //     // proFirstHeading: proFirstHeading1,
-  //     // proFirstImage: proFirstImage1,
-  //     // proFirstImageFilename: proFirstImage1.name,
-  //     // proFirstPera: proFirstPera1,
-  //     // proFirstSubHeading: proFirstSubHeading1,
-  //     // proSecondHeading: proSecondHeading1,
-  //     // proSecondImage: proSecondImage1,
-  //     // proSecondImageFilename: proSecondImage1.name,
-  //     // proSecondSubHeading: proSecondSubHeading1,
-  //     // proSecondBullets: proSecondBullets1,
-  //     // proThirdHeading: proThirdHeading1,
-  //     // proThirdImage: proThirdImage1,
-  //     // proThirdImageFilename: proThirdImage1.name,
-  //     // proThirdPera: proThirdPera1,
-  //     // proThirdAccordia: proThirdAccordia1,
-  //     // proFourthCards1title: proFourthCards1title1,
-  //     // proFourthCards1desc: proFourthCards1desc1,
-  //     // proFourthCards2title: proFourthCards2title1,
-  //     // proFourthCards2desc: proFourthCards2desc1,
-  //     // proFourthCards3title: proFourthCards3title1,
-  //     // proFourthCards3desc: proFourthCards3desc1,
-  //     // proFourthCards4title: proFourthCards4title1,
-  //     // proFourthCards4desc: proFourthCards4desc1,
-  //     // proFourthCards1img: proFourthCards1img1,
-  //     // proFourthCards1imgFilename: proFourthCards1img1.name,
-  //     // proFourthCards2img: proFourthCards2img1,
-  //     // proFourthCards2imgFilename: proFourthCards2img1.name,
-  //     // proFourthCards3img: proFourthCards3img1,
-  //     // proFourthCards3imgFilename: proFourthCards3img1.name,
-  //     // proFourthCards4img: proFourthCards4img1,
-  //     // proFourthCards4imgFilename: proFourthCards4img1.name,
-  //     id: key,
-  //   };
-
-  //   await Axios.put("/product-update", data);
-  //   window.location.reload();
-  //   navigate(`/admin-dashboard`);
-  // };
-
-  // const deleteBullet = (e, index) => {
-  //   proSecondBullets1.splice(index, 1);
-  //   const newdata = {
-  //     proSecondBullets: proSecondBullets1,
-  //   };
-  //   Axios.put(`/product-update/${key}`, newdata).then(
-  //     (res) => navigate(`/admin-product/${id}`)
-  //   );
-  // };
-
-  // const updateBullet = async (e, index) => {
-  //   // proSecondBullets1.splice(index, 1);
-  //   // proSecondBullets1.splice(index, 0, point);
-  //   const newdata = {
-  //     proSecondBullets: proSecondBullets1,
-  //   };
-  //   await Axios.put(
-  //     `/product-update/${key}`,
-  //     newdata
-  //   );
-  //   navigate(`/admin-product/${id}`);
-  //   window.location.reload();
-  // };
 
   const updateAccordian = async (e, index) => {
     if (convertedContent1.length !== 0) {
       // proThirdAccordia1[index].desc = accDesc;
-      proThirdAccordia1[index].desc = convertedContent1;
+      proThirdAccordia1[index].desc = convertedContent1 || accDesc;
     }
     if (accTitle.length !== 0) {
-      proThirdAccordia1[index].title = accTitle;
+      proThirdAccordia1[index].title = accTitle ;
     }
     const newdata = {
       proThirdAccordia: proThirdAccordia1,
@@ -288,6 +286,12 @@ const AdminProductPage = () => {
   const deleteData = (e) => {
     Axios.delete(`/product-delete/${key}`);
     navigate("/admin-dashboard");
+  };
+
+  const [expanded, setExpanded] = React.useState("panel1");
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
   };
 
   return (
@@ -519,13 +523,24 @@ const AdminProductPage = () => {
                   </h3>
                   <p>
                     {update ? (
-                      <textarea
-                        className="form-control"
-                        value={proThirdPera1}
-                        onChange={(e) => setProThirdPera(e.target.value)}
-                      ></textarea>
+                      // <textarea
+                      //   className="form-control"
+                      //   value={proThirdPera1}
+                      //   onChange={(e) => setProThirdPera(e.target.value)}
+                      // ></textarea>
+                      <>
+                        <Editor
+                          editorState11={editorState11}
+                          onEditorStateChange={handleEditorChange11}
+                          wrapperClassName="wrapper-class"
+                          editorClassName="editor-class hero-main-hed-1"
+                          toolbarClassName="toolbar-class"
+                          placeholder="Enter Text Here"
+                        />
+                        {parse(proThirdPera1)}
+                      </>
                     ) : (
-                      proThirdPera1
+                      parse(proThirdPera1)
                     )}
                   </p>
                   <div className="accordion" id="accordionExample">
@@ -549,14 +564,6 @@ const AdminProductPage = () => {
                                   placeholder={value.title}
                                   onChange={(e) => setAccTitle(e.target.value)}
                                 />
-                                {/* <input
-                                  type="text"
-                                  className="form-control"
-                                  id="exampleInputEmail1"
-                                  aria-describedby="emailHelp"
-                                  placeholder={value.desc}
-                                  onChange={(e) => setAccDesc(e.target.value)}
-                                /> */}
                                 <Editor
                                   editorState1={editorState1}
                                   onEditorStateChange={handleEditorChange1}
@@ -566,18 +573,7 @@ const AdminProductPage = () => {
                                   placeholder="Enter Text Here"
                                 />
                                 {parse(value.desc)}
-                                {/* <Accordion key={index}>
-                                  <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon />}
-                                    aria-controls={`panel${index}a-content`}
-                                    id={`panel${index}a-header`}
-                                  >
-                                    <Typography>{value.title}</Typography>
-                                  </AccordionSummary>
-                                  <AccordionDetails>
-                                    <Typography>{value.desc}</Typography>
-                                  </AccordionDetails>
-                                </Accordion> */}
+                                {/* {update ? <div></div> : } */}
                               </div>
                               <div className="col col-md-2">
                                 <button
@@ -592,7 +588,11 @@ const AdminProductPage = () => {
                           ) : (
                             <div>
                               <div className="col col-md-8">
-                                <Accordion key={index}>
+                                <Accordion
+                                  key={index}
+                                  expanded={expanded === `"${index}"`}
+                                  onChange={handleChange(`"${index}"`)} 
+                                >
                                   <AccordionSummary
                                     expandIcon={<ExpandMoreIcon />}
                                     aria-controls={`panel${index}a-content`}

@@ -43,7 +43,7 @@ const WRESingleAccordian = () => {
     try {
       await Axios.put(`/wreaccordian/${data._id}`, {
         accordianHeading: accordianHeading,
-        accordianDecs: convertedContent,
+        accordianDecs: convertedContent || accordianDecs,
       });
       navigate("/admin-why-razor-edge");
     } catch (err) {
@@ -90,7 +90,7 @@ const WRESingleAccordian = () => {
                     toolbarClassName="toolbar-class"
                     placeholder="Enter Text Here"
                   />
-                  {parse(accordianDecs)}
+                  {parse(accordianDecs)} 
                   <div className="login-submit-btn pt-3">
                     <button
                       onClick={() => updateData()}

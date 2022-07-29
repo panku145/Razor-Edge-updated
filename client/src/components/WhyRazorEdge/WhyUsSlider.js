@@ -74,7 +74,7 @@ const WhyUsSlider = (props) => {
                               </AccordionSummary>
                               <AccordionDetails>
                                 <Typography>
-                                  {parse(value.accordianDecs)}
+                                  {parse(value.accordianDecs)} 
                                 </Typography>
                               </AccordionDetails>
                             </Accordion>

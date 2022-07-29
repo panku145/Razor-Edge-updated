@@ -1,9 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
+
+import parse from "html-react-parser";
+import { EditorState } from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
+import { convertToHTML } from "draft-convert";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const HomeSingleAccordian = () => {
+
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty()
+  );
+
+  const [convertedContent, setConvertedContent] = useState(null);
+
+  const handleEditorChange = (state) => {
+    setEditorState(state);
+    convertContentToHTML();
+  };
+
+  const convertContentToHTML = () => {
+    let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
+    setConvertedContent(currentContentAsHTML);
+  };
+
   const { id } = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState({});
@@ -20,11 +43,12 @@ const HomeSingleAccordian = () => {
     getData();
   }, [id]);
 
+
   const updateData = async () => {
     try {
       await Axios.put(`/homeaccordian/${data._id}`, {
-        title,
-        desc,
+        title: title,
+        desc: convertedContent || desc,
       });
       navigate("/admin-dashboard");
     } catch (err) {
@@ -63,14 +87,24 @@ const HomeSingleAccordian = () => {
                   />
                 </div>
                 <div className="col-md-8">
-                  <textarea
+                  {/* <textarea
                     type="text"
                     className="form-control txtarea"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     onChange={(e) => setDesc(e.target.value)}
                     value={desc}
-                  ></textarea>
+                  ></textarea> */}
+                  <Editor
+                    editorState={editorState}
+                    onEditorStateChange={handleEditorChange}
+                    wrapperClassName="wrapper-class"
+                    editorClassName="editor-class hero-main-hed-1"
+                    toolbarClassName="toolbar-class"
+                    placeholder="Enter Text Here"
+                  />
+                  {parse(desc)} 
+                  {/* {desc} */}
                   <div className="login-submit-btn pt-3">
                     <button
                       onClick={() => updateData()}

@@ -66,12 +66,13 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li className="footer-li ">
-                      <a
+                      {/* <a
                         className="hover-underline-animation"
                         href={value.page4Url}
                       >
                         {value.page4}
-                      </a>
+                      </a> */}
+                      {value.page4}
                     </li>
                   </ul>
                 </div>
@@ -169,9 +170,9 @@ const Footer = () => {
                     </p>
                   </div>
                   <div className="col-md-4 footer-social-icon-container">
-                    <a href={value.facebookURL}>
+                    {/* <a href={value.facebookURL}>
                       <i className="fab fa-facebook-f"></i>
-                    </a>
+                    </a> */}
                     <a href={value.youtubeURL}>
                       <i className="fab fa-youtube"></i>
                     </a>

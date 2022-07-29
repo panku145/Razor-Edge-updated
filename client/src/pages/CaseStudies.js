@@ -10,13 +10,11 @@ const CaseStudies = () => {
   const [caseStudies, setCaseStudies] = useState([]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); 
     Axios.get("/casestudy-page-get").then((res) => setCaseStudyPage(res.data));
 
     Axios.get("/case-studies-get").then((res) => setCaseStudies(res.data));
   }, []);
-
-  console.log(casestudypage);
 
   return (
     <>

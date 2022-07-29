@@ -16,6 +16,8 @@ import { convertToHTML } from "draft-convert";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const WhyrazorEdgePage = (props) => {
+  const bar = document.getElementById("progress-bar");
+
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -88,7 +90,6 @@ const WhyrazorEdgePage = (props) => {
       let res = await Axios.get("/why-razor-edge-get");
 
       res.data.map((value) => {
-        console.log(value);
         setWRESec1heading(value.whyRazorEdgeFirstSection.WRESec1heading);
         setWRESec1image(value.whyRazorEdgeFirstSection.WRESec1image);
         setWRESec1subheading(value.whyRazorEdgeFirstSection.WRESec1subheading);
@@ -157,7 +158,19 @@ const WhyrazorEdgePage = (props) => {
     formData.append("WRESec3SliderImageFilename", WRESec3SliderImage1.name);
     formData.append("id", props.id);
 
-    await Axios.put("/why-razor-edge-update", formData);
+    const config = {
+      onUploadProgress: function (progressEvent) {
+        const percentCompleted =
+          (progressEvent.loaded / progressEvent.total) * 100;
+        bar.setAttribute("value", percentCompleted);
+        bar.previousElementSibling.textContent = `${percentCompleted}%`;
+        if (percentCompleted === 100) {
+          bar.previousElementSibling.textContent = "upload complete!";
+        }
+      },
+    };
+
+    await Axios.put("/why-razor-edge-update", formData, config);
     navigate("/admin-why-razor-edge");
     // window.location.reload();
   };
@@ -252,12 +265,22 @@ const WhyrazorEdgePage = (props) => {
 
               {upload ? (
                 update ? (
-                  <input
-                    className="form-control"
-                    type="file"
-                    name="WRESec1image"
-                    onChange={(e) => setWRESec1image(e.target.files[0])}
-                  />
+                  <>
+                    <input
+                      className="form-control"
+                      type="file"
+                      name="WRESec1image"
+                      onChange={(e) => setWRESec1image(e.target.files[0])}
+                    />
+                    {/* <div>
+                      <label htmlFor="progress-bar">0%</label>
+                      <progress
+                        id="progress-bar"
+                        value="0"
+                        max="100"
+                      ></progress>
+                    </div> */}
+                  </>
                 ) : (
                   <div className="player-wrapper">
                     <ReactPlayer
@@ -483,7 +506,7 @@ const WhyrazorEdgePage = (props) => {
                                       </AccordionSummary>
                                       <AccordionDetails>
                                         <Typography>
-                                          {parse(value.accordianDecs)}
+                                          {parse(value.accordianDecs)} 
                                         </Typography>
                                       </AccordionDetails>
                                     </Accordion>

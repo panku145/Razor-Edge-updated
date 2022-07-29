@@ -6,7 +6,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import parse from "html-react-parser";
+import parse from "html-react-parser"; 
 
 const HomeAccordian = () => {
   const [accordian, setAccordian] = useState([]);
@@ -15,12 +15,21 @@ const HomeAccordian = () => {
     Axios.get("/homeaccordian").then((res) => setAccordian(res.data));
   }, []);
 
+  const [expanded, setExpanded] = React.useState("panel1");
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
   return (
     <>
       {accordian.map((value, index) => (
         <div className="row" key={index}>
           <div className="col-md-10">
-            <Accordion>
+            <Accordion
+              expanded={expanded === `"${index}"`}
+              onChange={handleChange(`"${index}"`)}
+            >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls={`panel${index}a-content`}
@@ -29,7 +38,7 @@ const HomeAccordian = () => {
                 <Typography>{value.title}</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                {/* <Typography>{value.desc}parse(value.desc)</Typography> */}
+                {/* <Typography>{value.desc}</Typography> */}
                 <Typography>{parse(value.desc)}</Typography>
               </AccordionDetails>
             </Accordion>

@@ -13,6 +13,8 @@ import { convertToHTML } from "draft-convert";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const AdminHomePage = (props) => {
+  const bar = document.getElementById("progress-bar");
+
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -109,7 +111,19 @@ const AdminHomePage = (props) => {
     formData.append("proSecmainimageFilename", proSecmainimage1.name);
     formData.append("id", props.id);
 
-    await Axios.put("/home-update", formData);
+    const config = {
+      onUploadProgress: function (progressEvent) {
+        const percentCompleted =
+          (progressEvent.loaded / progressEvent.total) * 100;
+        bar.setAttribute("value", percentCompleted);
+        bar.previousElementSibling.textContent = `${percentCompleted}%`;
+        if (percentCompleted === 100) {
+          bar.previousElementSibling.textContent = "upload complete!";
+        }
+      },
+    };
+
+    await Axios.put("/home-update", formData, config);
     window.location.reload();
   };
 
@@ -219,14 +233,24 @@ const AdminHomePage = (props) => {
 
                       {upload ? (
                         update ? (
-                          <input
-                            className="form-control"
-                            type="file"
-                            name="herovideoimage"
-                            onChange={(e) =>
-                              setHerovideoimage(e.target.files[0])
-                            }
-                          />
+                          <>
+                            <input
+                              className="form-control"
+                              type="file"
+                              name="herovideoimage"
+                              onChange={(e) =>
+                                setHerovideoimage(e.target.files[0])
+                              }
+                            />
+                            <div>
+                              <label htmlFor="progress-bar">0%</label>
+                              <progress
+                                id="progress-bar"
+                                value="0"
+                                max="100"
+                              ></progress>
+                            </div>
+                          </>
                         ) : (
                           <div className="player-wrapper">
                             <ReactPlayer
@@ -241,7 +265,7 @@ const AdminHomePage = (props) => {
                         <input
                           className="form-control"
                           placeholder="Enter Video Url"
-                          type="text"
+                          type="text" 
                           onChange={(e) => setHerovideoimage(e.target.value)}
                         />
                       ) : (
@@ -249,7 +273,7 @@ const AdminHomePage = (props) => {
                           <ReactPlayer
                             playing={true}
                             light={`/images/video-img.jpg`}
-                            url={herovideoimage1}
+                            url={`/images/${herovideoimage1}`}
                           />
                         </div>
                       )}

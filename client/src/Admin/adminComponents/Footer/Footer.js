@@ -168,7 +168,7 @@ const Footer = (props) => {
                         <Link to="admin-news">{page31}</Link>
                       )}
                     </li>
-                    <li className="footer-li">
+                    {/* <li className="footer-li">
                       {update ? (
                         <>
                           <input
@@ -183,7 +183,7 @@ const Footer = (props) => {
                       ) : (
                         <a href={page4Url1}>{page41}</a>
                       )}
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
                 <div className="col-md-3 third-li-col">
@@ -378,7 +378,7 @@ const Footer = (props) => {
                     </p>
                   </div>
                   <div className="col-md-8 footer-social-icon-container">
-                    {update ? (
+                    {/* {update ? (
                       <input
                         value={facebookURL1}
                         className="me-1"
@@ -386,7 +386,7 @@ const Footer = (props) => {
                       />
                     ) : (
                       <i className="fab fa-facebook-f"></i>
-                    )}
+                    )} */}
                     {update ? (
                       <input
                         value={youtubeURL1}

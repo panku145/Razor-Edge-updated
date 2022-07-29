@@ -4,7 +4,9 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"; 
+
+import parse from "html-react-parser";
 
 const OurSolutions = (props) => {
   const [expanded, setExpanded] = React.useState(false);
@@ -71,8 +73,11 @@ const OurSolutions = (props) => {
                         {value.title}
                       </Typography>
                     </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography>{value.desc}</Typography>
+                    <AccordionDetails> 
+                      <Typography>
+                        {/* {value.desc} */}
+                        {parse(value.desc)}
+                      </Typography>
                     </AccordionDetails>
                   </Accordion>
                 ))}

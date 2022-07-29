@@ -63,7 +63,7 @@ const Home = () => {
         />
       ))} */}
       {data.map((value, index) => (
-        <div className="product-three-comp-sec text-center">
+        <div className="product-three-comp-sec text-center" key={index}>
           <div className="get-more-head">
             <h3>{value.sol1FifthMainHeading}</h3>
           </div>

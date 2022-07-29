@@ -16,6 +16,7 @@ const Product = () => {
   const [proSecondBullets, setproSecondBullets] = useState("");
   const [proproThirdAccordia, setproproThirdAccordia] = useState([]);
   const [proSecondHeading1, setProSecondHeading] = useState("");
+  const [proThirdPera, setProThirdPera] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,9 +26,12 @@ const Product = () => {
       setproSecondBullets(res.data.proSecondBullets);
       setproproThirdAccordia(res.data.proThirdAccordia);
       setProSecondHeading(res.data.proSecondHeading);
+      setProThirdPera(res.data.proThirdPera);
     };
     get();
   }, [id]);
+
+  // console.log(proThirdPera);
 
   let onClickCard1 = () => {
     navigate("/solution1/Alternative-Manager");
@@ -43,6 +47,12 @@ const Product = () => {
 
   let onClickCard4 = () => {
     navigate("/solution/Wealth-Managers");
+  };
+
+  const [expanded, setExpanded] = React.useState("panel1");
+
+  const handleChange = (panel) => (event, newExpanded) => { 
+    setExpanded(newExpanded ? panel : false);
   };
 
   return (
@@ -122,14 +132,18 @@ const Product = () => {
                     {product.proThirdHeading}
                   </h3>
                   <p className="product-sub-pages-para ">
-                    {product.proThirdPera}
+                    {parse(proThirdPera)}
                   </p>
                   <div
                     className="accordion why-us-accordion-sec"
                     id="accordionExample"
                   >
                     {proproThirdAccordia.map((value, index) => (
-                      <Accordion key={index}>
+                      <Accordion
+                        key={index}
+                        expanded={expanded === `"${index}"`}
+                        onChange={handleChange(`"${index}"`)}
+                      >
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
                           aria-controls={`panel${index}a-content`}

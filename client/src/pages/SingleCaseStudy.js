@@ -18,7 +18,7 @@ const SingleCaseStudy = () => {
       setTitle(res.data.title);
       setDesc(res.data.desc);
       setImg(res.data.img);
-      setcreatedAt(res.data.createdAt);
+      setcreatedAt(res.data.createdAt); 
     };
     get();
   }, [id]);
@@ -26,7 +26,6 @@ const SingleCaseStudy = () => {
   return (
     <>
       <div className="latest-post-empty-bg"></div>
-
       <div className="post-sec my-5">
         <div className="container">
           <div className="row latest-post-rw">
