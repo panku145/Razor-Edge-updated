@@ -225,7 +225,7 @@ const AdminProductPage = () => {
       proThirdImageFilename: proThirdImage1.name,
       proThirdPera: convertedContent11 || proThirdPera1,
 
-      proThirdAccordia: proThirdAccordia1,
+      proThirdAccordia: proThirdAccordia1, 
 
       proFourthCards1title: proFourthCards1title1,
       proFourthCards1desc: proFourthCards1desc1,
@@ -243,7 +243,6 @@ const AdminProductPage = () => {
       proFourthCards3imgFilename: proFourthCards3img1.name,
       proFourthCards4img: proFourthCards4img1,
       proFourthCards4imgFilename: proFourthCards4img1.name,
-
       id: key,
     };
 

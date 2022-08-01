@@ -16,11 +16,17 @@ const WhyUsSlider = (props) => {
     WRESec3SliderPera2,
   } = props;
 
-  const [accordian, setAccordian] = useState([]);
+  const [accordian, setAccordian] = useState([]); 
 
   useEffect(() => {
     Axios.get("/wreaccordian").then((res) => setAccordian(res.data));
   }, []);
+
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   return (
     <>
@@ -62,7 +68,11 @@ const WhyUsSlider = (props) => {
                           id="accordionExample"
                         >
                           {accordian.map((value, index) => (
-                            <Accordion key={index}>
+                            <Accordion
+                              key={index}
+                              expanded={expanded === `panel${index}`}
+                              onChange={handleChange(`panel${index}`)}
+                            >
                               <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls={`panel${index}a-content`}
@@ -74,7 +84,7 @@ const WhyUsSlider = (props) => {
                               </AccordionSummary>
                               <AccordionDetails>
                                 <Typography>
-                                  {parse(value.accordianDecs)} 
+                                  {parse(value.accordianDecs)}
                                 </Typography>
                               </AccordionDetails>
                             </Accordion>

@@ -19,7 +19,7 @@ const uploadMultiple = upload.fields([
   { name: "proFirstImage", maxCount: 10 },
   { name: "proSecondImage", maxCount: 10 },
   { name: "proThirdImage", maxCount: 10 },
-  { name: "proFourthCards1img", maxCount: 10 },
+  { name: "proFourthCards1img", maxCount: 10 }, 
   { name: "proFourthCards2img", maxCount: 10 },
   { name: "proFourthCards3img", maxCount: 10 },
   { name: "proFourthCards4img", maxCount: 10 },
@@ -31,16 +31,16 @@ router.put("/", uploadMultiple, async (req, res) => {
 
   console.log(req.body);
 
-  let title = req.body.acctitle2.split(",");
-  let desc = req.body.accdesc2.split(",");
-  let finaldata = [];
+  // let title = req.body.acctitle2.split(",");
+  // let desc = req.body.accdesc2.split(",");
+  // let finaldata = [];
 
-  for (let i = 0; i < title.length; i++) {
-    let data = {};
-    finaldata.push(data);
-    data.title = title[i];
-    data.desc = desc[i];
-  }
+  // for (let i = 0; i < title.length; i++) {
+  //   let data = {};
+  //   finaldata.push(data);
+  //   data.title = title[i];
+  //   data.desc = desc[i];
+  // }
 
   const filter = { _id: req.body.id };
 
@@ -97,7 +97,7 @@ router.put("/", uploadMultiple, async (req, res) => {
     proFirstImage
       ? (proFirstImage1 = proFirstImage)
       : (proFirstImage1 = proFirstImageFilename);
-    proSecondImage
+    proSecondImage 
       ? (proSecondImage1 = proSecondImage)
       : (proSecondImage1 = proSecondImageFilename);
     proThirdImage
@@ -154,7 +154,8 @@ router.put("/", uploadMultiple, async (req, res) => {
       proSecondBullets: proSecondBullets,
       proThirdHeading: proThirdHeading,
       proThirdPera: proThirdPera,
-      proThirdAccordia: finaldata,
+      // proThirdAccordia: finaldata,
+      proThirdAccordia: proThirdAccordia,
       proFourthCards1img: proFourthCards1img1,
       proFourthCards1title: proFourthCards1title,
       proFourthCards1desc: proFourthCards1desc,
