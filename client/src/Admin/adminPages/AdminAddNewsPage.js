@@ -35,7 +35,7 @@ const AdminAddNewsPage = () => {
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("desc", convertedContent);
+    formData.append("desc", convertedContent || desc);
     // formData.append("desc", desc);
     formData.append("img", img);
 

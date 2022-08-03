@@ -35,6 +35,7 @@ const SingleCaseStudy = () => {
                   <img
                     src={`/images/${img}`}
                     className="caseStudyImage"
+                    id="singleBCNImages"
                     alt="caseStudyImage"
                   />
                 </div>

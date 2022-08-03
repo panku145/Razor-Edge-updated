@@ -26,7 +26,7 @@ const HomeAddNewBullet = () => {
 
   const postdata = () => {
     const data = {
-      text: convertedContent,
+      text: convertedContent || text,
     };
     Axios.post("/homebullet", data).then((res) => {
       navigate("/admin-dashboard");

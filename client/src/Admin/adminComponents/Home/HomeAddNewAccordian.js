@@ -28,7 +28,7 @@ const HomeAddNewAccordian = () => {
   const postdata = () => {
     const data = {
       title: title,
-      desc: convertedContent,
+      desc: convertedContent || desc,
     };
     Axios.post("/homeaccordian", data).then((res) => {
       navigate("/admin-dashboard");

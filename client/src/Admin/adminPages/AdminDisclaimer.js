@@ -11,6 +11,7 @@ const AdminDisclaimer = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [title1, setTitle] = useState(data.title);
+  const [Desc1, setDesc] = useState(data.desc);
 
   const [update, setupdate] = useState(false);
 
@@ -42,7 +43,7 @@ const AdminDisclaimer = () => {
   const updateData = async () => {
     const data = {
       title: title1,
-      desc: convertedContent,
+      desc: convertedContent || Desc1,
       id: id,
     };
 

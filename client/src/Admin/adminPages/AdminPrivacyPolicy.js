@@ -11,6 +11,7 @@ const AdminPrivacyPolicy = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [title1, setTitle] = useState(data.title);
+  const [desc1, setDesc] = useState(data.desc);
 
   const [update, setupdate] = useState(false);
 
@@ -42,7 +43,7 @@ const AdminPrivacyPolicy = () => {
   const updateData = async () => {
     const data = {
       title: title1,
-      desc: convertedContent,
+      desc: convertedContent || desc1,
       id: id,
     };
 

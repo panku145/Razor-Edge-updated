@@ -64,7 +64,7 @@ const AdminProductPageAdd = () => {
     formData.append("proFirstImageFilename", proFirstImage1.name);
     formData.append("proFirstPera", proFirstPera1);
     formData.append("proFirstSubHeading", proFirstSubHeading1);
-    formData.append("proSecondHeading", convertedContent);
+    formData.append("proSecondHeading", convertedContent || proSecondHeading1);
     // formData.append("proSecondHeading", proSecondHeading1);
     formData.append("proSecondImage", proSecondImage1);
     formData.append("proSecondImageFilename", proSecondImage1.name);

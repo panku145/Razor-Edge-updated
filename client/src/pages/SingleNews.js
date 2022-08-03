@@ -36,6 +36,7 @@ const SingleNews = () => {
                   <img
                     src={`/images/${img}`}
                     className="blogImage"
+                    id="singleBCNImages"
                     alt="blogImage"
                   />
                 </div>

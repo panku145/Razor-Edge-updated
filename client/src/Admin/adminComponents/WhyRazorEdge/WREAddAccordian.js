@@ -23,11 +23,12 @@ const WREAddAccordian = () => {
 
   const navigate = useNavigate();
   const [accordianHeading, setAccordianHeading] = useState("No Title Added");
+  const [accordianDesc, setAccordianDesc] = useState("No Description Added");
 
   const postdata = () => {
     const data = {
       accordianHeading: accordianHeading,
-      accordianDecs: convertedContent,
+      accordianDecs: convertedContent || accordianDesc,
     };
     Axios.post("/wreaccordian", data).then((res) => {
       navigate("/admin-why-razor-edge");

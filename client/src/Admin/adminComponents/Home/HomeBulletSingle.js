@@ -39,8 +39,8 @@ const HomeBulletSingle = () => {
 
   const updateData = async () => { 
     try {
-      await Axios.put(`/homebullet/${data._id}`, {  
-        text : convertedContent,
+      await Axios.put(`/homebullet/${data._id}`, {
+        text: convertedContent || text,
       });
       // window.location.reload()
       navigate("/admin-dashboard");

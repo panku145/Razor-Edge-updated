@@ -33,9 +33,12 @@ const Footer = () => {
                       {value.companyDesc}
                     </li>
                     <li className="footer-li ">
-                      <Link className="footer-register-btn" to="/">
+                      <a
+                        className="footer-register-btn"
+                        href="https://www.getopendelta.com/"
+                      >
                         <button>{value.btnText}</button>
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </div>

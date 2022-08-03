@@ -30,7 +30,7 @@ const Solution2 = () => {
   }, [id]);
 
   let onClickCard1 = () => {
-    navigate("/products/-Risk-Management");
+    navigate("/products/Risk-Management");
   };
 
   let onClickCard2 = () => {
@@ -58,6 +58,7 @@ const Solution2 = () => {
           </div>
         </div>
       </div>
+
       <div className="bullets-point-sec integration-data-sec solution-investor-sec">
         <div className="container">
           <div className="row">
@@ -78,12 +79,14 @@ const Solution2 = () => {
           </div>
         </div>
       </div>
+
       <div className="unlock-the-value-sec">
         <div className="unlock-the-value-txt-container solution-unlock-the-value investment-txt-justy">
           <h2>{data.sol2SecondHeading}</h2>
           {parse(sol2SecondPera)}
         </div>
       </div>
+
       <div className="bullets-point-sec solution-connect-sec">
         <div className="container">
           <div className="row">
@@ -105,6 +108,7 @@ const Solution2 = () => {
           </div>
         </div>
       </div>
+      
       <div className="stay-update-sec">
         <div className="container">
           <div className="row">
